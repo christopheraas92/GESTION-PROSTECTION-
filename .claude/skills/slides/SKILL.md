@@ -1,42 +1,42 @@
 ---
 name: ckm:slides
-description: Create strategic HTML presentations with Chart.js, design tokens, responsive layouts, copywriting formulas, and contextual slide strategies.
-argument-hint: "[topic] [slide-count]"
+description: Créer des présentations HTML stratégiques avec Chart.js, tokens de design, mises en page responsives, formules de rédaction et stratégies de diapositives contextuelles.
+argument-hint: "[sujet] [nombre-de-diapos]"
 metadata:
   author: claudekit
   version: "1.0.0"
 ---
 
-# Slides
+# Diapositives
 
-Strategic HTML presentation design with data visualization.
+Conception stratégique de présentations HTML avec visualisation de données.
 
 <args>$ARGUMENTS</args>
 
-## When to Use
+## Quand l'utiliser
 
-- Marketing presentations and pitch decks
-- Data-driven slides with Chart.js
-- Strategic slide design with layout patterns
-- Copywriting-optimized presentation content
+- Présentations marketing et pitch decks
+- Diapositives orientées données avec Chart.js
+- Conception stratégique de diapositives avec patterns de mise en page
+- Contenu de présentation optimisé pour la rédaction
 
-## Subcommands
+## Sous-commandes
 
-| Subcommand | Description | Reference |
-|------------|-------------|-----------|
-| `create` | Create strategic presentation slides | `references/create.md` |
+| Sous-commande | Description | Référence |
+|---------------|-------------|-----------|
+| `create` | Créer des diapositives de présentation stratégique | `references/create.md` |
 
-## References (Knowledge Base)
+## Références (base de connaissances)
 
-| Topic | File |
-|-------|------|
-| Layout Patterns | `references/layout-patterns.md` |
-| HTML Template | `references/html-template.md` |
-| Copywriting Formulas | `references/copywriting-formulas.md` |
-| Slide Strategies | `references/slide-strategies.md` |
+| Sujet | Fichier |
+|-------|---------|
+| Patterns de mise en page | `references/layout-patterns.md` |
+| Gabarit HTML | `references/html-template.md` |
+| Formules de rédaction | `references/copywriting-formulas.md` |
+| Stratégies de diapositives | `references/slide-strategies.md` |
 
-## Routing
+## Routage
 
-1. Parse subcommand from `$ARGUMENTS` (first word)
-2. Load corresponding `references/{subcommand}.md`
-3. Execute with remaining arguments
+1. Analyser la sous-commande depuis `$ARGUMENTS` (premier mot)
+2. Charger le `references/{sous-commande}.md` correspondant
+3. Exécuter avec les arguments restants

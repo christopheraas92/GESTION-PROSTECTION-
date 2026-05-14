@@ -1,97 +1,97 @@
 ---
 name: ckm:brand
-description: Brand voice, visual identity, messaging frameworks, asset management, brand consistency. Activate for branded content, tone of voice, marketing assets, brand compliance, style guides.
+description: Voix de marque, identité visuelle, frameworks de messages, gestion des assets, cohérence de marque. À activer pour le contenu de marque, le ton de voix, les supports marketing, la conformité de marque, les guides de style.
 argument-hint: "[update|review|create] [args]"
 metadata:
   author: claudekit
   version: "1.0.0"
 ---
 
-# Brand
+# Marque
 
-Brand identity, voice, messaging, asset management, and consistency frameworks.
+Identité de marque, voix, messages, gestion des assets et frameworks de cohérence.
 
-## When to Use
+## Quand l'utiliser
 
-- Brand voice definition and content tone guidance
-- Visual identity standards and style guide development
-- Messaging framework creation
-- Brand consistency review and audit
-- Asset organization, naming, and approval
-- Color palette management and typography specs
+- Définition de la voix de marque et orientation du ton du contenu
+- Standards d'identité visuelle et développement de guide de style
+- Création de framework de messages
+- Revue et audit de cohérence de marque
+- Organisation, nommage et validation des assets
+- Gestion de palette de couleurs et spécifications typographiques
 
-## Quick Start
+## Démarrage rapide
 
-**Inject brand context into prompts:**
+**Injecter le contexte de marque dans les prompts :**
 ```bash
 node scripts/inject-brand-context.cjs
 node scripts/inject-brand-context.cjs --json
 ```
 
-**Validate an asset:**
+**Valider un asset :**
 ```bash
-node scripts/validate-asset.cjs <asset-path>
+node scripts/validate-asset.cjs <chemin-asset>
 ```
 
-**Extract/compare colors:**
+**Extraire/comparer des couleurs :**
 ```bash
 node scripts/extract-colors.cjs --palette
-node scripts/extract-colors.cjs <image-path>
+node scripts/extract-colors.cjs <chemin-image>
 ```
 
-## Brand Sync Workflow
+## Workflow de synchronisation de marque
 
 ```bash
-# 1. Edit docs/brand-guidelines.md (or use /brand update)
-# 2. Sync to design tokens
+# 1. Éditer docs/brand-guidelines.md (ou utiliser /brand update)
+# 2. Synchroniser vers les tokens de design
 node scripts/sync-brand-to-tokens.cjs
-# 3. Verify
+# 3. Vérifier
 node scripts/inject-brand-context.cjs --json | head -20
 ```
 
-**Files synced:**
-- `docs/brand-guidelines.md` → Source of truth
-- `assets/design-tokens.json` → Token definitions
-- `assets/design-tokens.css` → CSS variables
+**Fichiers synchronisés :**
+- `docs/brand-guidelines.md` → Source de vérité
+- `assets/design-tokens.json` → Définitions des tokens
+- `assets/design-tokens.css` → Variables CSS
 
-## Subcommands
+## Sous-commandes
 
-| Subcommand | Description | Reference |
-|------------|-------------|-----------|
-| `update` | Update brand identity and sync to all design systems | `references/update.md` |
+| Sous-commande | Description | Référence |
+|---------------|-------------|-----------|
+| `update` | Mettre à jour l'identité de marque et synchroniser tous les design systems | `references/update.md` |
 
-## References
+## Références
 
-| Topic | File |
-|-------|------|
-| Voice Framework | `references/voice-framework.md` |
-| Visual Identity | `references/visual-identity.md` |
-| Messaging | `references/messaging-framework.md` |
-| Consistency | `references/consistency-checklist.md` |
-| Guidelines Template | `references/brand-guideline-template.md` |
-| Asset Organization | `references/asset-organization.md` |
-| Color Management | `references/color-palette-management.md` |
-| Typography | `references/typography-specifications.md` |
-| Logo Usage | `references/logo-usage-rules.md` |
-| Approval Checklist | `references/approval-checklist.md` |
+| Sujet | Fichier |
+|-------|---------|
+| Framework de voix | `references/voice-framework.md` |
+| Identité visuelle | `references/visual-identity.md` |
+| Messages | `references/messaging-framework.md` |
+| Cohérence | `references/consistency-checklist.md` |
+| Gabarit de guidelines | `references/brand-guideline-template.md` |
+| Organisation des assets | `references/asset-organization.md` |
+| Gestion des couleurs | `references/color-palette-management.md` |
+| Typographie | `references/typography-specifications.md` |
+| Usage du logo | `references/logo-usage-rules.md` |
+| Checklist de validation | `references/approval-checklist.md` |
 
 ## Scripts
 
-| Script | Purpose |
-|--------|---------|
-| `scripts/inject-brand-context.cjs` | Extract brand context for prompt injection |
-| `scripts/sync-brand-to-tokens.cjs` | Sync brand-guidelines.md → design-tokens.json/css |
-| `scripts/validate-asset.cjs` | Validate asset naming, size, format |
-| `scripts/extract-colors.cjs` | Extract and compare colors against palette |
+| Script | Rôle |
+|--------|------|
+| `scripts/inject-brand-context.cjs` | Extrait le contexte de marque pour injection dans les prompts |
+| `scripts/sync-brand-to-tokens.cjs` | Synchronise brand-guidelines.md → design-tokens.json/css |
+| `scripts/validate-asset.cjs` | Valide le nommage, la taille et le format des assets |
+| `scripts/extract-colors.cjs` | Extrait et compare les couleurs vs la palette |
 
-## Templates
+## Gabarits
 
-| Template | Purpose |
-|----------|---------|
-| `templates/brand-guidelines-starter.md` | Complete starter template for new brands |
+| Gabarit | Rôle |
+|---------|------|
+| `templates/brand-guidelines-starter.md` | Gabarit de démarrage complet pour nouvelles marques |
 
-## Routing
+## Routage
 
-1. Parse subcommand from `$ARGUMENTS` (first word)
-2. Load corresponding `references/{subcommand}.md`
-3. Execute with remaining arguments
+1. Analyser la sous-commande depuis `$ARGUMENTS` (premier mot)
+2. Charger le `references/{sous-commande}.md` correspondant
+3. Exécuter avec les arguments restants
