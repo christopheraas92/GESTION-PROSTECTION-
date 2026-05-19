@@ -1,312 +1,297 @@
 ---
 name: aso-audit
-description: "When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user mentions 'ASO audit,' 'app store optimization,' 'optimize my app listing,' 'improve app visibility,' 'app store ranking,' 'audit my listing,' 'why aren't people downloading my app,' 'improve my app conversion,' 'keyword optimization for app,' or 'compare my app to competitors.' Use when the user shares an App Store or Google Play URL and wants to improve it."
+description: "Quand l'utilisateur souhaite auditer ou optimiser un listing App Store ou Google Play. À utiliser également quand l'utilisateur mentionne 'audit ASO', 'app store optimization', 'optimiser mon listing d'app', 'améliorer la visibilité de mon app', 'classement app store', 'auditer mon listing', 'pourquoi les gens ne téléchargent pas mon app', 'améliorer la conversion de mon app', 'optimisation de mots-clés pour app' ou 'comparer mon app aux concurrents'. À utiliser quand l'utilisateur partage une URL App Store ou Google Play et veut l'améliorer."
 metadata:
   version: 1.0.0
 ---
 
 # ASO Audit
 
-Analyze App Store and Google Play listings against ASO best practices. Fetches
-live listing data, scores metadata, visuals, and ratings, then produces a
-prioritized action plan.
+Analyse les listings App Store et Google Play par rapport aux bonnes pratiques ASO. Récupère les données de listing en live, score la metadata, les visuels et les ratings, puis produit un plan d'action priorisé.
 
-## When to Use
+## Quand l'utiliser
 
-- User shares an App Store or Google Play URL
-- User asks to audit or optimize an app listing
-- User wants to compare their app against competitors
-- User asks about app store ranking, visibility, or download conversion
+- L'utilisateur partage une URL App Store ou Google Play
+- L'utilisateur demande d'auditer ou d'optimiser un listing d'app
+- L'utilisateur veut comparer son app à des concurrents
+- L'utilisateur pose des questions sur le ranking app store, la visibilité ou la conversion de téléchargement
 
-## Before Auditing
+## Avant d'auditer
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Vérifie d'abord le contexte marketing produit :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les setups plus anciens), lis-le avant de poser des questions. Utilise ce contexte et ne demande que les informations non encore couvertes ou spécifiques à cette tâche.
 
-## Phase 1 — Identify Store & Fetch
+## Phase 1 — Identifier le store et récupérer
 
-### Detect store type from URL
+### Détecter le type de store depuis l'URL
 
 ```
 Apple:  apps.apple.com/{country}/app/{name}/id{digits}
 Google: play.google.com/store/apps/details?id={package}
 ```
 
-If the user gives an app name instead of a URL, search the web for:
-`site:apps.apple.com "{app name}"` or `site:play.google.com "{app name}"`
+Si l'utilisateur donne un nom d'app au lieu d'une URL, cherche sur le web :
+`site:apps.apple.com "{app name}"` ou `site:play.google.com "{app name}"`
 
-### Fetch the listing
+### Récupérer le listing
 
-Use WebFetch to retrieve the listing page. Extract every available field:
+Utilise WebFetch pour récupérer la page du listing. Extrais chaque champ disponible :
 
-**Apple App Store fields:**
+**Champs Apple App Store :**
 
-- App name (title) — 30 char limit
-- Subtitle — 30 char limit
-- Description (long) — not indexed for search, but matters for conversion
-- Promotional text — 170 chars, updatable without new release
-- Category (primary + secondary)
-- Screenshots (count, order, caption text)
-- Preview video (presence, duration)
-- Rating (average + count)
-- Recent reviews (visible ones)
-- Price / in-app purchases
-- Developer name
-- Last updated date
-- Version history notes
+- App name (title) — limite 30 chars
+- Subtitle — limite 30 chars
+- Description (long) — non indexée pour la recherche, mais importante pour la conversion
+- Promotional text — 170 chars, modifiable sans nouvelle release
+- Catégorie (primaire + secondaire)
+- Screenshots (nombre, ordre, texte de caption)
+- Preview video (présence, durée)
+- Rating (moyenne + nombre)
+- Reviews récentes (celles visibles)
+- Prix / in-app purchases
+- Nom du développeur
+- Date de dernière mise à jour
+- Notes d'historique de version
 - Age rating
-- Size
-- Languages / localizations listed
-- In-app events (if any visible)
+- Taille
+- Langues / localisations listées
+- In-app events (s'il y en a de visibles)
 
-**Google Play fields:**
+**Champs Google Play :**
 
-- App name (title) — 30 char limit
-- Short description — 80 char limit
-- Full description — 4,000 char limit, IS indexed for search
-- Category + tags
-- Feature graphic (presence)
-- Screenshots (count, order)
-- Preview video (presence)
-- Rating (average + count)
-- Recent reviews (visible ones)
-- Price / in-app purchases
-- Developer name
-- Last updated date
-- What's new text
-- Downloads range
+- App name (title) — limite 30 chars
+- Short description — limite 80 chars
+- Full description — limite 4 000 chars, EST indexée pour la recherche
+- Catégorie + tags
+- Feature graphic (présence)
+- Screenshots (nombre, ordre)
+- Preview video (présence)
+- Rating (moyenne + nombre)
+- Reviews récentes (celles visibles)
+- Prix / in-app purchases
+- Nom du développeur
+- Date de dernière mise à jour
+- Texte "What's new"
+- Plage de téléchargements
 - Content rating
-- Data safety section
-- Languages listed
+- Section Data safety
+- Langues listées
 
-If WebFetch returns incomplete data (stores render client-side), note gaps and
-work with what's available. Ask the user to paste missing fields if critical.
+Si WebFetch retourne des données incomplètes (les stores rendent côté client), note les manques et travaille avec ce qui est disponible. Demande à l'utilisateur de coller les champs manquants si c'est critique.
 
-### Visual asset assessment
+### Évaluation des assets visuels
 
-WebFetch cannot extract screenshot images or caption text. **Take a screenshot
-of the listing page** to get visual data:
+WebFetch ne peut pas extraire les images de screenshots ni le texte des captions. **Prends une capture de la page du listing** pour obtenir des données visuelles :
 
-1. Navigate to the listing URL and capture a full-page screenshot
-2. Assess the screenshot for: icon quality, screenshot count, caption text,
-   messaging quality, preview video presence, feature graphic (Google Play)
-3. If browser tools are unavailable, ask the user to share a screenshot of the
-   listing page
+1. Naviguer vers l'URL du listing et capturer un screenshot pleine page
+2. Évaluer le screenshot pour : qualité de l'icône, nombre de screenshots, texte des captions, qualité du messaging, présence d'une preview video, feature graphic (Google Play)
+3. Si les outils navigateur sont indisponibles, demande à l'utilisateur de partager un screenshot de la page du listing
 
-**Promotional text (Apple):** This 170-char field appears above the description
-but is often indistinguishable from it in scraped HTML. If you cannot confirm
-its presence, note this and recommend the user check App Store Connect.
+**Promotional text (Apple) :** Ce champ de 170 chars apparaît au-dessus de la description mais est souvent indissociable de celle-ci dans le HTML scrapé. Si tu ne peux pas confirmer sa présence, note-le et recommande à l'utilisateur de vérifier dans App Store Connect.
 
 ---
 
-## Phase 1.5 — Assess Brand Maturity
+## Phase 1.5 — Évaluer la maturité de la marque
 
-Before scoring, classify the app into one of three tiers. This determines how
-you interpret "textbook ASO" deviations — a deliberate brand choice by a
-household name is not the same as a missed opportunity by an unknown app.
+Avant de scorer, classifie l'app dans l'un des trois tiers. Cela détermine comment interpréter les écarts par rapport à l'ASO "textbook" — un choix de marque délibéré par un nom connu n'est pas la même chose qu'une occasion manquée par une app inconnue.
 
-### Tier definitions
+### Définitions des tiers
 
-| Tier            | Signals                                                                                                                              | Examples                                    |
+| Tier            | Signaux                                                                                                                              | Exemples                                    |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
-| **Dominant**    | Household name, 1M+ ratings, top-10 in category, near-universal brand recognition. Users search by brand name, not generic keywords. | Instagram, Uber, Spotify, WhatsApp, Netflix |
-| **Established** | Well-known in their category, 100K+ ratings, strong organic installs, recognized brand but not universally known.                    | Strava, Notion, Duolingo, Cash App, Calm    |
-| **Challenger**  | Building awareness, <100K ratings, needs discovery through keywords and ASO tactics. Most apps fall here.                            | Your app, most indie/startup apps           |
+| **Dominant**    | Nom connu, 1M+ ratings, top-10 dans sa catégorie, reconnaissance de marque quasi-universelle. Les utilisateurs cherchent par nom de marque, pas par mots-clés génériques. | Instagram, Uber, Spotify, WhatsApp, Netflix |
+| **Established** | Bien connue dans sa catégorie, 100K+ ratings, fort volume d'installs organiques, marque reconnue mais pas universellement connue.    | Strava, Notion, Duolingo, Cash App, Calm    |
+| **Challenger**  | En construction de notoriété, <100K ratings, a besoin de découverte via les mots-clés et les tactiques ASO. La plupart des apps tombent ici. | Ton app, la plupart des apps indie/startup  |
 
-### How tier affects scoring
+### Comment le tier affecte le scoring
 
-**Dominant apps** get adjusted scoring in these areas:
+**Les apps Dominant** bénéficient d'un scoring ajusté sur ces dimensions :
 
-- **Title:** Brand-only or brand-first titles are valid (score 8+ if brand is the keyword). These apps don't need generic keyword discovery.
-- **Description:** Score purely on conversion quality, not keyword presence. If the app is a household name, a well-crafted brand description beats a keyword-stuffed one.
-- **Visual Assets:** Lifestyle/brand photography instead of UI demos is a legitimate conversion strategy. No video is acceptable if the product is hard to demo in 30s or brand awareness is near-universal.
-- **What's New:** Generic release notes at weekly+ cadence are acceptable (score 8+). At scale, detailed changelogs have minimal ROI and risk backlash.
-- **In-app events:** Missing events for utility apps with massive install bases (Uber, WhatsApp) is not a penalty. These apps don't need discovery help.
-- **Localization:** Score relative to actual market, not absolute count. A US-only fintech with 2 languages (English + Spanish) is appropriately localized.
+- **Title :** Les titres brand-only ou brand-first sont valides (score 8+ si la marque EST le mot-clé). Ces apps n'ont pas besoin de découverte par mots-clés génériques.
+- **Description :** Scorer uniquement sur la qualité de conversion, pas sur la présence de mots-clés. Si l'app est un nom connu, une description de marque bien rédigée bat une description bourrée de mots-clés.
+- **Visual Assets :** La photographie lifestyle/de marque au lieu de démos UI est une stratégie de conversion légitime. L'absence de vidéo est acceptable si le produit est difficile à démontrer en 30s ou si la notoriété de marque est quasi-universelle.
+- **What's New :** Des release notes génériques à cadence hebdomadaire+ sont acceptables (score 8+). À l'échelle, les changelogs détaillés ont un ROI minimal et un risque de backlash.
+- **In-app events :** L'absence d'events pour les utility apps avec des bases d'installs massives (Uber, WhatsApp) n'est pas une pénalité. Ces apps n'ont pas besoin d'aide à la découverte.
+- **Localisation :** Scorer par rapport au marché réel, pas au compte absolu. Une fintech US-only avec 2 langues (anglais + espagnol) est correctement localisée.
 
-**Established apps** get partial adjustment:
+**Les apps Established** bénéficient d'un ajustement partiel :
 
-- Brand-first titles are fine but should still include 1-2 keywords
-- Strategic description choices get benefit of the doubt
-- Other dimensions scored normally
+- Les titres brand-first sont OK mais devraient quand même inclure 1-2 mots-clés
+- Les choix stratégiques de description bénéficient du doute
+- Les autres dimensions sont scorées normalement
 
-**Challenger apps** are scored strictly against textbook ASO best practices — every character, screenshot, and keyword matters.
+**Les apps Challenger** sont scorées strictement par rapport aux bonnes pratiques ASO textbook — chaque caractère, screenshot et mot-clé compte.
 
-**Key principle:** Before docking points, ask: "Is this a mistake or a deliberate
-choice by a team that has data I don't?" If the app has 1M+ ratings and a
-dedicated ASO team, assume their choices are data-informed unless clearly wrong.
+**Principe clé :** Avant de retirer des points, demande-toi : "Est-ce une erreur ou un choix délibéré d'une équipe qui a des données que je n'ai pas ?" Si l'app a 1M+ ratings et une équipe ASO dédiée, suppose que ses choix sont éclairés par la donnée sauf erreur évidente.
 
 ---
 
-## Phase 2 — Score Each Dimension
+## Phase 2 — Scorer chaque dimension
 
-Score each dimension 0-10 using the criteria in `references/scoring-criteria.md`.
-Apply the brand maturity tier adjustments from Phase 1.5.
+Score chaque dimension de 0 à 10 selon les critères de `references/scoring-criteria.md`. Applique les ajustements de tier de maturité de marque de la Phase 1.5.
 
-Reference files for platform specs and benchmarks:
+Fichiers de référence pour les specs de plateforme et les benchmarks :
 
-- `references/apple-specs.md` — Official Apple character limits, screenshot/video specs, CPP/PPO rules, rejection triggers
-- `references/google-play-specs.md` — Official Google Play limits, screenshot specs, Android Vitals thresholds, policies
-- `references/benchmarks.md` — Conversion data, rating impact, video lift, screenshot behavior, CPP/event benchmarks
+- `references/apple-specs.md` — Limites de caractères officielles Apple, specs screenshot/video, règles CPP/PPO, triggers de rejet
+- `references/google-play-specs.md` — Limites officielles Google Play, specs screenshot, seuils Android Vitals, policies
+- `references/benchmarks.md` — Données de conversion, impact des ratings, lift video, comportement screenshot, benchmarks CPP/event
 
-### Dimensions and Weights
+### Dimensions et pondérations
 
-| #   | Dimension            | Weight | What It Covers                                                            |
-| --- | -------------------- | ------ | ------------------------------------------------------------------------- |
-| 1   | Title & Subtitle     | 20%    | Character usage, keyword presence, clarity, brand + keyword balance       |
-| 2   | Description          | 15%    | First 3 lines, keyword density (Google), CTA, structure, promotional text |
-| 3   | Visual Assets        | 25%    | Screenshot count/quality/messaging, video, icon, feature graphic          |
-| 4   | Ratings & Reviews    | 20%    | Average rating, volume, recency, developer responses                      |
-| 5   | Metadata & Freshness | 10%    | Category choice, update recency, localization count, data safety          |
-| 6   | Conversion Signals   | 10%    | Price positioning, IAP transparency, social proof, download range         |
+| #   | Dimension            | Pondération | Ce que ça couvre                                                            |
+| --- | -------------------- | ----------- | --------------------------------------------------------------------------- |
+| 1   | Title & Subtitle     | 20 %        | Utilisation des caractères, présence de mots-clés, clarté, équilibre marque + mot-clé |
+| 2   | Description          | 15 %        | 3 premières lignes, densité de mots-clés (Google), CTA, structure, promotional text |
+| 3   | Visual Assets        | 25 %        | Nombre/qualité/messaging des screenshots, vidéo, icône, feature graphic     |
+| 4   | Ratings & Reviews    | 20 %        | Rating moyen, volume, récence, réponses du développeur                      |
+| 5   | Metadata & Freshness | 10 %        | Choix de catégorie, récence de mise à jour, nombre de localisations, data safety |
+| 6   | Conversion Signals   | 10 %        | Positionnement prix, transparence IAP, social proof, plage de téléchargements |
 
-**Final score** = weighted sum, out of 100.
+**Score final** = somme pondérée, sur 100.
 
-### Score interpretation
+### Interprétation du score
 
-| Score  | Grade | Meaning                                                   |
-| ------ | ----- | --------------------------------------------------------- |
-| 85-100 | A     | Well-optimized; focus on A/B testing and iteration        |
-| 70-84  | B     | Good foundation; clear opportunities to improve           |
-| 50-69  | C     | Significant gaps; prioritized fixes will have high impact |
-| 30-49  | D     | Major optimization needed across multiple dimensions      |
-| 0-29   | F     | Listing needs a complete overhaul                         |
-
----
-
-## Phase 3 — Competitor Comparison (Optional)
-
-If the user provides competitor URLs or asks for comparison:
-
-1. Fetch 2-3 top competitors in the same category
-2. Run the same scoring on each
-3. Build a comparison table highlighting where the user's app is weaker/stronger
-4. Identify keyword gaps — terms competitors rank for that the user's app doesn't target
-
-If no competitors are specified, suggest the user provide 2-3 or offer to search
-for top apps in their category.
+| Score  | Grade | Signification                                            |
+| ------ | ----- | -------------------------------------------------------- |
+| 85-100 | A     | Bien optimisé ; focus sur l'A/B testing et l'itération   |
+| 70-84  | B     | Bonne fondation ; opportunités claires d'amélioration    |
+| 50-69  | C     | Écarts significatifs ; les correctifs priorisés auront un fort impact |
+| 30-49  | D     | Optimisation majeure nécessaire sur plusieurs dimensions |
+| 0-29   | F     | Le listing nécessite une refonte complète                |
 
 ---
 
-## Phase 4 — Generate Report
+## Phase 3 — Comparaison concurrentielle (optionnelle)
 
-Use the template in `references/report-template.md` to structure the output.
+Si l'utilisateur fournit des URLs de concurrents ou demande une comparaison :
 
-The report must include:
+1. Récupère 2-3 top concurrents dans la même catégorie
+2. Applique le même scoring sur chacun
+3. Construis un tableau comparatif soulignant où l'app de l'utilisateur est plus faible/plus forte
+4. Identifie les gaps de mots-clés — termes pour lesquels les concurrents se classent mais que l'app de l'utilisateur ne cible pas
 
-1. **Score card** — table with all 6 dimensions, scores, and grade
-2. **Top 3 quick wins** — changes that take <1 hour and have highest impact
-3. **Detailed findings** — per-dimension breakdown with specific issues and fixes
-4. **Keyword suggestions** — based on title/description analysis and competitor gaps
-5. **Visual asset recommendations** — specific screenshot/video improvements
-6. **Priority action plan** — ordered list of changes by impact vs effort
-
-### Report rules
-
-- Every recommendation must be **specific and actionable** ("Change subtitle from X to Y" not "Improve subtitle")
-- Include character counts for all text recommendations
-- Flag platform-specific differences (Apple vs Google) when relevant
-- Note what CANNOT be assessed without paid tools (search volume, exact rankings)
-- When suggesting keyword changes, explain WHY each keyword matters
+Si aucun concurrent n'est spécifié, suggère à l'utilisateur d'en fournir 2-3 ou propose de chercher les top apps de sa catégorie.
 
 ---
 
-## Platform-Specific Rules
+## Phase 4 — Générer le rapport
 
-### Apple App Store — Key Facts
+Utilise le template dans `references/report-template.md` pour structurer la sortie.
 
-- Title (30 chars) + Subtitle (30 chars) + Keyword field (100 **bytes**, hidden) = indexed text
-- Keywords field is bytes not chars — Arabic/CJK use 2-3 bytes per char
-- Long description is NOT indexed for search — optimize for conversion only
-- Promotional text (170 chars) does NOT affect search (Apple confirmed)
-- Never repeat words across title/subtitle/keyword field (Apple indexes each word once)
-- Keyword field: commas, no spaces ("photo,editor,filter" not "photo, editor, filter")
-- Screenshots: up to 10 per device. First 3 visible in search — 90% never scroll past 3rd
-- Screenshot captions indexed since June 2025 (AI extraction)
-- In-app events: max 10 published at once, max 31 days each. Indexed and appear in search
-- Custom Product Pages (up to 70) in organic search since July 2025. +5.9% avg conversion lift
-- App preview video: up to 3, 15-30s each. Autoplays muted — +20-40% conversion lift
-- SKStoreReviewController: max 3 prompts per 365 days
-- Apple has human editorial curation — quality and design matter more
-- See `references/apple-specs.md` for full specs, dimensions, and rejection triggers
+Le rapport doit inclure :
 
-### Google Play — Key Facts
+1. **Score card** — tableau avec les 6 dimensions, scores et grade
+2. **Top 3 quick wins** — changements qui prennent <1 heure et ont le plus d'impact
+3. **Findings détaillés** — décomposition par dimension avec problèmes et fixes spécifiques
+4. **Suggestions de mots-clés** — basées sur l'analyse de title/description et les gaps concurrents
+5. **Recommandations d'assets visuels** — améliorations spécifiques screenshot/vidéo
+6. **Plan d'action priorisé** — liste ordonnée des changements par impact vs effort
 
-- Title (30 chars) + Short description (80 chars) + Full description (4,000 chars) = indexed text
-- Full description IS indexed — target 2-3% keyword density naturally
-- No hidden keyword field — all keywords must be in visible text
-- Google NLP/semantic understanding — keyword stuffing detected and penalized
-- Prohibited in title: emojis, ALL CAPS, "best"/"#1"/"free", CTAs (enforced since 2021)
-- Screenshots: min 2, **max 8** per device (not 10 like Apple)
-- Feature graphic (1024x500, exact) required for featured placements
-- Video does NOT autoplay — only ~6% of users tap play (low ROI vs iOS)
-- Android Vitals directly affect ranking: crash >1.09% or ANR >0.47% = reduced visibility
-- Promotional Content: submit 14 days early for featuring. Apps see 2x explore acquisitions
-- Custom Store Listings: up to 50 (can target churned users, specific countries, ad campaigns)
-- Store Listing Experiments: test up to 3 variants, run 7+ days, 1 experiment at a time
-- See `references/google-play-specs.md` for full specs and policy details
+### Règles du rapport
 
-### What Apple Indexes vs What Google Indexes
-
-| Field                 | Apple Indexed?   | Google Indexed?        |
-| --------------------- | ---------------- | ---------------------- |
-| Title                 | Yes              | Yes (strongest signal) |
-| Subtitle / Short desc | Yes              | Yes                    |
-| Keyword field         | Yes (hidden)     | Does not exist         |
-| Long description      | No               | Yes (heavily)          |
-| Screenshot captions   | Yes (since 2025) | No                     |
-| In-app events         | Yes              | N/A (LiveOps instead)  |
-| Developer name        | No               | Partial                |
-| IAP names             | Yes              | Yes                    |
+- Chaque recommandation doit être **spécifique et actionnable** ("Changer le subtitle de X à Y" et non "Améliorer le subtitle")
+- Inclure les compteurs de caractères pour toutes les recommandations textuelles
+- Signaler les différences spécifiques à la plateforme (Apple vs Google) quand pertinent
+- Noter ce qui ne PEUT PAS être évalué sans outils payants (search volume, rankings exacts)
+- Quand tu suggères des changements de mots-clés, explique POURQUOI chaque mot-clé compte
 
 ---
 
-## Common Issues Checklist
+## Règles spécifiques par plateforme
 
-Flag these if found. Items marked _(tier-dependent)_ should be evaluated against
-the app's brand maturity tier — they may be deliberate choices for Dominant apps.
+### Apple App Store — Faits clés
 
-**Always flag (all tiers):**
+- Title (30 chars) + Subtitle (30 chars) + Keyword field (100 **bytes**, caché) = texte indexé
+- Le keyword field est en bytes, pas en chars — arabe/CJK utilisent 2-3 bytes par char
+- La description longue N'EST PAS indexée pour la recherche — optimiser pour la conversion uniquement
+- Le promotional text (170 chars) N'AFFECTE PAS la recherche (confirmé par Apple)
+- Ne jamais répéter de mots à travers title/subtitle/keyword field (Apple indexe chaque mot une fois)
+- Keyword field : virgules, sans espaces ("photo,editor,filter" et non "photo, editor, filter")
+- Screenshots : jusqu'à 10 par device. Les 3 premiers visibles en recherche — 90 % ne scrollent pas au-delà du 3e
+- Captions de screenshots indexées depuis juin 2025 (extraction IA)
+- In-app events : max 10 publiés à la fois, max 31 jours chacun. Indexés et apparaissent en recherche
+- Custom Product Pages (jusqu'à 70) en organic search depuis juillet 2025. +5,9 % de lift moyen de conversion
+- App preview video : jusqu'à 3, 15-30s chacune. Autoplay muet — +20-40 % de lift de conversion
+- SKStoreReviewController : max 3 prompts par 365 jours
+- Apple a une curation éditoriale humaine — la qualité et le design comptent plus
+- Voir `references/apple-specs.md` pour les specs complètes, dimensions et triggers de rejet
 
-- [ ] Rating below 4.0
-- [ ] Last update > 3 months ago
-- [ ] Google Play description has no keyword strategy (under 1% density)
-- [ ] Google Play missing feature graphic
-- [ ] Apple keyword field likely has repeated words (inferred from title+subtitle)
-- [ ] Category mismatch — app would face less competition in a different category
-- [ ] Fewer than 5 screenshots
+### Google Play — Faits clés
 
-**Flag for Challenger/Established only** _(not mistakes for Dominant apps):_
+- Title (30 chars) + Short description (80 chars) + Full description (4 000 chars) = texte indexé
+- La full description EST indexée — viser 2-3 % de densité de mots-clés naturellement
+- Pas de keyword field caché — tous les mots-clés doivent être dans le texte visible
+- NLP/compréhension sémantique de Google — le keyword stuffing est détecté et pénalisé
+- Interdit dans le title : emojis, ALL CAPS, "best"/"#1"/"free", CTAs (appliqué depuis 2021)
+- Screenshots : min 2, **max 8** par device (pas 10 comme Apple)
+- Feature graphic (1024x500, exact) requis pour les featured placements
+- La vidéo ne fait PAS d'autoplay — seuls ~6 % des utilisateurs tapent sur play (ROI faible vs iOS)
+- Android Vitals affecte directement le ranking : crash >1,09 % ou ANR >0,47 % = visibilité réduite
+- Promotional Content : soumettre 14 jours en avance pour featuring. Les apps voient 2x plus d'acquisitions explore
+- Custom Store Listings : jusqu'à 50 (peuvent cibler utilisateurs churnés, pays spécifiques, campagnes ad)
+- Store Listing Experiments : tester jusqu'à 3 variants, faire tourner 7+ jours, 1 expérimentation à la fois
+- Voir `references/google-play-specs.md` pour les specs complètes et les détails de policy
 
-- [ ] Title wastes characters on brand name only (no keywords) _(Dominant: brand IS the keyword)_
-- [ ] Subtitle/short description duplicates title keywords
-- [ ] Description first 3 lines are generic _(Dominant: may be brand-voice choice)_
-- [ ] No preview video _(Dominant: may be rational if product is hard to demo)_
-- [ ] Screenshots are just UI dumps with no messaging/captions _(Dominant: lifestyle/brand shots may convert better)_
-- [ ] Only 1-2 localizations _(score relative to actual market, not absolute count)_
-- [ ] No in-app events or promotional content _(Dominant utility apps may not need discovery help)_
+### Ce qu'Apple indexe vs ce que Google indexe
 
-**Flag for all tiers but note context:**
-
-- [ ] No developer responses to negative reviews _(note volume — responding at 10M+ reviews is a different challenge than at 1K)_
-- [ ] Generic "What's New" text _(acceptable at weekly+ release cadence for Established/Dominant)_
+| Champ                 | Indexé par Apple ?  | Indexé par Google ?    |
+| --------------------- | ------------------- | ---------------------- |
+| Title                 | Oui                 | Oui (signal le plus fort) |
+| Subtitle / Short desc | Oui                 | Oui                    |
+| Keyword field         | Oui (caché)         | N'existe pas           |
+| Long description      | Non                 | Oui (fortement)        |
+| Captions screenshots  | Oui (depuis 2025)   | Non                    |
+| In-app events         | Oui                 | N/A (LiveOps à la place) |
+| Nom du développeur    | Non                 | Partiel                |
+| Noms IAP              | Oui                 | Oui                    |
 
 ---
 
-## Task-Specific Questions
+## Checklist des problèmes courants
 
-1. What is the App Store or Google Play URL?
-2. Is this your app or a competitor's?
-3. What category does the app compete in?
-4. Do you have competitor URLs to compare against?
-5. Are you focused on search visibility, conversion rate, or both?
-6. Do you have access to App Store Connect or Google Play Console data?
+Signale ceux-ci si trouvés. Les éléments marqués _(tier-dépendant)_ doivent être évalués par rapport au tier de maturité de marque de l'app — ils peuvent être des choix délibérés pour les apps Dominant.
+
+**Toujours signaler (tous tiers) :**
+
+- [ ] Rating en dessous de 4,0
+- [ ] Dernière mise à jour > 3 mois
+- [ ] La description Google Play n'a pas de stratégie de mots-clés (sous 1 % de densité)
+- [ ] Google Play manque la feature graphic
+- [ ] Le keyword field Apple a probablement des mots répétés (inféré depuis title+subtitle)
+- [ ] Mismatch de catégorie — l'app ferait face à moins de concurrence dans une autre catégorie
+- [ ] Moins de 5 screenshots
+
+**Signaler uniquement pour Challenger/Established** _(pas des erreurs pour les apps Dominant) :_
+
+- [ ] Le title gaspille des caractères sur le nom de marque uniquement (pas de mots-clés) _(Dominant : la marque EST le mot-clé)_
+- [ ] Le subtitle/short description duplique les mots-clés du title
+- [ ] Les 3 premières lignes de la description sont génériques _(Dominant : peut être un choix de voix de marque)_
+- [ ] Pas de preview video _(Dominant : peut être rationnel si le produit est difficile à démontrer)_
+- [ ] Les screenshots sont juste des dumps d'UI sans messaging/captions _(Dominant : les shots lifestyle/de marque peuvent mieux convertir)_
+- [ ] Seulement 1-2 localisations _(scorer par rapport au marché réel, pas au compte absolu)_
+- [ ] Pas d'in-app events ni de promotional content _(les utility apps Dominant peuvent ne pas avoir besoin d'aide à la découverte)_
+
+**Signaler pour tous les tiers mais noter le contexte :**
+
+- [ ] Pas de réponses du développeur aux reviews négatives _(noter le volume — répondre à 10M+ reviews est un autre défi qu'à 1K)_
+- [ ] Texte "What's New" générique _(acceptable à cadence de release hebdomadaire+ pour Established/Dominant)_
 
 ---
 
-## Related Skills
+## Questions spécifiques à la tâche
 
-- **page-cro**: For optimizing the conversion of web-based landing pages that drive app installs
-- **ad-creative**: For creating App Store and Google Play ad creatives
-- **analytics-tracking**: For setting up install attribution and in-app event tracking
-- **customer-research**: For understanding user needs and language to inform listing copy
+1. Quelle est l'URL App Store ou Google Play ?
+2. S'agit-il de ton app ou d'un concurrent ?
+3. Dans quelle catégorie l'app concourt-elle ?
+4. As-tu des URLs de concurrents pour comparer ?
+5. Es-tu focalisé sur la visibilité en recherche, le taux de conversion, ou les deux ?
+6. As-tu accès aux données App Store Connect ou Google Play Console ?
+
+---
+
+## Skills associés
+
+- **page-cro** : pour optimiser la conversion des landing pages web qui drivent les installs d'app
+- **ad-creative** : pour créer des créas publicitaires App Store et Google Play
+- **analytics-tracking** : pour mettre en place l'attribution d'install et le tracking d'in-app events
+- **customer-research** : pour comprendre les besoins et le langage des utilisateurs et informer la copy du listing
