@@ -1,6 +1,6 @@
 ---
 name: launch-strategy
-description: "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'how do I launch this,' 'launch checklist,' 'GTM plan,' or 'we're about to ship.' Use this whenever someone is preparing to release something publicly. For ongoing marketing after launch, see marketing-ideas."
+description: "Lorsque l'utilisateur souhaite planifier un launch de produit, une annonce de feature ou une stratégie de release. À utiliser également lorsque l'utilisateur mentionne 'launch', 'Product Hunt', 'feature release', 'annonce', 'go-to-market', 'beta launch', 'early access', 'waitlist', 'product update', 'comment lancer ceci', 'launch checklist', 'plan GTM' ou 'on est sur le point de shipper'. À utiliser dès que quelqu'un prépare une mise à disposition publique. Pour le marketing en continu après le launch, voir marketing-ideas."
 metadata:
   version: 1.1.0
 ---
