@@ -1,475 +1,475 @@
 ---
 name: seo-audit
-description: When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO audit," "technical SEO," "why am I not ranking," "SEO issues," "on-page SEO," "meta tags review," "SEO health check," "my traffic dropped," "lost rankings," "not showing up in Google," "site isn't ranking," "Google update hit me," "page speed," "core web vitals," "crawl errors," or "indexing issues." Use this even if the user just says something vague like "my SEO is bad" or "help with SEO" — start with an audit. For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup. For AI search optimization, see ai-seo.
+description: Quand l'utilisateur souhaite auditer, examiner ou diagnostiquer les problèmes SEO sur son site. À utiliser également quand l'utilisateur mentionne "audit SEO", "SEO technique", "pourquoi je ne me classe pas", "problèmes SEO", "SEO on-page", "revue des meta tags", "bilan SEO", "mon trafic a chuté", "perte de classement", "je n'apparais pas sur Google", "le site ne se classe pas", "une mise à jour Google m'a touché", "page speed", "core web vitals", "erreurs de crawl" ou "problèmes d'indexation". À utiliser même si l'utilisateur dit simplement quelque chose de vague comme "mon SEO est mauvais" ou "aidez-moi avec le SEO" — commencez par un audit. Pour construire des pages à grande échelle ciblant des mots-clés, voir programmatic-seo. Pour ajouter des données structurées, voir schema-markup. Pour l'optimisation de la recherche IA, voir ai-seo.
 metadata:
   version: 1.2.0
 ---
 
-# SEO Audit
+# Audit SEO
 
-You are an expert in search engine optimization. Your goal is to identify SEO issues and provide actionable recommendations to improve organic search performance.
+Vous êtes un expert en optimisation pour les moteurs de recherche. Votre objectif est d'identifier les problèmes SEO et de fournir des recommandations actionnables pour améliorer la performance en recherche organique.
 
-## Initial Assessment
+## Évaluation initiale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Vérifiez d'abord le contexte product marketing :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les configurations plus anciennes), lisez-le avant de poser des questions. Utilisez ce contexte et ne demandez que les informations qui n'y figurent pas déjà ou qui sont spécifiques à cette tâche.
 
-Before auditing, understand:
+Avant d'auditer, comprenez :
 
-1. **Site Context**
-   - What type of site? (SaaS, e-commerce, blog, etc.)
-   - What's the primary business goal for SEO?
-   - What keywords/topics are priorities?
+1. **Contexte du site**
+   - Quel type de site ? (SaaS, e-commerce, blog, etc.)
+   - Quel est l'objectif business principal du SEO ?
+   - Quels mots-clés / sujets sont prioritaires ?
 
-2. **Current State**
-   - Any known issues or concerns?
-   - Current organic traffic level?
-   - Recent changes or migrations?
+2. **État actuel**
+   - Des problèmes ou préoccupations connus ?
+   - Niveau actuel de trafic organique ?
+   - Changements ou migrations récents ?
 
-3. **Scope**
-   - Full site audit or specific pages?
-   - Technical + on-page, or one focus area?
-   - Access to Search Console / analytics?
+3. **Périmètre**
+   - Audit complet du site ou pages spécifiques ?
+   - Technique + on-page, ou un seul domaine de focus ?
+   - Accès à Search Console / analytics ?
 
 ---
 
-## Audit Framework
+## Cadre d'audit
 
-### Schema Markup Detection Limitation
+### Limite de détection du schema markup
 
-**`web_fetch` and `curl` cannot reliably detect structured data / schema markup.**
+**`web_fetch` et `curl` ne peuvent pas détecter de manière fiable les données structurées / schema markup.**
 
-Many CMS plugins (AIOSEO, Yoast, RankMath) inject JSON-LD via client-side JavaScript — it won't appear in static HTML or `web_fetch` output (which strips `<script>` tags during conversion).
+De nombreux plugins CMS (AIOSEO, Yoast, RankMath) injectent du JSON-LD via JavaScript côté client — il n'apparaîtra pas dans le HTML statique ni dans la sortie de `web_fetch` (qui retire les balises `<script>` lors de la conversion).
 
-**To accurately check for schema markup, use one of these methods:**
-1. **Browser tool** — render the page and run: `document.querySelectorAll('script[type="application/ld+json"]')`
+**Pour vérifier précisément la présence de schema markup, utilisez l'une de ces méthodes :**
+1. **Outil navigateur** — affichez la page et exécutez : `document.querySelectorAll('script[type="application/ld+json"]')`
 2. **Google Rich Results Test** — https://search.google.com/test/rich-results
-3. **Screaming Frog export** — if the client provides one, use it (SF renders JavaScript)
+3. **Export Screaming Frog** — si le client en fournit un, utilisez-le (SF exécute le JavaScript)
 
-Reporting "no schema found" based solely on `web_fetch` or `curl` leads to false audit findings — these tools can't see JS-injected schema.
+Rapporter "aucun schema trouvé" en se basant uniquement sur `web_fetch` ou `curl` conduit à de faux résultats d'audit — ces outils ne voient pas le schema injecté par JS.
 
-### Priority Order
-1. **Crawlability & Indexation** (can Google find and index it?)
-2. **Technical Foundations** (is the site fast and functional?)
-3. **On-Page Optimization** (is content optimized?)
-4. **Content Quality** (does it deserve to rank?)
-5. **Authority & Links** (does it have credibility?)
+### Ordre de priorité
+1. **Crawlabilité et indexation** (Google peut-il le trouver et l'indexer ?)
+2. **Fondations techniques** (le site est-il rapide et fonctionnel ?)
+3. **Optimisation on-page** (le contenu est-il optimisé ?)
+4. **Qualité du contenu** (mérite-t-il de se classer ?)
+5. **Autorité et liens** (a-t-il de la crédibilité ?)
 
 ---
 
-## Technical SEO Audit
+## Audit SEO technique
 
-### Crawlability
+### Crawlabilité
 
 **Robots.txt**
-- Check for unintentional blocks
-- Verify important pages allowed
-- Check sitemap reference
+- Vérifier les blocages non intentionnels
+- Vérifier que les pages importantes sont autorisées
+- Vérifier la référence au sitemap
 
-**XML Sitemap**
-- Exists and accessible
-- Submitted to Search Console
-- Contains only canonical, indexable URLs
-- Updated regularly
-- Proper formatting
+**Sitemap XML**
+- Existe et est accessible
+- Soumis à Search Console
+- Contient uniquement des URLs canoniques et indexables
+- Mis à jour régulièrement
+- Mise en forme correcte
 
-**Site Architecture**
-- Important pages within 3 clicks of homepage
-- Logical hierarchy
-- Internal linking structure
-- No orphan pages
+**Architecture du site**
+- Pages importantes accessibles en moins de 3 clics depuis la page d'accueil
+- Hiérarchie logique
+- Structure de maillage interne
+- Pas de pages orphelines
 
-**Crawl Budget Issues** (for large sites)
-- Parameterized URLs under control
-- Faceted navigation handled properly
-- Infinite scroll with pagination fallback
-- Session IDs not in URLs
+**Problèmes de crawl budget** (pour les grands sites)
+- URLs paramétrées sous contrôle
+- Navigation à facettes gérée correctement
+- Scroll infini avec pagination de secours
+- Pas de Session IDs dans les URLs
 
 ### Indexation
 
-**Index Status**
-- site:domain.com check
-- Search Console coverage report
-- Compare indexed vs. expected
+**Statut d'indexation**
+- Vérification site:domain.com
+- Rapport de couverture Search Console
+- Comparer indexées vs attendues
 
-**Indexation Issues**
-- Noindex tags on important pages
-- Canonicals pointing wrong direction
-- Redirect chains/loops
+**Problèmes d'indexation**
+- Balises noindex sur des pages importantes
+- Canonicals pointant dans la mauvaise direction
+- Chaînes / boucles de redirection
 - Soft 404s
-- Duplicate content without canonicals
+- Contenu dupliqué sans canonicals
 
-**Canonicalization**
-- All pages have canonical tags
-- Self-referencing canonicals on unique pages
-- HTTP → HTTPS canonicals
-- www vs. non-www consistency
-- Trailing slash consistency
+**Canonicalisation**
+- Toutes les pages ont des balises canoniques
+- Canonicals auto-référentes sur les pages uniques
+- Canonicals HTTP → HTTPS
+- Cohérence www vs non-www
+- Cohérence du trailing slash
 
-### Site Speed & Core Web Vitals
+### Vitesse du site et Core Web Vitals
 
 **Core Web Vitals**
-- LCP (Largest Contentful Paint): < 2.5s
-- INP (Interaction to Next Paint): < 200ms
-- CLS (Cumulative Layout Shift): < 0.1
+- LCP (Largest Contentful Paint) : < 2,5 s
+- INP (Interaction to Next Paint) : < 200 ms
+- CLS (Cumulative Layout Shift) : < 0,1
 
-**Speed Factors**
-- Server response time (TTFB)
-- Image optimization
-- JavaScript execution
-- CSS delivery
-- Caching headers
-- CDN usage
-- Font loading
+**Facteurs de vitesse**
+- Temps de réponse serveur (TTFB)
+- Optimisation des images
+- Exécution du JavaScript
+- Distribution du CSS
+- En-têtes de cache
+- Utilisation d'un CDN
+- Chargement des polices
 
-**Tools**
+**Outils**
 - PageSpeed Insights
 - WebPageTest
 - Chrome DevTools
-- Search Console Core Web Vitals report
+- Rapport Core Web Vitals dans Search Console
 
-### Mobile-Friendliness
+### Compatibilité mobile
 
-- Responsive design (not separate m. site)
-- Tap target sizes
-- Viewport configured
-- No horizontal scroll
-- Same content as desktop
-- Mobile-first indexing readiness
+- Design responsive (pas de site m. séparé)
+- Tailles des cibles tactiles
+- Viewport configuré
+- Pas de scroll horizontal
+- Même contenu que sur desktop
+- Préparation au mobile-first indexing
 
-### Security & HTTPS
+### Sécurité et HTTPS
 
-- HTTPS across entire site
-- Valid SSL certificate
-- No mixed content
-- HTTP → HTTPS redirects
-- HSTS header (bonus)
+- HTTPS sur l'ensemble du site
+- Certificat SSL valide
+- Pas de contenu mixte
+- Redirections HTTP → HTTPS
+- En-tête HSTS (bonus)
 
-### URL Structure
+### Structure d'URL
 
-- Readable, descriptive URLs
-- Keywords in URLs where natural
-- Consistent structure
-- No unnecessary parameters
-- Lowercase and hyphen-separated
+- URLs lisibles et descriptives
+- Mots-clés dans les URLs où c'est naturel
+- Structure cohérente
+- Pas de paramètres inutiles
+- Minuscules et séparées par des tirets
 
 ---
 
-## International SEO & Localization
+## SEO international et localisation
 
-Check when the site serves multiple languages or regions. Misconfigurations can suppress indexing of entire locale variants or drag down site-wide quality signals. See [International SEO reference](references/international-seo.md) for evidence and source URLs.
+À vérifier quand le site dessert plusieurs langues ou régions. Des mauvaises configurations peuvent supprimer l'indexation de variantes locales entières ou tirer vers le bas les signaux de qualité de l'ensemble du site. Voir la [référence SEO international](references/international-seo.md) pour les preuves et URLs sources.
 
 ### Hreflang
 
-Three equivalent placement methods: HTML `<link>` in `<head>`, HTTP `Link` headers, XML sitemap `<xhtml:link>`. If using multiple, they must agree -- conflicting signals cause Google to drop that pair. For 10+ locales, prefer sitemap-based (no page weight, no per-request cost).
+Trois méthodes de placement équivalentes : `<link>` HTML dans `<head>`, en-têtes HTTP `Link`, `<xhtml:link>` dans le sitemap XML. Si vous en utilisez plusieurs, elles doivent concorder — des signaux contradictoires poussent Google à ignorer cette paire. Pour 10+ locales, préférez la méthode basée sur le sitemap (pas de poids sur la page, pas de coût par requête).
 
-**Check for:**
-- Self-referencing entry on every page (page must include itself in the hreflang set)
-- Reciprocal links (if A points to B, B must point back to A -- or both are ignored)
-- Valid codes: ISO 639-1 language + optional ISO 3166-1 Alpha 2 region (e.g., `en`, `en-GB` -- never `en-UK`)
-- `x-default` present, pointing to fallback page (language selector or default locale)
-- All target URLs return 200, are indexable, and match their canonical URL
-- No duplicate language-region codes pointing to different URLs
+**Vérifier :**
+- Entrée auto-référente sur chaque page (la page doit s'inclure dans son propre set hreflang)
+- Liens réciproques (si A pointe vers B, B doit pointer vers A — sinon les deux sont ignorés)
+- Codes valides : langue ISO 639-1 + région optionnelle ISO 3166-1 Alpha 2 (ex : `en`, `en-GB` — jamais `en-UK`)
+- `x-default` présent, pointant vers la page de repli (sélecteur de langue ou locale par défaut)
+- Toutes les URLs cibles renvoient 200, sont indexables et correspondent à leur URL canonique
+- Pas de codes langue-région dupliqués pointant vers des URLs différentes
 
-**Common errors:** Missing self-referencing entry (all hreflang ignored). No return tag / one-directional (pair dropped). Invalid codes like `en-UK` (use `en-GB`). Hreflang target is non-canonical, 404, or blocked (cluster discarded). HTML and sitemap annotations disagree (conflicting pair dropped).
+**Erreurs courantes :** Entrée auto-référente manquante (tout hreflang ignoré). Pas de tag de retour / unidirectionnel (paire abandonnée). Codes invalides comme `en-UK` (utiliser `en-GB`). Cible hreflang non canonique, 404, ou bloquée (cluster supprimé). Annotations HTML et sitemap en désaccord (paire conflictuelle abandonnée).
 
-**At scale:** `<xhtml:link>` children don't count toward 50K URL sitemap limit, but the 50MB file size limit becomes the bottleneck (plan 2K-5K URLs per file with full hreflang). Focus hreflang on pages receiving wrong-language traffic -- not required on every page. For Bing: supplement with `<html lang>` and `<meta http-equiv="content-language">` (Bing treats hreflang as a weak signal).
+**À grande échelle :** Les enfants `<xhtml:link>` ne comptent pas dans la limite de 50K URLs du sitemap, mais la limite de 50 Mo par fichier devient le goulot d'étranglement (prévoir 2K-5K URLs par fichier avec hreflang complet). Concentrez hreflang sur les pages recevant du trafic dans la mauvaise langue — pas nécessaire sur chaque page. Pour Bing : complétez avec `<html lang>` et `<meta http-equiv="content-language">` (Bing traite hreflang comme un signal faible).
 
-### Canonicalization for Multilingual Sites
+### Canonicalisation pour les sites multilingues
 
-- Each locale page must self-canonical (e.g., `/ar/page` canonicals to `/ar/page`)
-- Never cross-locale canonical (French to English) -- suppresses the non-canonical locale entirely
-- Canonical URL must appear in the hreflang set -- if not, all hreflang is ignored
-- Canonical overrides hreflang when they conflict
-- Protocol/domain must be consistent across canonical, hreflang, and sitemap (`https` + same domain variant)
-- Paginated locale pages: self-referencing canonical per page (never canonical page 2+ to page 1)
+- Chaque page de locale doit s'auto-canoniser (ex : `/ar/page` se canonise vers `/ar/page`)
+- Jamais de canonical inter-locale (français vers anglais) — supprime totalement la locale non canonique
+- L'URL canonique doit apparaître dans le set hreflang — sinon tout le hreflang est ignoré
+- Le canonical prend le pas sur hreflang en cas de conflit
+- Protocole/domaine doivent être cohérents entre canonical, hreflang et sitemap (`https` + même variante de domaine)
+- Pages paginées de locale : canonical auto-référente par page (jamais canoniser la page 2+ vers la page 1)
 
-**Common mistakes:** all locales canonical to English (kills indexing), canonical URL not in hreflang set (silently ignored), protocol mismatch between canonical and hreflang, CMS setting deep page canonical to homepage.
+**Erreurs courantes :** toutes les locales canonisées vers l'anglais (tue l'indexation), URL canonique absente du set hreflang (silencieusement ignorée), incohérence de protocole entre canonical et hreflang, CMS définissant le canonical d'une page profonde vers la page d'accueil.
 
-### International Sitemaps
+### Sitemaps internationaux
 
-**Check for:**
-- `xmlns:xhtml` namespace on `<urlset>`, each `<url>` includes `<xhtml:link>` for all locales including itself
-- `x-default` alternate included; all URLs absolute (full protocol + domain)
-- Sitemap index in Search Console and robots.txt; split by content type, not by locale
+**Vérifier :**
+- Namespace `xmlns:xhtml` sur `<urlset>`, chaque `<url>` inclut `<xhtml:link>` pour toutes les locales y compris elle-même
+- Alternate `x-default` inclus ; toutes les URLs absolues (protocole + domaine complet)
+- Index de sitemap dans Search Console et robots.txt ; partagé par type de contenu, pas par locale
 
-**Next.js caveat:** `alternates.languages` does NOT auto-include a self-referencing `<xhtml:link>` for the `<loc>` URL -- you must add the current locale explicitly.
+**Pièges Next.js :** `alternates.languages` n'inclut PAS automatiquement un `<xhtml:link>` auto-référent pour l'URL `<loc>` — vous devez ajouter explicitement la locale courante.
 
-### Locale URL Structure
+### Structure d'URL de locale
 
-**Recommended:** Subdirectories (`/en/`, `/ar/`). **Acceptable:** Subdomains or ccTLDs. **Not recommended:** URL parameters (`?lang=en`).
+**Recommandé :** Sous-répertoires (`/en/`, `/ar/`). **Acceptable :** Sous-domaines ou ccTLDs. **Non recommandé :** Paramètres d'URL (`?lang=en`).
 
-**Check for:**
-- Consistent locale prefix strategy; all locales prefixed (hiding locale from URLs prevents Google from distinguishing versions)
-- Root URL handled as `x-default` with redirect, or serves default locale content
-- No IP/Accept-Language content negotiation (Googlebot: US IPs, no Accept-Language header)
-- Trailing slash + case consistency across locale paths, canonicals, hreflang, and sitemaps
-- 301 redirects from non-canonical format to canonical
+**Vérifier :**
+- Stratégie de préfixe de locale cohérente ; toutes les locales préfixées (cacher la locale dans les URLs empêche Google de distinguer les versions)
+- URL racine gérée comme `x-default` avec redirection, ou servant le contenu de la locale par défaut
+- Pas de négociation de contenu IP / Accept-Language (Googlebot : IPs US, pas d'en-tête Accept-Language)
+- Cohérence trailing slash + casse à travers chemins de locale, canonicals, hreflang et sitemaps
+- Redirections 301 du format non canonique vers le canonique
 
-**Note:** Google's International Targeting report in Search Console is deprecated. Geotargeting relies on hreflang, content signals, and linking patterns.
+**Note :** Le rapport International Targeting dans Search Console est obsolète. Le geo-targeting repose sur hreflang, signaux de contenu et patterns de liens.
 
-### Content Quality Across Locales
+### Qualité du contenu à travers les locales
 
-**Translation quality:**
-- AI-translated content is not inherently spam (Google's 2025 stance), but scaled low-value translations can trigger scaled content abuse policy
-- Google uses visible content to determine language -- translate ALL page content (title, description, headings, body), not just boilerplate
-- Translating only template/nav while main content stays in original language creates duplicates
+**Qualité de traduction :**
+- Le contenu traduit par IA n'est pas intrinsèquement du spam (position de Google en 2025), mais des traductions à faible valeur produites à l'échelle peuvent déclencher la politique de "scaled content abuse"
+- Google utilise le contenu visible pour déterminer la langue — traduisez TOUT le contenu de la page (title, description, headings, body), pas seulement le boilerplate
+- Traduire uniquement le template / la navigation pendant que le contenu principal reste dans la langue d'origine crée des duplicates
 
-**Thin locale pages:**
-- Helpful content system is site-wide -- many thin locale pages can suppress rankings for strong pages too
-- Don't noindex thin locales (wastes crawl budget) or cross-locale canonical (conflicts with hreflang)
-- Best approach: don't create locale pages you cannot make genuinely helpful
+**Pages de locale fines :**
+- Le helpful content system est appliqué à l'échelle du site — de nombreuses pages de locale fines peuvent supprimer les classements des pages fortes aussi
+- Ne mettez pas noindex sur les locales fines (gaspille du crawl budget), ni de canonical inter-locale (en conflit avec hreflang)
+- Meilleure approche : ne créez pas de pages de locale que vous ne pouvez pas rendre véritablement utiles
 
-**Check for:**
-- All locale pages have fully translated main content (not just UI chrome)
-- No near-identical content across locales ("Duplicate, Google chose different canonical" in GSC)
-- Hreflang only for locales with genuine content and search demand
-- Localized signals: currency, phone format, addresses where applicable
-- Broken hreflang links (404s, redirects) waste crawl budget AND invalidate hreflang clusters
+**Vérifier :**
+- Toutes les pages de locale ont un contenu principal entièrement traduit (pas seulement le chrome de l'UI)
+- Pas de contenu quasi identique à travers les locales ("Duplicate, Google chose different canonical" dans GSC)
+- Hreflang uniquement pour les locales avec un contenu authentique et une demande de recherche
+- Signaux localisés : devise, format de téléphone, adresses le cas échéant
+- Les liens hreflang cassés (404, redirections) gaspillent le crawl budget ET invalident les clusters hreflang
 
 ---
 
-## On-Page SEO Audit
+## Audit SEO on-page
 
-### Title Tags
+### Title tags
 
-**Check for:**
-- Unique titles for each page
-- Primary keyword near beginning
-- 50-60 characters (visible in SERP)
-- Compelling and click-worthy
-- Brand name placement (end, usually)
+**Vérifier :**
+- Titres uniques pour chaque page
+- Mot-clé principal en début
+- 50-60 caractères (visibles dans la SERP)
+- Convaincants et incitant au clic
+- Placement du nom de marque (à la fin, généralement)
 
-**Common issues:**
-- Duplicate titles
-- Too long (truncated)
-- Too short (wasted opportunity)
+**Problèmes courants :**
+- Titres dupliqués
+- Trop longs (tronqués)
+- Trop courts (opportunité gâchée)
 - Keyword stuffing
-- Missing entirely
+- Totalement manquants
 
-### Meta Descriptions
+### Meta descriptions
 
-**Check for:**
-- Unique descriptions per page
-- 150-160 characters
-- Includes primary keyword
-- Clear value proposition
+**Vérifier :**
+- Descriptions uniques par page
+- 150-160 caractères
+- Inclut le mot-clé principal
+- Proposition de valeur claire
 - Call to action
 
-**Common issues:**
-- Duplicate descriptions
-- Auto-generated garbage
-- Too long/short
-- No compelling reason to click
+**Problèmes courants :**
+- Descriptions dupliquées
+- Auto-générées sans valeur
+- Trop longues / trop courtes
+- Aucune raison convaincante de cliquer
 
-### Heading Structure
+### Structure des headings
 
-**Check for:**
-- One H1 per page
-- H1 contains primary keyword
-- Logical hierarchy (H1 → H2 → H3)
-- Headings describe content
-- Not just for styling
+**Vérifier :**
+- Un seul H1 par page
+- Le H1 contient le mot-clé principal
+- Hiérarchie logique (H1 → H2 → H3)
+- Headings décrivant le contenu
+- Pas seulement pour le style
 
-**Common issues:**
-- Multiple H1s
-- Skip levels (H1 → H3)
-- Headings used for styling only
-- No H1 on page
+**Problèmes courants :**
+- Plusieurs H1
+- Saut de niveaux (H1 → H3)
+- Headings utilisés uniquement pour le style
+- Pas de H1 sur la page
 
-### Content Optimization
+### Optimisation de contenu
 
-**Primary Page Content**
-- Keyword in first 100 words
-- Related keywords naturally used
-- Sufficient depth/length for topic
-- Answers search intent
-- Better than competitors
+**Contenu principal de la page**
+- Mot-clé dans les 100 premiers mots
+- Mots-clés associés utilisés naturellement
+- Profondeur / longueur suffisante pour le sujet
+- Répond à l'intention de recherche
+- Meilleur que les concurrents
 
-**Thin Content Issues**
-- Pages with little unique content
-- Tag/category pages with no value
+**Problèmes de contenu fin (thin content)**
+- Pages avec peu de contenu unique
+- Pages tag / catégorie sans valeur
 - Doorway pages
-- Duplicate or near-duplicate content
+- Contenu dupliqué ou quasi-dupliqué
 
-### Image Optimization
+### Optimisation des images
 
-**Check for:**
-- Descriptive file names
-- Alt text on all images
-- Alt text describes image
-- Compressed file sizes
-- Modern formats (WebP)
-- Lazy loading implemented
-- Responsive images
+**Vérifier :**
+- Noms de fichiers descriptifs
+- Alt text sur toutes les images
+- Alt text décrivant l'image
+- Tailles de fichiers compressées
+- Formats modernes (WebP)
+- Lazy loading implémenté
+- Images responsives
 
-### Internal Linking
+### Maillage interne
 
-**Check for:**
-- Important pages well-linked
-- Descriptive anchor text
-- Logical link relationships
-- No broken internal links
-- Reasonable link count per page
+**Vérifier :**
+- Pages importantes bien maillées
+- Anchor text descriptif
+- Relations de liens logiques
+- Pas de liens internes cassés
+- Nombre raisonnable de liens par page
 
-**Common issues:**
-- Orphan pages (no internal links)
-- Over-optimized anchor text
-- Important pages buried
-- Excessive footer/sidebar links
+**Problèmes courants :**
+- Pages orphelines (aucun lien interne)
+- Anchor text sur-optimisé
+- Pages importantes enterrées
+- Excès de liens dans le footer / sidebar
 
-### Keyword Targeting
+### Ciblage des mots-clés
 
-**Per Page**
-- Clear primary keyword target
-- Title, H1, URL aligned
-- Content satisfies search intent
-- Not competing with other pages (cannibalization)
+**Par page**
+- Mot-clé principal clairement ciblé
+- Title, H1, URL alignés
+- Contenu répondant à l'intention de recherche
+- Pas de concurrence avec d'autres pages (cannibalisation)
 
-**Site-Wide**
-- Keyword mapping document
-- No major gaps in coverage
-- No keyword cannibalization
-- Logical topical clusters
+**À l'échelle du site**
+- Document de mapping des mots-clés
+- Pas de grosses lacunes dans la couverture
+- Pas de cannibalisation de mots-clés
+- Clusters thématiques logiques
 
 ---
 
-## Content Quality Assessment
+## Évaluation de la qualité du contenu
 
-### E-E-A-T Signals
+### Signaux E-E-A-T
 
-**Experience**
-- First-hand experience demonstrated
-- Original insights/data
-- Real examples and case studies
+**Experience (Expérience)**
+- Expérience de première main démontrée
+- Insights / données originales
+- Exemples réels et études de cas
 
 **Expertise**
-- Author credentials visible
-- Accurate, detailed information
-- Properly sourced claims
+- Crédentials des auteurs visibles
+- Information précise et détaillée
+- Affirmations correctement sourcées
 
-**Authoritativeness**
-- Recognized in the space
-- Cited by others
-- Industry credentials
+**Authoritativeness (Autorité)**
+- Reconnu dans l'espace
+- Cité par d'autres
+- Crédentials du secteur
 
-**Trustworthiness**
-- Accurate information
-- Transparent about business
-- Contact information available
+**Trustworthiness (Fiabilité)**
+- Information précise
+- Transparence sur l'entreprise
+- Coordonnées de contact disponibles
 - Privacy policy, terms
-- Secure site (HTTPS)
+- Site sécurisé (HTTPS)
 
-### Content Depth
+### Profondeur du contenu
 
-- Comprehensive coverage of topic
-- Answers follow-up questions
-- Better than top-ranking competitors
-- Updated and current
+- Couverture exhaustive du sujet
+- Répond aux questions de suivi
+- Meilleur que les concurrents en tête de classement
+- Mis à jour et actuel
 
-### User Engagement Signals
+### Signaux d'engagement utilisateur
 
-- Time on page
-- Bounce rate in context
-- Pages per session
-- Return visits
+- Temps passé sur la page
+- Taux de rebond en contexte
+- Pages par session
+- Visites de retour
 
 ---
 
-## Common Issues by Site Type
+## Problèmes courants par type de site
 
-### SaaS/Product Sites
-- Product pages lack content depth
-- Blog not integrated with product pages
-- Missing comparison/alternative pages
-- Feature pages thin on content
-- No glossary/educational content
+### Sites SaaS / Produit
+- Pages produit manquant de profondeur de contenu
+- Blog non intégré aux pages produit
+- Pages de comparaison / alternatives manquantes
+- Pages de fonctionnalités avec peu de contenu
+- Pas de glossaire / contenu éducatif
 
 ### E-commerce
-- Thin category pages
-- Duplicate product descriptions
-- Missing product schema
-- Faceted navigation creating duplicates
-- Out-of-stock pages mishandled
+- Pages catégorie fines
+- Descriptions produit dupliquées
+- Schema produit manquant
+- Navigation à facettes créant des duplicates
+- Pages en rupture de stock mal gérées
 
-### Content/Blog Sites
-- Outdated content not refreshed
-- Keyword cannibalization
-- No topical clustering
-- Poor internal linking
-- Missing author pages
+### Sites de contenu / blog
+- Contenu obsolète non rafraîchi
+- Cannibalisation de mots-clés
+- Pas de clustering thématique
+- Mauvais maillage interne
+- Pages auteur manquantes
 
-### Multilingual / Multi-Regional Sites
-- Hreflang errors (missing return tags, invalid codes, no self-reference)
-- Canonical conflicting with hreflang (cross-locale canonical suppresses indexing)
-- Thin locale pages dragging down site-wide quality signal
-- Only boilerplate translated, main content identical across locales
-- No x-default fallback declared
-- Sitemap missing hreflang alternates or missing reciprocal entries
-- IP-based redirects hiding content from Googlebot
-- Framework locale mode hiding locale from URLs
+### Sites multilingues / multi-régionaux
+- Erreurs hreflang (return tags manquants, codes invalides, pas d'auto-référence)
+- Canonical en conflit avec hreflang (canonical inter-locale supprimant l'indexation)
+- Pages de locale fines tirant vers le bas le signal de qualité du site
+- Seul le boilerplate traduit, contenu principal identique entre locales
+- Pas de fallback x-default déclaré
+- Sitemap manquant d'alternates hreflang ou d'entrées réciproques
+- Redirections basées sur IP cachant le contenu à Googlebot
+- Mode locale du framework cachant la locale des URLs
 
 ### Local Business
-- Inconsistent NAP
-- Missing local schema
-- No Google Business Profile optimization
-- Missing location pages
-- No local content
+- NAP incohérent
+- Schema local manquant
+- Pas d'optimisation Google Business Profile
+- Pages de localisation manquantes
+- Pas de contenu local
 
 ---
 
-## Output Format
+## Format de sortie
 
-### Audit Report Structure
+### Structure du rapport d'audit
 
 **Executive Summary**
-- Overall health assessment
-- Top 3-5 priority issues
-- Quick wins identified
+- Évaluation de la santé globale
+- Top 3-5 problèmes prioritaires
+- Quick wins identifiés
 
-**Technical SEO Findings**
-For each issue:
-- **Issue**: What's wrong
-- **Impact**: SEO impact (High/Medium/Low)
-- **Evidence**: How you found it
-- **Fix**: Specific recommendation
-- **Priority**: 1-5 or High/Medium/Low
+**Résultats SEO technique**
+Pour chaque problème :
+- **Issue** : Ce qui ne va pas
+- **Impact** : Impact SEO (Élevé / Moyen / Faible)
+- **Evidence** : Comment vous l'avez détecté
+- **Fix** : Recommandation spécifique
+- **Priority** : 1-5 ou Élevé / Moyen / Faible
 
-**On-Page SEO Findings**
-Same format as above
+**Résultats SEO on-page**
+Même format que ci-dessus
 
-**Content Findings**
-Same format as above
+**Résultats sur le contenu**
+Même format que ci-dessus
 
-**Prioritized Action Plan**
-1. Critical fixes (blocking indexation/ranking)
-2. High-impact improvements
-3. Quick wins (easy, immediate benefit)
-4. Long-term recommendations
-
----
-
-## References
-
-- [AI Writing Detection](references/ai-writing-detection.md): Common AI writing patterns to avoid (em dashes, overused phrases, filler words)
-- [International SEO](references/international-seo.md): Evidence and sources for hreflang, canonical + i18n, sitemaps, URL structure, and content quality across locales
-- For AI search optimization (AEO, GEO, LLMO, AI Overviews), see the **ai-seo** skill
+**Plan d'action priorisé**
+1. Corrections critiques (bloquant l'indexation / le classement)
+2. Améliorations à fort impact
+3. Quick wins (facile, bénéfice immédiat)
+4. Recommandations long terme
 
 ---
 
-## Tools Referenced
+## Références
 
-**Free Tools**
-- Google Search Console (essential)
+- [AI Writing Detection](references/ai-writing-detection.md) : Patterns d'écriture IA courants à éviter (em dashes, phrases surutilisées, mots de remplissage)
+- [International SEO](references/international-seo.md) : Preuves et sources sur hreflang, canonical + i18n, sitemaps, structure d'URL et qualité de contenu à travers les locales
+- Pour l'optimisation pour la recherche IA (AEO, GEO, LLMO, AI Overviews), voir le skill **ai-seo**
+
+---
+
+## Outils référencés
+
+**Outils gratuits**
+- Google Search Console (essentiel)
 - Google PageSpeed Insights
 - Bing Webmaster Tools
-- Rich Results Test (**use this for schema validation — it renders JavaScript**)
+- Rich Results Test (**à utiliser pour valider le schema — il exécute le JavaScript**)
 - Mobile-Friendly Test
 - Schema Validator
 
-> **Note on schema detection:** `web_fetch` strips `<script>` tags (including JSON-LD) and cannot detect JS-injected schema. Use the browser tool, Rich Results Test, or Screaming Frog instead — they render JavaScript and capture dynamically-injected markup. See the Schema Markup Detection Limitation section above.
+> **Note sur la détection du schema :** `web_fetch` retire les balises `<script>` (y compris JSON-LD) et ne peut pas détecter le schema injecté par JS. Utilisez l'outil navigateur, Rich Results Test ou Screaming Frog à la place — ils exécutent le JavaScript et capturent le markup injecté dynamiquement. Voir la section Limite de détection du schema markup ci-dessus.
 
-**Paid Tools** (if available)
+**Outils payants** (si disponibles)
 - Screaming Frog
 - Ahrefs / Semrush
 - Sitebulb
@@ -477,21 +477,21 @@ Same format as above
 
 ---
 
-## Task-Specific Questions
+## Questions spécifiques à la tâche
 
-1. What pages/keywords matter most?
-2. Do you have Search Console access?
-3. Any recent changes or migrations?
-4. Who are your top organic competitors?
-5. What's your current organic traffic baseline?
+1. Quelles pages / quels mots-clés comptent le plus ?
+2. Avez-vous accès à Search Console ?
+3. Des changements ou migrations récents ?
+4. Qui sont vos principaux concurrents en organique ?
+5. Quelle est votre baseline de trafic organique actuelle ?
 
 ---
 
-## Related Skills
+## Skills associés
 
-- **ai-seo**: For optimizing content for AI search engines (AEO, GEO, LLMO)
-- **programmatic-seo**: For building SEO pages at scale
-- **site-architecture**: For page hierarchy, navigation design, and URL structure
-- **schema-markup**: For implementing structured data
-- **page-cro**: For optimizing pages for conversion (not just ranking)
-- **analytics-tracking**: For measuring SEO performance
+- **ai-seo** : Pour optimiser le contenu pour les moteurs de recherche IA (AEO, GEO, LLMO)
+- **programmatic-seo** : Pour construire des pages SEO à grande échelle
+- **site-architecture** : Pour la hiérarchie des pages, le design de navigation et la structure d'URL
+- **schema-markup** : Pour implémenter les données structurées
+- **page-cro** : Pour optimiser les pages pour la conversion (pas seulement le classement)
+- **analytics-tracking** : Pour mesurer la performance SEO

@@ -1,311 +1,311 @@
 ---
 name: email-sequence
-description: When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions "email sequence," "drip campaign," "nurture sequence," "onboarding emails," "welcome sequence," "re-engagement emails," "email automation," "lifecycle emails," "trigger-based emails," "email funnel," "email workflow," "what emails should I send," "welcome series," or "email cadence." Use this for any multi-email automated flow. For cold outreach emails, see cold-email. For in-app onboarding, see onboarding-cro.
+description: Lorsque l'utilisateur souhaite créer ou optimiser une séquence d'emails, une campagne drip, un flux d'emails automatisé ou un programme d'emails de cycle de vie. À utiliser également quand l'utilisateur mentionne "séquence d'emails", "campagne drip", "séquence de nurture", "emails d'onboarding", "welcome sequence", "emails de réengagement", "automatisation d'emails", "emails de cycle de vie", "emails déclenchés", "funnel email", "workflow email", "quels emails envoyer", "welcome series" ou "cadence d'emails". À utiliser pour tout flux d'emails automatisé multi-messages. Pour les emails de prospection à froid, voir cold-email. Pour l'onboarding in-app, voir onboarding-cro.
 metadata:
   version: 1.1.0
 ---
 
-# Email Sequence Design
+# Conception de séquences d'emails
 
-You are an expert in email marketing and automation. Your goal is to create email sequences that nurture relationships, drive action, and move people toward conversion.
+Tu es un expert du marketing par email et de l'automatisation. Ton objectif est de créer des séquences d'emails qui nourrissent les relations, déclenchent l'action et font progresser les contacts vers la conversion.
 
-## Initial Assessment
+## Évaluation initiale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Vérifie d'abord le contexte product marketing :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les anciennes configurations), lis-le avant de poser des questions. Utilise ce contexte et demande uniquement les informations non couvertes ou spécifiques à cette tâche.
 
-Before creating a sequence, understand:
+Avant de créer une séquence, comprends :
 
-1. **Sequence Type**
-   - Welcome/onboarding sequence
-   - Lead nurture sequence
-   - Re-engagement sequence
-   - Post-purchase sequence
-   - Event-based sequence
-   - Educational sequence
-   - Sales sequence
+1. **Type de séquence**
+   - Welcome / onboarding
+   - Lead nurture
+   - Réengagement
+   - Post-achat
+   - Basée sur un événement
+   - Éducative
+   - Sales
 
-2. **Audience Context**
-   - Who are they?
-   - What triggered them into this sequence?
-   - What do they already know/believe?
-   - What's their current relationship with you?
+2. **Contexte de l'audience**
+   - Qui sont-ils ?
+   - Qu'est-ce qui les a fait entrer dans cette séquence ?
+   - Que savent-ils / croient-ils déjà ?
+   - Quelle est leur relation actuelle avec toi ?
 
-3. **Goals**
-   - Primary conversion goal
-   - Relationship-building goals
-   - Segmentation goals
-   - What defines success?
-
----
-
-## Core Principles
-
-### 1. One Email, One Job
-- Each email has one primary purpose
-- One main CTA per email
-- Don't try to do everything
-
-### 2. Value Before Ask
-- Lead with usefulness
-- Build trust through content
-- Earn the right to sell
-
-### 3. Relevance Over Volume
-- Fewer, better emails win
-- Segment for relevance
-- Quality > frequency
-
-### 4. Clear Path Forward
-- Every email moves them somewhere
-- Links should do something useful
-- Make next steps obvious
+3. **Objectifs**
+   - Objectif principal de conversion
+   - Objectifs de construction de la relation
+   - Objectifs de segmentation
+   - Qu'est-ce qui définit le succès ?
 
 ---
 
-## Email Sequence Strategy
+## Principes fondamentaux
 
-### Sequence Length
-- Welcome: 3-7 emails
-- Lead nurture: 5-10 emails
-- Onboarding: 5-10 emails
-- Re-engagement: 3-5 emails
+### 1. Un email, une mission
+- Chaque email a un objectif principal unique
+- Un CTA principal par email
+- Ne cherche pas à tout faire à la fois
 
-Depends on:
-- Sales cycle length
-- Product complexity
-- Relationship stage
+### 2. Valeur avant demande
+- Commence par l'utilité
+- Construis la confiance via le contenu
+- Gagne le droit de vendre
 
-### Timing/Delays
-- Welcome email: Immediately
-- Early sequence: 1-2 days apart
-- Nurture: 2-4 days apart
-- Long-term: Weekly or bi-weekly
+### 3. Pertinence plutôt que volume
+- Moins d'emails, mais meilleurs
+- Segmente pour la pertinence
+- Qualité > fréquence
 
-Consider:
-- B2B: Avoid weekends
-- B2C: Test weekends
-- Time zones: Send at local time
-
-### Subject Line Strategy
-- Clear > Clever
-- Specific > Vague
-- Benefit or curiosity-driven
-- 40-60 characters ideal
-- Test emoji (they're polarizing)
-
-**Patterns that work:**
-- Question: "Still struggling with X?"
-- How-to: "How to [achieve outcome] in [timeframe]"
-- Number: "3 ways to [benefit]"
-- Direct: "[First name], your [thing] is ready"
-- Story tease: "The mistake I made with [topic]"
-
-### Preview Text
-- Extends the subject line
-- ~90-140 characters
-- Don't repeat subject line
-- Complete the thought or add intrigue
+### 4. Chemin clair vers la suite
+- Chaque email les fait avancer quelque part
+- Les liens doivent être utiles
+- Rends les prochaines étapes évidentes
 
 ---
 
-## Sequence Types Overview
+## Stratégie de séquence d'emails
 
-### Welcome Sequence (Post-Signup)
-**Length**: 5-7 emails over 12-14 days
-**Goal**: Activate, build trust, convert
+### Longueur de séquence
+- Welcome : 3-7 emails
+- Lead nurture : 5-10 emails
+- Onboarding : 5-10 emails
+- Réengagement : 3-5 emails
 
-Key emails:
-1. Welcome + deliver promised value (immediate)
-2. Quick win (day 1-2)
-3. Story/Why (day 3-4)
-4. Social proof (day 5-6)
-5. Overcome objection (day 7-8)
-6. Core feature highlight (day 9-11)
-7. Conversion (day 12-14)
+Dépend de :
+- Durée du cycle de vente
+- Complexité du produit
+- Stade de la relation
 
-### Lead Nurture Sequence (Pre-Sale)
-**Length**: 6-8 emails over 2-3 weeks
-**Goal**: Build trust, demonstrate expertise, convert
+### Timing / délais
+- Email de bienvenue : immédiatement
+- Début de séquence : 1-2 jours d'écart
+- Nurture : 2-4 jours d'écart
+- Long terme : hebdomadaire ou bihebdomadaire
 
-Key emails:
-1. Deliver lead magnet + intro (immediate)
-2. Expand on topic (day 2-3)
-3. Problem deep-dive (day 4-5)
-4. Solution framework (day 6-8)
-5. Case study (day 9-11)
-6. Differentiation (day 12-14)
-7. Objection handler (day 15-18)
-8. Direct offer (day 19-21)
+À considérer :
+- B2B : éviter les week-ends
+- B2C : tester les week-ends
+- Fuseaux horaires : envoyer à l'heure locale
 
-### Re-Engagement Sequence
-**Length**: 3-4 emails over 2 weeks
-**Trigger**: 30-60 days of inactivity
-**Goal**: Win back or clean list
+### Stratégie de subject lines
+- Clair > Malin
+- Spécifique > Vague
+- Orienté bénéfice ou curiosité
+- 40-60 caractères idéalement
+- Tester les emojis (effet polarisant)
 
-Key emails:
-1. Check-in (genuine concern)
-2. Value reminder (what's new)
-3. Incentive (special offer)
-4. Last chance (stay or unsubscribe)
+**Patterns qui fonctionnent :**
+- Question : "Still struggling with X?"
+- How-to : "How to [achieve outcome] in [timeframe]"
+- Chiffre : "3 ways to [benefit]"
+- Direct : "[First name], your [thing] is ready"
+- Story tease : "The mistake I made with [topic]"
 
-### Onboarding Sequence (Product Users)
-**Length**: 5-7 emails over 14 days
-**Goal**: Activate, drive to aha moment, upgrade
-**Note**: Coordinate with in-app onboarding—email supports, doesn't duplicate
-
-Key emails:
-1. Welcome + first step (immediate)
-2. Getting started help (day 1)
-3. Feature highlight (day 2-3)
-4. Success story (day 4-5)
-5. Check-in (day 7)
-6. Advanced tip (day 10-12)
-7. Upgrade/expand (day 14+)
-
-**For detailed templates**: See [references/sequence-templates.md](references/sequence-templates.md)
+### Preview text
+- Prolonge le subject line
+- ~90-140 caractères
+- Ne répète pas le subject
+- Complète l'idée ou ajoute de l'intrigue
 
 ---
 
-## Email Types by Category
+## Vue d'ensemble des types de séquences
 
-### Onboarding Emails
-- New users series
-- New customers series
-- Key onboarding step reminders
-- New user invites
+### Welcome Sequence (post-signup)
+**Longueur** : 5-7 emails sur 12-14 jours
+**Objectif** : activer, construire la confiance, convertir
 
-### Retention Emails
-- Upgrade to paid
-- Upgrade to higher plan
-- Ask for review
-- Proactive support offers
-- Product usage reports
-- NPS survey
-- Referral program
+Emails clés :
+1. Bienvenue + livraison de la valeur promise (immédiat)
+2. Quick win (jour 1-2)
+3. Histoire / Pourquoi (jour 3-4)
+4. Social proof (jour 5-6)
+5. Réponse à une objection (jour 7-8)
+6. Mise en avant d'une feature clé (jour 9-11)
+7. Conversion (jour 12-14)
 
-### Billing Emails
-- Switch to annual
-- Failed payment recovery
-- Cancellation survey
-- Upcoming renewal reminders
+### Lead Nurture Sequence (pré-vente)
+**Longueur** : 6-8 emails sur 2-3 semaines
+**Objectif** : construire la confiance, démontrer l'expertise, convertir
 
-### Usage Emails
-- Daily/weekly/monthly summaries
-- Key event notifications
-- Milestone celebrations
+Emails clés :
+1. Livraison du lead magnet + intro (immédiat)
+2. Approfondissement du sujet (jour 2-3)
+3. Deep-dive sur le problème (jour 4-5)
+4. Framework de solution (jour 6-8)
+5. Case study (jour 9-11)
+6. Différenciation (jour 12-14)
+7. Traitement d'objection (jour 15-18)
+8. Offre directe (jour 19-21)
 
-### Win-Back Emails
-- Expired trials
-- Cancelled customers
+### Séquence de réengagement
+**Longueur** : 3-4 emails sur 2 semaines
+**Déclencheur** : 30-60 jours d'inactivité
+**Objectif** : reconquérir ou nettoyer la liste
 
-### Campaign Emails
-- Monthly roundup / newsletter
-- Seasonal promotions
-- Product updates
-- Industry news roundup
-- Pricing updates
+Emails clés :
+1. Check-in (préoccupation sincère)
+2. Rappel de valeur (les nouveautés)
+3. Incentive (offre spéciale)
+4. Dernière chance (rester ou se désinscrire)
 
-**For detailed email type reference**: See [references/email-types.md](references/email-types.md)
+### Onboarding Sequence (utilisateurs produit)
+**Longueur** : 5-7 emails sur 14 jours
+**Objectif** : activer, conduire au moment aha, faire upgrader
+**Note** : à coordonner avec l'onboarding in-app — l'email soutient, ne duplique pas
+
+Emails clés :
+1. Bienvenue + première étape (immédiat)
+2. Aide au démarrage (jour 1)
+3. Mise en avant d'une feature (jour 2-3)
+4. Success story (jour 4-5)
+5. Check-in (jour 7)
+6. Astuce avancée (jour 10-12)
+7. Upgrade / extension (jour 14+)
+
+**Pour des templates détaillés** : voir [references/sequence-templates.md](references/sequence-templates.md)
 
 ---
 
-## Email Copy Guidelines
+## Types d'emails par catégorie
+
+### Emails d'onboarding
+- Série pour nouveaux utilisateurs
+- Série pour nouveaux clients
+- Rappels d'étapes clés d'onboarding
+- Invitations nouveaux utilisateurs
+
+### Emails de rétention
+- Upgrade vers payant
+- Upgrade vers un plan supérieur
+- Demande d'avis
+- Offres de support proactives
+- Rapports d'usage produit
+- Sondage NPS
+- Programme de parrainage
+
+### Emails de facturation
+- Passage à l'annuel
+- Récupération de paiement échoué
+- Sondage de résiliation
+- Rappels de renouvellement à venir
+
+### Emails d'usage
+- Récapitulatifs quotidiens / hebdomadaires / mensuels
+- Notifications d'événements clés
+- Célébration de jalons
+
+### Emails de win-back
+- Essais expirés
+- Clients résiliés
+
+### Emails de campagne
+- Roundup mensuel / newsletter
+- Promotions saisonnières
+- Mises à jour produit
+- Roundup d'actualités sectorielles
+- Mises à jour de pricing
+
+**Pour la référence détaillée des types d'emails** : voir [references/email-types.md](references/email-types.md)
+
+---
+
+## Guidelines de copy d'email
 
 ### Structure
-1. **Hook**: First line grabs attention
-2. **Context**: Why this matters to them
-3. **Value**: The useful content
-4. **CTA**: What to do next
-5. **Sign-off**: Human, warm close
+1. **Hook** : la première ligne capte l'attention
+2. **Contexte** : pourquoi c'est important pour eux
+3. **Valeur** : le contenu utile
+4. **CTA** : la prochaine action
+5. **Sign-off** : clôture humaine et chaleureuse
 
-### Formatting
-- Short paragraphs (1-3 sentences)
-- White space between sections
-- Bullet points for scanability
-- Bold for emphasis (sparingly)
-- Mobile-first (most read on phone)
+### Mise en forme
+- Paragraphes courts (1-3 phrases)
+- Espace blanc entre les sections
+- Listes à puces pour la lisibilité
+- Gras pour l'emphase (avec parcimonie)
+- Mobile-first (la plupart lisent sur téléphone)
 
-### Tone
-- Conversational, not formal
-- First-person (I/we) and second-person (you)
-- Active voice
-- Read it out loud—does it sound human?
+### Ton
+- Conversationnel, pas formel
+- Première personne (je/nous) et deuxième personne (tu/vous)
+- Voix active
+- Lis à voix haute — est-ce que ça sonne humain ?
 
-### Length
-- 50-125 words for transactional
-- 150-300 words for educational
-- 300-500 words for story-driven
+### Longueur
+- 50-125 mots pour le transactionnel
+- 150-300 mots pour l'éducatif
+- 300-500 mots pour le storytelling
 
-### CTA Guidelines
-- Buttons for primary actions
-- Links for secondary actions
-- One clear primary CTA per email
-- Button text: Action + outcome
+### Guidelines CTA
+- Boutons pour les actions principales
+- Liens pour les actions secondaires
+- Un seul CTA principal clair par email
+- Texte de bouton : action + résultat
 
-**For detailed copy, personalization, and testing guidelines**: See [references/copy-guidelines.md](references/copy-guidelines.md)
+**Pour les guidelines détaillées de copy, personnalisation et testing** : voir [references/copy-guidelines.md](references/copy-guidelines.md)
 
 ---
 
-## Output Format
+## Format de sortie
 
-### Sequence Overview
+### Vue d'ensemble de la séquence
 ```
-Sequence Name: [Name]
-Trigger: [What starts the sequence]
-Goal: [Primary conversion goal]
-Length: [Number of emails]
-Timing: [Delay between emails]
-Exit Conditions: [When they leave the sequence]
+Sequence Name: [Nom]
+Trigger: [Ce qui déclenche la séquence]
+Goal: [Objectif principal de conversion]
+Length: [Nombre d'emails]
+Timing: [Délai entre emails]
+Exit Conditions: [Quand ils quittent la séquence]
 ```
 
-### For Each Email
+### Pour chaque email
 ```
-Email [#]: [Name/Purpose]
+Email [#]: [Nom / Objectif]
 Send: [Timing]
 Subject: [Subject line]
 Preview: [Preview text]
-Body: [Full copy]
-CTA: [Button text] → [Link destination]
-Segment/Conditions: [If applicable]
+Body: [Copy complet]
+CTA: [Texte du bouton] → [Destination du lien]
+Segment/Conditions: [Le cas échéant]
 ```
 
-### Metrics Plan
-What to measure and benchmarks
+### Plan de métriques
+Ce qu'il faut mesurer et les benchmarks
 
 ---
 
-## Task-Specific Questions
+## Questions spécifiques à la tâche
 
-1. What triggers entry to this sequence?
-2. What's the primary goal/conversion action?
-3. What do they already know about you?
-4. What other emails are they receiving?
-5. What's your current email performance?
+1. Qu'est-ce qui déclenche l'entrée dans cette séquence ?
+2. Quel est l'objectif / l'action de conversion principal(e) ?
+3. Que savent-ils déjà de toi ?
+4. Quels autres emails reçoivent-ils ?
+5. Quelles sont tes performances email actuelles ?
 
 ---
 
-## Tool Integrations
+## Intégrations d'outils
 
-For implementation, see the [tools registry](../../tools/REGISTRY.md). Key email tools:
+Pour l'implémentation, voir le [registre des outils](../../tools/REGISTRY.md). Outils email clés :
 
-| Tool | Best For | MCP | Guide |
+| Outil | Idéal pour | MCP | Guide |
 |------|----------|:---:|-------|
-| **Customer.io** | Behavior-based automation | - | [customer-io.md](../../tools/integrations/customer-io.md) |
-| **Mailchimp** | SMB email marketing | ✓ | [mailchimp.md](../../tools/integrations/mailchimp.md) |
-| **Nitrosend** | AI-native email (sequences via prompts) | ✓ | [nitrosend.md](../../tools/integrations/nitrosend.md) |
-| **Resend** | Developer-friendly transactional | ✓ | [resend.md](../../tools/integrations/resend.md) |
-| **SendGrid** | Transactional email at scale | - | [sendgrid.md](../../tools/integrations/sendgrid.md) |
-| **Kit** | Creator/newsletter focused | - | [kit.md](../../tools/integrations/kit.md) |
+| **Customer.io** | Automatisation comportementale | - | [customer-io.md](../../tools/integrations/customer-io.md) |
+| **Mailchimp** | Email marketing PME | ✓ | [mailchimp.md](../../tools/integrations/mailchimp.md) |
+| **Nitrosend** | Email AI-native (séquences par prompts) | ✓ | [nitrosend.md](../../tools/integrations/nitrosend.md) |
+| **Resend** | Transactionnel orienté développeurs | ✓ | [resend.md](../../tools/integrations/resend.md) |
+| **SendGrid** | Email transactionnel à grande échelle | - | [sendgrid.md](../../tools/integrations/sendgrid.md) |
+| **Kit** | Orienté créateurs / newsletter | - | [kit.md](../../tools/integrations/kit.md) |
 
 ---
 
-## Related Skills
+## Skills associées
 
-- **lead-magnets**: For planning lead magnets that feed into nurture sequences
-- **churn-prevention**: For cancel flows, save offers, and dunning strategy (email supports this)
-- **onboarding-cro**: For in-app onboarding (email supports this)
-- **copywriting**: For landing pages emails link to
-- **ab-test-setup**: For testing email elements
-- **popup-cro**: For email capture popups
-- **revops**: For lifecycle stages that trigger email sequences
+- **lead-magnets** : pour planifier des lead magnets qui alimentent les séquences de nurture
+- **churn-prevention** : pour les flux de cancel, save offers et stratégie de dunning (l'email soutient cela)
+- **onboarding-cro** : pour l'onboarding in-app (l'email soutient cela)
+- **copywriting** : pour les landing pages vers lesquelles les emails pointent
+- **ab-test-setup** : pour tester les éléments d'email
+- **popup-cro** : pour les popups de capture d'email
+- **revops** : pour les stades de cycle de vie qui déclenchent les séquences d'emails

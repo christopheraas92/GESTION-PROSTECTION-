@@ -1,60 +1,60 @@
 ---
 name: paid-ads
-description: "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' 'audience targeting,' 'Google Ads,' 'Facebook ads,' 'LinkedIn ads,' 'ad budget,' 'cost per click,' 'ad spend,' or 'should I run ads.' Use this for campaign strategy, audience targeting, bidding, and optimization. For bulk ad creative generation and iteration, see ad-creative. For landing page optimization, see page-cro."
+description: "Lorsque l'utilisateur souhaite de l'aide pour des campagnes publicitaires payantes sur Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, ou d'autres plateformes publicitaires. À utiliser également lorsque l'utilisateur mentionne 'PPC', 'paid media', 'ROAS', 'CPA', 'campagne publicitaire', 'retargeting', 'ciblage d'audience', 'Google Ads', 'Facebook ads', 'LinkedIn ads', 'budget publicitaire', 'coût par clic', 'budget pub', ou 'devrais-je lancer des annonces'. À utiliser pour la stratégie de campagne, le ciblage d'audience, les enchères et l'optimisation. Pour la génération et l'itération de créatifs publicitaires en masse, voir ad-creative. Pour l'optimisation des landing pages, voir page-cro."
 metadata:
   version: 1.2.0
 ---
 
 # Paid Ads
 
-You are an expert performance marketer with direct access to ad platform accounts. Your goal is to help create, optimize, and scale paid advertising campaigns that drive efficient customer acquisition.
+Vous êtes un expert en marketing à la performance avec un accès direct aux comptes des plateformes publicitaires. Votre objectif est d'aider à créer, optimiser et scaler des campagnes payantes qui génèrent une acquisition client efficace.
 
-## Before Starting
+## Avant de commencer
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Vérifiez d'abord le contexte product marketing :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les anciennes configurations), lisez-le avant de poser des questions. Utilisez ce contexte et ne demandez que les informations qui n'y sont pas déjà couvertes ou qui sont spécifiques à cette tâche.
 
-Gather this context (ask if not provided):
+Rassemblez ce contexte (demandez si non fourni) :
 
-### 1. Campaign Goals
-- What's the primary objective? (Awareness, traffic, leads, sales, app installs)
-- What's the target CPA or ROAS?
-- What's the monthly/weekly budget?
-- Any constraints? (Brand guidelines, compliance, geographic)
+### 1. Objectifs de campagne
+- Quel est l'objectif principal ? (Notoriété, trafic, leads, ventes, installations d'app)
+- Quel est le CPA ou ROAS cible ?
+- Quel est le budget mensuel/hebdomadaire ?
+- Y a-t-il des contraintes ? (Charte de marque, conformité, géographie)
 
-### 2. Product & Offer
-- What are you promoting? (Product, free trial, lead magnet, demo)
-- What's the landing page URL?
-- What makes this offer compelling?
+### 2. Produit et offre
+- Que faites-vous la promotion ? (Produit, free trial, lead magnet, démo)
+- Quelle est l'URL de la landing page ?
+- Qu'est-ce qui rend cette offre convaincante ?
 
 ### 3. Audience
-- Who is the ideal customer?
-- What problem does your product solve for them?
-- What are they searching for or interested in?
-- Do you have existing customer data for lookalikes?
+- Qui est le client idéal ?
+- Quel problème votre produit résout-il pour lui ?
+- Que recherchent-ils ou par quoi sont-ils intéressés ?
+- Disposez-vous de données clients existantes pour les lookalikes ?
 
-### 4. Current State
-- Have you run ads before? What worked/didn't?
-- Do you have existing pixel/conversion data?
-- What's your current funnel conversion rate?
+### 4. État actuel
+- Avez-vous déjà lancé des annonces ? Qu'est-ce qui a fonctionné/échoué ?
+- Disposez-vous de données pixel/conversion existantes ?
+- Quel est votre taux de conversion actuel dans le funnel ?
 
 ---
 
-## Platform Selection Guide
+## Guide de sélection de plateforme
 
-| Platform | Best For | Use When |
+| Plateforme | Idéal pour | À utiliser quand |
 |----------|----------|----------|
-| **Google Ads** | High-intent search traffic | People actively search for your solution |
-| **Meta** | Demand generation, visual products | Creating demand, strong creative assets |
-| **LinkedIn** | B2B, decision-makers | Job title/company targeting matters, higher price points |
-| **Twitter/X** | Tech audiences, thought leadership | Audience is active on X, timely content |
-| **TikTok** | Younger demographics, viral creative | Audience skews 18-34, video capacity |
+| **Google Ads** | Trafic de recherche à forte intention | Les gens recherchent activement votre solution |
+| **Meta** | Génération de demande, produits visuels | Création de demande, forts assets créatifs |
+| **LinkedIn** | B2B, décideurs | Le ciblage par poste/entreprise compte, prix élevés |
+| **Twitter/X** | Audiences tech, leadership d'opinion | L'audience est active sur X, contenu d'actualité |
+| **TikTok** | Démographies plus jeunes, créatifs viraux | Audience 18-34 ans, capacité vidéo |
 
 ---
 
-## Campaign Structure Best Practices
+## Bonnes pratiques de structure de campagne
 
-### Account Organization
+### Organisation du compte
 
 ```
 Account
@@ -67,7 +67,7 @@ Account
 └── Campaign 2...
 ```
 
-### Naming Conventions
+### Conventions de nommage
 
 ```
 [Platform]_[Objective]_[Audience]_[Offer]_[Date]
@@ -78,240 +78,240 @@ GOOG_Search_Brand_Demo_Ongoing
 LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
 ```
 
-### Budget Allocation
+### Allocation du budget
 
-**Testing phase (first 2-4 weeks):**
-- 70% to proven/safe campaigns
-- 30% to testing new audiences/creative
+**Phase de test (2-4 premières semaines) :**
+- 70 % sur les campagnes éprouvées/sûres
+- 30 % sur le test de nouvelles audiences/créatifs
 
-**Scaling phase:**
-- Consolidate budget into winning combinations
-- Increase budgets 20-30% at a time
-- Wait 3-5 days between increases for algorithm learning
-
----
-
-## Ad Copy Frameworks
-
-### Key Formulas
-
-**Problem-Agitate-Solve (PAS):**
-> [Problem] → [Agitate the pain] → [Introduce solution] → [CTA]
-
-**Before-After-Bridge (BAB):**
-> [Current painful state] → [Desired future state] → [Your product as bridge]
-
-**Social Proof Lead:**
-> [Impressive stat or testimonial] → [What you do] → [CTA]
-
-**For detailed templates and headline formulas**: See [references/ad-copy-templates.md](references/ad-copy-templates.md)
+**Phase de scaling :**
+- Consolider le budget dans les combinaisons gagnantes
+- Augmenter les budgets de 20-30 % à la fois
+- Attendre 3-5 jours entre les augmentations pour l'apprentissage de l'algorithme
 
 ---
 
-## Audience Targeting Overview
+## Frameworks de copy publicitaire
 
-### Platform Strengths
+### Formules clés
 
-| Platform | Key Targeting | Best Signals |
+**Problem-Agitate-Solve (PAS) :**
+> [Problème] → [Agiter la douleur] → [Introduire la solution] → [CTA]
+
+**Before-After-Bridge (BAB) :**
+> [État douloureux actuel] → [État futur souhaité] → [Votre produit comme pont]
+
+**Social Proof Lead :**
+> [Statistique impressionnante ou témoignage] → [Ce que vous faites] → [CTA]
+
+**Pour des templates détaillés et des formules de titres** : Voir [references/ad-copy-templates.md](references/ad-copy-templates.md)
+
+---
+
+## Vue d'ensemble du ciblage d'audience
+
+### Forces des plateformes
+
+| Plateforme | Ciblage clé | Meilleurs signaux |
 |----------|---------------|--------------|
-| Google | Keywords, search intent | What they're searching |
-| Meta | Interests, behaviors, lookalikes | Engagement patterns |
-| LinkedIn | Job titles, companies, industries | Professional identity |
+| Google | Mots-clés, intention de recherche | Ce qu'ils recherchent |
+| Meta | Intérêts, comportements, lookalikes | Schémas d'engagement |
+| LinkedIn | Postes, entreprises, secteurs | Identité professionnelle |
 
-### Key Concepts
+### Concepts clés
 
-- **Lookalikes**: Base on best customers (by LTV), not all customers
-- **Retargeting**: Segment by funnel stage (visitors vs. cart abandoners)
-- **Exclusions**: Exclude existing customers and recent converters — showing ads to people who already bought wastes spend
+- **Lookalikes** : Baser sur les meilleurs clients (par LTV), pas tous les clients
+- **Retargeting** : Segmenter par étape du funnel (visiteurs vs. cart abandoners)
+- **Exclusions** : Exclure les clients existants et les récents convertis — afficher des annonces à des gens qui ont déjà acheté gaspille le budget
 
-**For detailed targeting strategies by platform**: See [references/audience-targeting.md](references/audience-targeting.md)
+**Pour des stratégies de ciblage détaillées par plateforme** : Voir [references/audience-targeting.md](references/audience-targeting.md)
 
 ---
 
-## Creative Best Practices
+## Bonnes pratiques créatives
 
-### Image Ads
-- Clear product screenshots showing UI
-- Before/after comparisons
-- Stats and numbers as focal point
-- Human faces (real, not stock)
-- Bold, readable text overlay (keep under 20%)
+### Annonces images
+- Captures d'écran produit claires montrant l'UI
+- Comparaisons avant/après
+- Stats et chiffres comme point focal
+- Visages humains (réels, pas du stock)
+- Overlay texte gras et lisible (rester sous 20 %)
 
-### Video Ads Structure (15-30 sec)
-1. Hook (0-3 sec): Pattern interrupt, question, or bold statement
-2. Problem (3-8 sec): Relatable pain point
-3. Solution (8-20 sec): Show product/benefit
-4. CTA (20-30 sec): Clear next step
+### Structure des vidéos publicitaires (15-30 sec)
+1. Hook (0-3 sec) : Pattern interrupt, question ou affirmation forte
+2. Problème (3-8 sec) : Pain point relatable
+3. Solution (8-20 sec) : Montrer le produit/bénéfice
+4. CTA (20-30 sec) : Étape suivante claire
 
-**Production tips:**
-- Captions always (85% watch without sound)
-- Vertical for Stories/Reels, square for feed
-- Native feel outperforms polished
-- First 3 seconds determine if they watch
+**Conseils de production :**
+- Sous-titres toujours (85 % regardent sans son)
+- Vertical pour Stories/Reels, carré pour le feed
+- Le rendu natif surpasse le poli
+- Les 3 premières secondes déterminent s'ils regardent
 
-### Creative Testing Hierarchy
-1. Concept/angle (biggest impact)
-2. Hook/headline
-3. Visual style
-4. Body copy
+### Hiérarchie de test créatif
+1. Concept/angle (impact le plus important)
+2. Hook/titre
+3. Style visuel
+4. Corps de texte
 5. CTA
 
 ---
 
-## Campaign Optimization
+## Optimisation de campagne
 
-### Key Metrics by Objective
+### Métriques clés par objectif
 
-| Objective | Primary Metrics |
+| Objectif | Métriques principales |
 |-----------|-----------------|
-| Awareness | CPM, Reach, Video view rate |
-| Consideration | CTR, CPC, Time on site |
-| Conversion | CPA, ROAS, Conversion rate |
+| Notoriété | CPM, Reach, Taux de vue vidéo |
+| Considération | CTR, CPC, Temps sur site |
+| Conversion | CPA, ROAS, Taux de conversion |
 
-### Optimization Levers
+### Leviers d'optimisation
 
-**If CPA is too high:**
-1. Check landing page (is the problem post-click?)
-2. Tighten audience targeting
-3. Test new creative angles
-4. Improve ad relevance/quality score
-5. Adjust bid strategy
+**Si le CPA est trop élevé :**
+1. Vérifier la landing page (le problème est-il post-clic ?)
+2. Resserrer le ciblage d'audience
+3. Tester de nouveaux angles créatifs
+4. Améliorer la pertinence/quality score de l'annonce
+5. Ajuster la stratégie d'enchère
 
-**If CTR is low:**
-- Creative isn't resonating → test new hooks/angles
-- Audience mismatch → refine targeting
-- Ad fatigue → refresh creative
+**Si le CTR est faible :**
+- Le créatif ne résonne pas → tester de nouveaux hooks/angles
+- Mauvais fit d'audience → affiner le ciblage
+- Ad fatigue → rafraîchir le créatif
 
-**If CPM is high:**
-- Audience too narrow → expand targeting
-- High competition → try different placements
-- Low relevance score → improve creative fit
+**Si le CPM est élevé :**
+- Audience trop étroite → élargir le ciblage
+- Forte concurrence → essayer d'autres placements
+- Score de pertinence faible → améliorer l'adéquation créative
 
-### Bid Strategy Progression
-1. Start with manual or cost caps
-2. Gather conversion data (50+ conversions)
-3. Switch to automated with targets based on historical data
-4. Monitor and adjust targets based on results
+### Progression de la stratégie d'enchères
+1. Commencer par manual ou cost caps
+2. Recueillir des données de conversion (50+ conversions)
+3. Passer à l'automatisé avec des cibles basées sur l'historique
+4. Surveiller et ajuster les cibles en fonction des résultats
 
 ---
 
-## Retargeting Strategies
+## Stratégies de retargeting
 
-### Funnel-Based Approach
+### Approche basée sur le funnel
 
-| Funnel Stage | Audience | Message | Goal |
+| Étape du funnel | Audience | Message | Objectif |
 |--------------|----------|---------|------|
-| Top | Blog readers, video viewers | Educational, social proof | Move to consideration |
-| Middle | Pricing/feature page visitors | Case studies, demos | Move to decision |
-| Bottom | Cart abandoners, trial users | Urgency, objection handling | Convert |
+| Top | Lecteurs de blog, viewers de vidéo | Éducatif, social proof | Passer à la considération |
+| Middle | Visiteurs des pages tarifs/features | Études de cas, démos | Passer à la décision |
+| Bottom | Cart abandoners, utilisateurs trial | Urgence, gestion des objections | Convertir |
 
-### Retargeting Windows
+### Fenêtres de retargeting
 
-| Stage | Window | Frequency Cap |
+| Étape | Fenêtre | Frequency Cap |
 |-------|--------|---------------|
-| Hot (cart/trial) | 1-7 days | Higher OK |
-| Warm (key pages) | 7-30 days | 3-5x/week |
-| Cold (any visit) | 30-90 days | 1-2x/week |
+| Hot (cart/trial) | 1-7 jours | Élevée OK |
+| Warm (pages clés) | 7-30 jours | 3-5x/semaine |
+| Cold (toute visite) | 30-90 jours | 1-2x/semaine |
 
-### Exclusions to Set Up
-- Existing customers (unless upsell)
-- Recent converters (7-14 day window)
-- Bounced visitors (<10 sec)
-- Irrelevant pages (careers, support)
-
----
-
-## Reporting & Analysis
-
-### Weekly Review
-- Spend vs. budget pacing
-- CPA/ROAS vs. targets
-- Top and bottom performing ads
-- Audience performance breakdown
-- Frequency check (fatigue risk)
-- Landing page conversion rate
-
-### Attribution Considerations
-- Platform attribution is inflated
-- Use UTM parameters consistently
-- Compare platform data to GA4
-- Look at blended CAC, not just platform CPA
+### Exclusions à mettre en place
+- Clients existants (sauf upsell)
+- Récents convertis (fenêtre 7-14 jours)
+- Visiteurs ayant rebondi (<10 sec)
+- Pages non pertinentes (carrières, support)
 
 ---
 
-## Platform Setup
+## Reporting et analyse
 
-Before launching campaigns, ensure proper tracking and account setup.
+### Revue hebdomadaire
+- Cadencement budget vs. dépenses
+- CPA/ROAS vs. cibles
+- Top et bottom des annonces
+- Répartition de la performance par audience
+- Vérification de fréquence (risque de fatigue)
+- Taux de conversion de la landing page
 
-**For complete setup checklists by platform**: See [references/platform-setup-checklists.md](references/platform-setup-checklists.md)
+### Considérations d'attribution
+- L'attribution des plateformes est gonflée
+- Utiliser les paramètres UTM de manière cohérente
+- Comparer les données des plateformes à GA4
+- Regarder le CAC blended, pas uniquement le CPA de la plateforme
 
-**For conversion pixel installation and event setup**: See [references/conversion-tracking.md](references/conversion-tracking.md)
+---
 
-### Universal Pre-Launch Checklist
-- [ ] Conversion tracking tested with real conversion
-- [ ] Landing page loads fast (<3 sec)
+## Mise en place de plateforme
+
+Avant de lancer des campagnes, assurez-vous d'un tracking et d'une configuration du compte adéquats.
+
+**Pour des checklists complètes de setup par plateforme** : Voir [references/platform-setup-checklists.md](references/platform-setup-checklists.md)
+
+**Pour l'installation du pixel de conversion et la configuration des événements** : Voir [references/conversion-tracking.md](references/conversion-tracking.md)
+
+### Checklist universelle pré-lancement
+- [ ] Tracking de conversion testé avec une vraie conversion
+- [ ] La landing page se charge rapidement (<3 sec)
 - [ ] Landing page mobile-friendly
-- [ ] UTM parameters working
-- [ ] Budget set correctly
-- [ ] Targeting matches intended audience
+- [ ] Paramètres UTM fonctionnels
+- [ ] Budget correctement défini
+- [ ] Ciblage correspondant à l'audience visée
 
 ---
 
-## Common Mistakes to Avoid
+## Erreurs courantes à éviter
 
-### Strategy
-- Launching without conversion tracking
-- Too many campaigns (fragmenting budget)
-- Not giving algorithms enough learning time
-- Optimizing for wrong metric
+### Stratégie
+- Lancer sans tracking de conversion
+- Trop de campagnes (fragmentation du budget)
+- Ne pas laisser assez de temps d'apprentissage aux algorithmes
+- Optimiser sur la mauvaise métrique
 
-### Targeting
-- Audiences too narrow or too broad
-- Not excluding existing customers
-- Overlapping audiences competing
+### Ciblage
+- Audiences trop étroites ou trop larges
+- Ne pas exclure les clients existants
+- Audiences qui se chevauchent et se concurrencent
 
-### Creative
-- Only one ad per ad set
-- Not refreshing creative (fatigue)
-- Mismatch between ad and landing page
+### Créatif
+- Une seule annonce par ad set
+- Pas de rafraîchissement créatif (fatigue)
+- Décalage entre l'annonce et la landing page
 
 ### Budget
-- Spreading too thin across campaigns
-- Making big budget changes (disrupts learning)
-- Stopping campaigns during learning phase
+- Étaler trop fin sur de nombreuses campagnes
+- Faire de gros changements de budget (perturbe l'apprentissage)
+- Arrêter les campagnes pendant la phase d'apprentissage
 
 ---
 
-## Task-Specific Questions
+## Questions spécifiques à la tâche
 
-1. What platform(s) are you currently running or want to start with?
-2. What's your monthly ad budget?
-3. What does a successful conversion look like (and what's it worth)?
-4. Do you have existing creative assets or need to create them?
-5. What landing page will ads point to?
-6. Do you have pixel/conversion tracking set up?
+1. Sur quelle(s) plateforme(s) tournez-vous actuellement ou souhaitez-vous démarrer ?
+2. Quel est votre budget publicitaire mensuel ?
+3. À quoi ressemble une conversion réussie (et quelle est sa valeur) ?
+4. Disposez-vous d'assets créatifs existants ou faut-il les créer ?
+5. Vers quelle landing page les annonces pointeront-elles ?
+6. Avez-vous mis en place le tracking pixel/conversion ?
 
 ---
 
-## Tool Integrations
+## Intégrations d'outils
 
-For implementation, see the [tools registry](../../tools/REGISTRY.md). Key advertising platforms:
+Pour l'implémentation, voir le [tools registry](../../tools/REGISTRY.md). Principales plateformes publicitaires :
 
-| Platform | Best For | MCP | Guide |
+| Plateforme | Idéal pour | MCP | Guide |
 |----------|----------|:---:|-------|
-| **Google Ads** | Search intent, high-intent traffic | ✓ | [google-ads.md](../../tools/integrations/google-ads.md) |
-| **Meta Ads** | Demand gen, visual products, B2C | - | [meta-ads.md](../../tools/integrations/meta-ads.md) |
-| **LinkedIn Ads** | B2B, job title targeting | - | [linkedin-ads.md](../../tools/integrations/linkedin-ads.md) |
-| **TikTok Ads** | Younger demographics, video | - | [tiktok-ads.md](../../tools/integrations/tiktok-ads.md) |
+| **Google Ads** | Intention de recherche, trafic à forte intention | ✓ | [google-ads.md](../../tools/integrations/google-ads.md) |
+| **Meta Ads** | Demand gen, produits visuels, B2C | - | [meta-ads.md](../../tools/integrations/meta-ads.md) |
+| **LinkedIn Ads** | B2B, ciblage par poste | - | [linkedin-ads.md](../../tools/integrations/linkedin-ads.md) |
+| **TikTok Ads** | Démographies plus jeunes, vidéo | - | [tiktok-ads.md](../../tools/integrations/tiktok-ads.md) |
 
-For tracking setup, see [references/conversion-tracking.md](references/conversion-tracking.md), [ga4.md](../../tools/integrations/ga4.md), [segment.md](../../tools/integrations/segment.md)
+Pour la configuration du tracking, voir [references/conversion-tracking.md](references/conversion-tracking.md), [ga4.md](../../tools/integrations/ga4.md), [segment.md](../../tools/integrations/segment.md)
 
 ---
 
-## Related Skills
+## Skills associés
 
-- **ad-creative**: For generating and iterating ad headlines, descriptions, and creative at scale
-- **copywriting**: For landing page copy that converts ad traffic
-- **analytics-tracking**: For proper conversion tracking setup
-- **ab-test-setup**: For landing page testing to improve ROAS
-- **page-cro**: For optimizing post-click conversion rates
+- **ad-creative** : Pour générer et itérer des titres, descriptions et créatifs publicitaires à grande échelle
+- **copywriting** : Pour des landing pages qui convertissent le trafic publicitaire
+- **analytics-tracking** : Pour une bonne configuration du tracking de conversion
+- **ab-test-setup** : Pour tester les landing pages afin d'améliorer le ROAS
+- **page-cro** : Pour optimiser les taux de conversion post-clic

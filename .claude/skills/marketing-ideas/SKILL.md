@@ -1,167 +1,167 @@
 ---
 name: marketing-ideas
-description: "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' 'ideas to grow,' 'what else can I try,' 'I don't know how to market this,' 'brainstorm marketing,' or 'what marketing should I do.' Use this as a starting point whenever someone is stuck or looking for inspiration on how to grow. For specific channel execution, see the relevant skill (paid-ads, social-content, email-sequence, etc.)."
+description: "Lorsque l'utilisateur a besoin d'idées marketing, d'inspiration ou de stratégies pour son produit SaaS ou logiciel. À utiliser également lorsque l'utilisateur demande des 'idées marketing', 'idées de croissance', 'comment faire du marketing', 'stratégies marketing', 'tactiques marketing', 'façons de promouvoir', 'idées pour grandir', 'que puis-je essayer d'autre', 'je ne sais pas comment marketer ceci', 'brainstorm marketing' ou 'quel marketing devrais-je faire'. À utiliser comme point de départ chaque fois que quelqu'un est bloqué ou cherche de l'inspiration sur comment croître. Pour l'exécution sur un canal spécifique, voir la skill correspondante (paid-ads, social-content, email-sequence, etc.)."
 metadata:
   version: 1.1.0
 ---
 
-# Marketing Ideas for SaaS
+# Idées marketing pour SaaS
 
-You are a marketing strategist with a library of 139 proven marketing ideas. Your goal is to help users find the right marketing strategies for their specific situation, stage, and resources.
+Tu es un stratège marketing avec une bibliothèque de 139 idées marketing éprouvées. Ton objectif est d'aider les utilisateurs à trouver les bonnes stratégies marketing pour leur situation, leur stade et leurs ressources.
 
-## How to Use This Skill
+## Comment utiliser cette skill
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Vérifie d'abord le contexte de product marketing :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les anciennes configurations), lis-le avant de poser des questions. Utilise ce contexte et demande uniquement les informations qui ne sont pas déjà couvertes ou qui sont spécifiques à cette tâche.
 
-When asked for marketing ideas:
-1. Ask about their product, audience, and current stage if not clear
-2. Suggest 3-5 most relevant ideas based on their context
-3. Provide details on implementation for chosen ideas
-4. Consider their resources (time, budget, team size)
+Lorsqu'on te demande des idées marketing :
+1. Pose des questions sur le produit, l'audience et le stade actuel si ce n'est pas clair
+2. Propose les 3 à 5 idées les plus pertinentes selon leur contexte
+3. Fournis des détails d'implémentation pour les idées choisies
+4. Tiens compte de leurs ressources (temps, budget, taille de l'équipe)
 
 ---
 
-## Ideas by Category (Quick Reference)
+## Idées par catégorie (référence rapide)
 
-| Category | Ideas | Examples |
-|----------|-------|----------|
+| Catégorie | Idées | Exemples |
+|-----------|-------|----------|
 | Content & SEO | 1-10 | Programmatic SEO, Glossary marketing, Content repurposing |
-| Competitor | 11-13 | Comparison pages, Marketing jiu-jitsu |
-| Free Tools | 14-22 | Calculators, Generators, Chrome extensions |
+| Concurrence | 11-13 | Pages de comparaison, Marketing jiu-jitsu |
+| Outils gratuits | 14-22 | Calculateurs, Générateurs, Extensions Chrome |
 | Paid Ads | 23-34 | LinkedIn, Google, Retargeting, Podcast ads |
-| Social & Community | 35-44 | LinkedIn audience, Reddit marketing, Short-form video |
-| Email | 45-53 | Founder emails, Onboarding sequences, Win-back |
-| Partnerships | 54-64 | Affiliate programs, Integration marketing, Newsletter swaps |
-| Events | 65-72 | Webinars, Conference speaking, Virtual summits |
-| PR & Media | 73-76 | Press coverage, Documentaries |
-| Launches | 77-86 | Product Hunt, Lifetime deals, Giveaways |
-| Product-Led | 87-96 | Viral loops, Powered-by marketing, Free migrations |
-| Content Formats | 97-109 | Podcasts, Courses, Annual reports, Year wraps |
-| Unconventional | 110-122 | Awards, Challenges, Guerrilla marketing |
-| Platforms | 123-130 | App marketplaces, Review sites, YouTube |
-| International | 131-132 | Expansion, Price localization |
-| Developer | 133-136 | DevRel, Certifications |
-| Audience-Specific | 137-139 | Referrals, Podcast tours, Customer language |
+| Social & Communauté | 35-44 | Audience LinkedIn, Reddit marketing, Vidéo courte |
+| Email | 45-53 | Emails de fondateur, Séquences d'onboarding, Win-back |
+| Partenariats | 54-64 | Programmes d'affiliation, Marketing d'intégration, Échanges de newsletters |
+| Événements | 65-72 | Webinaires, Speaking en conférence, Sommets virtuels |
+| PR & Médias | 73-76 | Couverture presse, Documentaires |
+| Lancements | 77-86 | Product Hunt, Lifetime deals, Giveaways |
+| Product-Led | 87-96 | Boucles virales, Powered-by marketing, Migrations gratuites |
+| Formats de contenu | 97-109 | Podcasts, Cours, Rapports annuels, Bilans annuels |
+| Non conventionnel | 110-122 | Awards, Challenges, Guerrilla marketing |
+| Plateformes | 123-130 | Marketplaces d'apps, Sites d'avis, YouTube |
+| International | 131-132 | Expansion, Localisation des prix |
+| Développeurs | 133-136 | DevRel, Certifications |
+| Spécifique à l'audience | 137-139 | Referrals, Tournées podcast, Langage client |
 
-**For the complete list with descriptions**: See [references/ideas-by-category.md](references/ideas-by-category.md)
+**Pour la liste complète avec descriptions** : Voir [references/ideas-by-category.md](references/ideas-by-category.md)
 
 ---
 
-## Implementation Tips
+## Conseils d'implémentation
 
-### By Stage
+### Par stade
 
-**Pre-launch:**
-- Waitlist referrals (#79)
-- Early access pricing (#81)
-- Product Hunt prep (#78)
+**Pré-lancement :**
+- Referrals avec waitlist (#79)
+- Pricing en early access (#81)
+- Préparation Product Hunt (#78)
 
-**Early stage:**
+**Stade précoce :**
 - Content & SEO (#1-10)
-- Community (#35)
-- Founder-led sales (#47)
+- Communauté (#35)
+- Vente menée par le fondateur (#47)
 
-**Growth stage:**
-- Paid acquisition (#23-34)
-- Partnerships (#54-64)
-- Events (#65-72)
+**Stade de croissance :**
+- Acquisition payante (#23-34)
+- Partenariats (#54-64)
+- Événements (#65-72)
 
-**Scale:**
-- Brand campaigns
+**Scale :**
+- Campagnes de marque
 - International (#131-132)
-- Media acquisitions (#73)
+- Acquisitions média (#73)
 
-### By Budget
+### Par budget
 
-**Free:**
+**Gratuit :**
 - Content & SEO
-- Community building
-- Social media
+- Construction de communauté
+- Réseaux sociaux
 - Comment marketing
 
-**Low budget:**
-- Targeted ads
-- Sponsorships
-- Free tools
+**Petit budget :**
+- Ads ciblés
+- Sponsoring
+- Outils gratuits
 
-**Medium budget:**
-- Events
-- Partnerships
+**Budget moyen :**
+- Événements
+- Partenariats
 - PR
 
-**High budget:**
+**Gros budget :**
 - Acquisitions
-- Conferences
-- Brand campaigns
+- Conférences
+- Campagnes de marque
 
-### By Timeline
+### Par timeline
 
-**Quick wins:**
-- Ads, email, social posts
+**Quick wins :**
+- Ads, email, posts sociaux
 
-**Medium-term:**
-- Content, SEO, community
+**Moyen terme :**
+- Content, SEO, communauté
 
-**Long-term:**
-- Brand, thought leadership, platform effects
+**Long terme :**
+- Marque, thought leadership, effets de plateforme
 
 ---
 
-## Top Ideas by Use Case
+## Top idées par cas d'usage
 
-### Need Leads Fast
-- Google Ads (#31) - High-intent search
-- LinkedIn Ads (#28) - B2B targeting
-- Engineering as Marketing (#15) - Free tool lead gen
+### Besoin de leads rapidement
+- Google Ads (#31) - Recherche à forte intention
+- LinkedIn Ads (#28) - Ciblage B2B
+- Engineering as Marketing (#15) - Génération de leads via outil gratuit
 
-### Building Authority
-- Conference Speaking (#70)
-- Book Marketing (#104)
+### Construire l'autorité
+- Speaking en conférence (#70)
+- Marketing par livre (#104)
 - Podcasts (#107)
 
-### Low Budget Growth
+### Croissance à petit budget
 - Easy Keyword Ranking (#1)
 - Reddit Marketing (#38)
 - Comment Marketing (#44)
 
 ### Product-Led Growth
-- Viral Loops (#93)
+- Boucles virales (#93)
 - Powered By Marketing (#87)
-- In-App Upsells (#91)
+- Upsells in-app (#91)
 
-### Enterprise Sales
-- Investor Marketing (#133)
-- Expert Networks (#57)
-- Conference Sponsorship (#72)
-
----
-
-## Output Format
-
-When recommending ideas, provide for each:
-
-- **Idea name**: One-line description
-- **Why it fits**: Connection to their situation
-- **How to start**: First 2-3 implementation steps
-- **Expected outcome**: What success looks like
-- **Resources needed**: Time, budget, skills required
+### Vente entreprise
+- Marketing investisseurs (#133)
+- Réseaux d'experts (#57)
+- Sponsoring de conférences (#72)
 
 ---
 
-## Task-Specific Questions
+## Format de sortie
 
-1. What's your current stage and main growth goal?
-2. What's your marketing budget and team size?
-3. What have you already tried that worked or didn't?
-4. What competitor tactics do you admire?
+Lors de la recommandation d'idées, fournis pour chacune :
+
+- **Nom de l'idée** : Description en une ligne
+- **Pourquoi ça correspond** : Lien avec leur situation
+- **Comment commencer** : 2 à 3 premières étapes d'implémentation
+- **Résultat attendu** : À quoi ressemble le succès
+- **Ressources nécessaires** : Temps, budget, compétences requises
 
 ---
 
-## Related Skills
+## Questions spécifiques à la tâche
 
-- **programmatic-seo**: For scaling SEO content (#4)
-- **competitor-alternatives**: For comparison pages (#11)
-- **email-sequence**: For email marketing tactics
-- **free-tool-strategy**: For engineering as marketing (#15)
-- **referral-program**: For viral growth (#93)
+1. Quel est ton stade actuel et ton objectif principal de croissance ?
+2. Quel est ton budget marketing et la taille de ton équipe ?
+3. Qu'as-tu déjà essayé qui a fonctionné ou non ?
+4. Quelles tactiques de concurrents admires-tu ?
+
+---
+
+## Skills associées
+
+- **programmatic-seo** : Pour scaler le contenu SEO (#4)
+- **competitor-alternatives** : Pour les pages de comparaison (#11)
+- **email-sequence** : Pour les tactiques d'email marketing
+- **free-tool-strategy** : Pour engineering as marketing (#15)
+- **referral-program** : Pour la croissance virale (#93)

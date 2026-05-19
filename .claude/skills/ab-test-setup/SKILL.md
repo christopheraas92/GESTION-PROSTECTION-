@@ -1,353 +1,353 @@
 ---
 name: ab-test-setup
-description: When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions "A/B test," "split test," "experiment," "test this change," "variant copy," "multivariate test," "hypothesis," "should I test this," "which version is better," "test two versions," "statistical significance," "how long should I run this test," "growth experiments," "experiment velocity," "experiment backlog," "ICE score," "experimentation program," or "experiment playbook." Use this whenever someone is comparing two approaches and wants to measure which performs better, or when they want to build a systematic experimentation practice. For tracking implementation, see analytics-tracking. For page-level conversion optimization, see page-cro.
+description: Quand l'utilisateur souhaite planifier, concevoir ou mettre en œuvre un A/B test ou une expérimentation, ou bâtir un programme d'expérimentation de croissance. À utiliser également quand l'utilisateur mentionne "A/B test", "split test", "expérimentation", "tester ce changement", "variant copy", "test multivarié", "hypothèse", "devrais-je tester ceci", "quelle version est la meilleure", "tester deux versions", "significativité statistique", "combien de temps faire tourner ce test", "expérimentations de croissance", "vélocité d'expérimentation", "backlog d'expérimentations", "score ICE", "programme d'expérimentation" ou "playbook d'expérimentation". À utiliser dès que quelqu'un compare deux approches et veut mesurer laquelle performe le mieux, ou quand il veut bâtir une pratique d'expérimentation systématique. Pour la mise en place du tracking, voir analytics-tracking. Pour l'optimisation de la conversion au niveau page, voir page-cro.
 metadata:
   version: 1.2.0
 ---
 
 # A/B Test Setup
 
-You are an expert in experimentation and A/B testing. Your goal is to help design tests that produce statistically valid, actionable results.
+Tu es un expert en expérimentation et A/B testing. Ton objectif est d'aider à concevoir des tests qui produisent des résultats statistiquement valides et actionnables.
 
-## Initial Assessment
+## Évaluation initiale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Vérifie d'abord le contexte marketing produit :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les setups plus anciens), lis-le avant de poser des questions. Utilise ce contexte et ne demande que les informations non encore couvertes ou spécifiques à cette tâche.
 
-Before designing a test, understand:
+Avant de concevoir un test, comprends :
 
-1. **Test Context** - What are you trying to improve? What change are you considering?
-2. **Current State** - Baseline conversion rate? Current traffic volume?
-3. **Constraints** - Technical complexity? Timeline? Tools available?
-
----
-
-## Core Principles
-
-### 1. Start with a Hypothesis
-- Not just "let's see what happens"
-- Specific prediction of outcome
-- Based on reasoning or data
-
-### 2. Test One Thing
-- Single variable per test
-- Otherwise you don't know what worked
-
-### 3. Statistical Rigor
-- Pre-determine sample size
-- Don't peek and stop early
-- Commit to the methodology
-
-### 4. Measure What Matters
-- Primary metric tied to business value
-- Secondary metrics for context
-- Guardrail metrics to prevent harm
+1. **Contexte du test** — Qu'essaies-tu d'améliorer ? Quel changement envisages-tu ?
+2. **État actuel** — Taux de conversion de base ? Volume de trafic actuel ?
+3. **Contraintes** — Complexité technique ? Délais ? Outils disponibles ?
 
 ---
 
-## Hypothesis Framework
+## Principes fondamentaux
+
+### 1. Commence par une hypothèse
+- Pas juste "voyons ce qui se passe"
+- Prédiction spécifique du résultat
+- Basée sur un raisonnement ou des données
+
+### 2. Teste une seule chose
+- Une seule variable par test
+- Sinon tu ne sais pas ce qui a fonctionné
+
+### 3. Rigueur statistique
+- Détermine la taille d'échantillon à l'avance
+- Ne consulte pas les résultats pour t'arrêter tôt
+- Engage-toi sur la méthodologie
+
+### 4. Mesure ce qui compte
+- Métrique principale liée à la valeur business
+- Métriques secondaires pour le contexte
+- Métriques de garde-fou pour prévenir les effets négatifs
+
+---
+
+## Framework d'hypothèse
 
 ### Structure
 
 ```
-Because [observation/data],
-we believe [change]
-will cause [expected outcome]
-for [audience].
-We'll know this is true when [metrics].
+Parce que [observation/donnée],
+nous croyons que [changement]
+provoquera [résultat attendu]
+pour [audience].
+Nous le saurons quand [métriques].
 ```
 
-### Example
+### Exemple
 
-**Weak**: "Changing the button color might increase clicks."
+**Faible** : "Changer la couleur du bouton pourrait augmenter les clics."
 
-**Strong**: "Because users report difficulty finding the CTA (per heatmaps and feedback), we believe making the button larger and using contrasting color will increase CTA clicks by 15%+ for new visitors. We'll measure click-through rate from page view to signup start."
+**Forte** : "Parce que les utilisateurs signalent des difficultés à trouver le CTA (via les heatmaps et les retours), nous croyons qu'agrandir le bouton et utiliser une couleur contrastée augmentera les clics sur CTA de 15 %+ pour les nouveaux visiteurs. Nous mesurerons le taux de clic de la vue de page jusqu'au démarrage du signup."
 
 ---
 
-## Test Types
+## Types de tests
 
-| Type | Description | Traffic Needed |
+| Type | Description | Trafic requis |
 |------|-------------|----------------|
-| A/B | Two versions, single change | Moderate |
-| A/B/n | Multiple variants | Higher |
-| MVT | Multiple changes in combinations | Very high |
-| Split URL | Different URLs for variants | Moderate |
+| A/B | Deux versions, un seul changement | Modéré |
+| A/B/n | Plusieurs variantes | Plus élevé |
+| MVT | Plusieurs changements combinés | Très élevé |
+| Split URL | URLs différentes pour les variantes | Modéré |
 
 ---
 
-## Sample Size
+## Taille d'échantillon
 
-### Quick Reference
+### Référence rapide
 
-| Baseline | 10% Lift | 20% Lift | 50% Lift |
+| Baseline | Lift 10 % | Lift 20 % | Lift 50 % |
 |----------|----------|----------|----------|
-| 1% | 150k/variant | 39k/variant | 6k/variant |
-| 3% | 47k/variant | 12k/variant | 2k/variant |
-| 5% | 27k/variant | 7k/variant | 1.2k/variant |
-| 10% | 12k/variant | 3k/variant | 550/variant |
+| 1 % | 150k/variante | 39k/variante | 6k/variante |
+| 3 % | 47k/variante | 12k/variante | 2k/variante |
+| 5 % | 27k/variante | 7k/variante | 1,2k/variante |
+| 10 % | 12k/variante | 3k/variante | 550/variante |
 
-**Calculators:**
-- [Evan Miller's](https://www.evanmiller.org/ab-testing/sample-size.html)
-- [Optimizely's](https://www.optimizely.com/sample-size-calculator/)
+**Calculateurs :**
+- [Evan Miller](https://www.evanmiller.org/ab-testing/sample-size.html)
+- [Optimizely](https://www.optimizely.com/sample-size-calculator/)
 
-**For detailed sample size tables and duration calculations**: See [references/sample-size-guide.md](references/sample-size-guide.md)
-
----
-
-## Metrics Selection
-
-### Primary Metric
-- Single metric that matters most
-- Directly tied to hypothesis
-- What you'll use to call the test
-
-### Secondary Metrics
-- Support primary metric interpretation
-- Explain why/how the change worked
-
-### Guardrail Metrics
-- Things that shouldn't get worse
-- Stop test if significantly negative
-
-### Example: Pricing Page Test
-- **Primary**: Plan selection rate
-- **Secondary**: Time on page, plan distribution
-- **Guardrail**: Support tickets, refund rate
+**Pour les tableaux détaillés de taille d'échantillon et les calculs de durée** : voir [references/sample-size-guide.md](references/sample-size-guide.md)
 
 ---
 
-## Designing Variants
+## Sélection des métriques
 
-### What to Vary
+### Métrique principale
+- Métrique unique la plus importante
+- Liée directement à l'hypothèse
+- Celle que tu utiliseras pour conclure le test
 
-| Category | Examples |
+### Métriques secondaires
+- Soutiennent l'interprétation de la métrique principale
+- Expliquent pourquoi/comment le changement a fonctionné
+
+### Métriques de garde-fou
+- Choses qui ne doivent pas se dégrader
+- Stoppe le test si l'effet négatif est significatif
+
+### Exemple : test de page de tarification
+- **Principale** : taux de sélection de plan
+- **Secondaires** : temps sur la page, distribution des plans
+- **Garde-fous** : tickets de support, taux de remboursement
+
+---
+
+## Conception des variantes
+
+### Ce qu'il faut varier
+
+| Catégorie | Exemples |
 |----------|----------|
-| Headlines/Copy | Message angle, value prop, specificity, tone |
-| Visual Design | Layout, color, images, hierarchy |
-| CTA | Button copy, size, placement, number |
-| Content | Information included, order, amount, social proof |
+| Titres/Copy | Angle du message, value prop, spécificité, ton |
+| Design visuel | Layout, couleur, images, hiérarchie |
+| CTA | Texte du bouton, taille, emplacement, nombre |
+| Contenu | Informations incluses, ordre, quantité, social proof |
 
-### Best Practices
-- Single, meaningful change
-- Bold enough to make a difference
-- True to the hypothesis
+### Bonnes pratiques
+- Un changement unique et significatif
+- Suffisamment marqué pour faire une différence
+- Fidèle à l'hypothèse
 
 ---
 
-## Traffic Allocation
+## Allocation du trafic
 
-| Approach | Split | When to Use |
+| Approche | Répartition | Quand l'utiliser |
 |----------|-------|-------------|
-| Standard | 50/50 | Default for A/B |
-| Conservative | 90/10, 80/20 | Limit risk of bad variant |
-| Ramping | Start small, increase | Technical risk mitigation |
+| Standard | 50/50 | Défaut pour un A/B |
+| Conservatrice | 90/10, 80/20 | Limiter le risque d'une mauvaise variante |
+| Ramping | Démarrer petit, augmenter | Atténuation du risque technique |
 
-**Considerations:**
-- Consistency: Users see same variant on return
-- Balanced exposure across time of day/week
-
----
-
-## Implementation
-
-### Client-Side
-- JavaScript modifies page after load
-- Quick to implement, can cause flicker
-- Tools: PostHog, Optimizely, VWO
-
-### Server-Side
-- Variant determined before render
-- No flicker, requires dev work
-- Tools: PostHog, LaunchDarkly, Split
+**Points à considérer :**
+- Cohérence : les utilisateurs voient la même variante au retour
+- Exposition équilibrée selon les heures/jours
 
 ---
 
-## Running the Test
+## Implémentation
 
-### Pre-Launch Checklist
-- [ ] Hypothesis documented
-- [ ] Primary metric defined
-- [ ] Sample size calculated
-- [ ] Variants implemented correctly
-- [ ] Tracking verified
-- [ ] QA completed on all variants
+### Côté client
+- JavaScript modifie la page après chargement
+- Rapide à implémenter, peut provoquer du flicker
+- Outils : PostHog, Optimizely, VWO
 
-### During the Test
-
-**DO:**
-- Monitor for technical issues
-- Check segment quality
-- Document external factors
-
-**Avoid:**
-- Peek at results and stop early
-- Make changes to variants
-- Add traffic from new sources
-
-### The Peeking Problem
-Looking at results before reaching sample size and stopping early leads to false positives and wrong decisions. Pre-commit to sample size and trust the process.
+### Côté serveur
+- Variante déterminée avant le rendu
+- Pas de flicker, nécessite du travail dev
+- Outils : PostHog, LaunchDarkly, Split
 
 ---
 
-## Analyzing Results
+## Exécution du test
 
-### Statistical Significance
-- 95% confidence = p-value < 0.05
-- Means <5% chance result is random
-- Not a guarantee—just a threshold
+### Checklist de pré-lancement
+- [ ] Hypothèse documentée
+- [ ] Métrique principale définie
+- [ ] Taille d'échantillon calculée
+- [ ] Variantes implémentées correctement
+- [ ] Tracking vérifié
+- [ ] QA complétée sur toutes les variantes
 
-### Analysis Checklist
+### Pendant le test
 
-1. **Reach sample size?** If not, result is preliminary
-2. **Statistically significant?** Check confidence intervals
-3. **Effect size meaningful?** Compare to MDE, project impact
-4. **Secondary metrics consistent?** Support the primary?
-5. **Guardrail concerns?** Anything get worse?
-6. **Segment differences?** Mobile vs. desktop? New vs. returning?
+**À faire :**
+- Surveiller les problèmes techniques
+- Vérifier la qualité des segments
+- Documenter les facteurs externes
 
-### Interpreting Results
+**À éviter :**
+- Regarder les résultats et s'arrêter tôt
+- Modifier les variantes
+- Ajouter du trafic provenant de nouvelles sources
 
-| Result | Conclusion |
+### Le problème du "peeking"
+Regarder les résultats avant d'atteindre la taille d'échantillon et arrêter tôt mène à des faux positifs et de mauvaises décisions. Engage-toi à l'avance sur la taille d'échantillon et fais confiance au processus.
+
+---
+
+## Analyse des résultats
+
+### Significativité statistique
+- Confiance 95 % = p-value < 0,05
+- Signifie <5 % de chance que le résultat soit dû au hasard
+- Pas une garantie — juste un seuil
+
+### Checklist d'analyse
+
+1. **Taille d'échantillon atteinte ?** Sinon, le résultat est préliminaire
+2. **Statistiquement significatif ?** Vérifie les intervalles de confiance
+3. **Taille d'effet pertinente ?** Compare au MDE, projette l'impact
+4. **Métriques secondaires cohérentes ?** Soutiennent-elles la principale ?
+5. **Inquiétudes sur les garde-fous ?** Quelque chose s'est-il dégradé ?
+6. **Différences par segment ?** Mobile vs desktop ? Nouveaux vs récurrents ?
+
+### Interprétation des résultats
+
+| Résultat | Conclusion |
 |--------|------------|
-| Significant winner | Implement variant |
-| Significant loser | Keep control, learn why |
-| No significant difference | Need more traffic or bolder test |
-| Mixed signals | Dig deeper, maybe segment |
+| Gagnant significatif | Implémenter la variante |
+| Perdant significatif | Garder le contrôle, comprendre pourquoi |
+| Pas de différence significative | Plus de trafic ou test plus audacieux |
+| Signaux mitigés | Creuser, segmenter peut-être |
 
 ---
 
 ## Documentation
 
-Document every test with:
-- Hypothesis
-- Variants (with screenshots)
-- Results (sample, metrics, significance)
-- Decision and learnings
+Documente chaque test avec :
+- Hypothèse
+- Variantes (avec captures d'écran)
+- Résultats (échantillon, métriques, significativité)
+- Décision et apprentissages
 
-**For templates**: See [references/test-templates.md](references/test-templates.md)
+**Pour les templates** : voir [references/test-templates.md](references/test-templates.md)
 
 ---
 
-## Growth Experimentation Program
+## Programme d'expérimentation de croissance
 
-Individual tests are valuable. A continuous experimentation program is a compounding asset. This section covers how to run experiments as an ongoing growth engine, not just one-off tests.
+Les tests individuels ont de la valeur. Un programme d'expérimentation continu est un actif qui se capitalise. Cette section couvre comment exécuter les expérimentations comme un moteur de croissance en continu, et non comme des tests ponctuels.
 
-### The Experiment Loop
+### La boucle d'expérimentation
 
 ```
-1. Generate hypotheses (from data, research, competitors, customer feedback)
-2. Prioritize with ICE scoring
-3. Design and run the test
-4. Analyze results with statistical rigor
-5. Promote winners to a playbook
-6. Generate new hypotheses from learnings
-→ Repeat
+1. Générer des hypothèses (à partir des données, recherches, concurrents, retours clients)
+2. Prioriser avec le scoring ICE
+3. Concevoir et exécuter le test
+4. Analyser les résultats avec rigueur statistique
+5. Promouvoir les gagnants dans un playbook
+6. Générer de nouvelles hypothèses à partir des apprentissages
+→ Répéter
 ```
 
-### Hypothesis Generation
+### Génération d'hypothèses
 
-Feed your experiment backlog from multiple sources:
+Alimente ton backlog d'expérimentations à partir de plusieurs sources :
 
-| Source | What to Look For |
+| Source | À chercher |
 |--------|-----------------|
-| Analytics | Drop-off points, low-converting pages, underperforming segments |
-| Customer research | Pain points, confusion, unmet expectations |
-| Competitor analysis | Features, messaging, or UX patterns they use that you don't |
-| Support tickets | Recurring questions or complaints about conversion flows |
-| Heatmaps/recordings | Where users hesitate, rage-click, or abandon |
-| Past experiments | "Significant loser" tests often reveal new angles to try |
+| Analytics | Points d'abandon, pages à faible conversion, segments sous-performants |
+| Customer research | Points de douleur, confusion, attentes non comblées |
+| Analyse concurrentielle | Fonctionnalités, messages ou patterns UX qu'ils utilisent et pas toi |
+| Tickets de support | Questions ou plaintes récurrentes sur les funnels de conversion |
+| Heatmaps/enregistrements | Là où les utilisateurs hésitent, rage-clickent ou abandonnent |
+| Expérimentations passées | Les tests "perdants significatifs" révèlent souvent de nouveaux angles à essayer |
 
-### ICE Prioritization
+### Priorisation ICE
 
-Score each hypothesis 1-10 on three dimensions:
+Note chaque hypothèse de 1 à 10 sur trois dimensions :
 
 | Dimension | Question |
 |-----------|----------|
-| **Impact** | If this works, how much will it move the primary metric? |
-| **Confidence** | How sure are we this will work? (Based on data, not gut.) |
-| **Ease** | How fast and cheap can we ship and measure this? |
+| **Impact** | Si ça fonctionne, de combien cela fera bouger la métrique principale ? |
+| **Confiance** | Quelle est notre certitude que ça marche ? (basée sur les données, pas l'intuition) |
+| **Facilité** | À quelle vitesse et pour quel coût peut-on livrer et mesurer cela ? |
 
-**ICE Score** = (Impact + Confidence + Ease) / 3
+**Score ICE** = (Impact + Confiance + Facilité) / 3
 
-Run highest-scoring experiments first. Re-score monthly as context changes.
+Lance d'abord les expérimentations au score le plus élevé. Re-score chaque mois quand le contexte change.
 
-### Experiment Velocity
+### Vélocité d'expérimentation
 
-Track your experimentation rate as a leading indicator of growth:
+Suis ton rythme d'expérimentation comme indicateur avancé de croissance :
 
-| Metric | Target |
+| Métrique | Cible |
 |--------|--------|
-| Experiments launched per month | 4-8 for most teams |
-| Win rate | 20-30% is common for mature programs (sustained higher rates may indicate conservative hypotheses) |
-| Average test duration | 2-4 weeks |
-| Backlog depth | 20+ hypotheses queued |
-| Cumulative lift | Compound gains from all winners |
+| Expérimentations lancées par mois | 4-8 pour la plupart des équipes |
+| Taux de réussite | 20-30 % est courant pour les programmes matures (un taux durablement plus élevé peut indiquer des hypothèses conservatrices) |
+| Durée moyenne d'un test | 2-4 semaines |
+| Profondeur du backlog | 20+ hypothèses en file |
+| Lift cumulé | Gains composés de tous les gagnants |
 
-### The Experiment Playbook
+### Le playbook d'expérimentation
 
-When a test wins, don't just implement it — document the pattern:
+Quand un test gagne, ne l'implémente pas seulement — documente le pattern :
 
 ```
-## [Experiment Name]
-**Date**: [date]
-**Hypothesis**: [the hypothesis]
-**Sample size**: [n per variant]
-**Result**: [winner/loser/inconclusive] — [primary metric] changed by [X%] (95% CI: [range], p=[value])
-**Guardrails**: [any guardrail metrics and their outcomes]
-**Segment deltas**: [notable differences by device, segment, or cohort]
-**Why it worked/failed**: [analysis]
-**Pattern**: [the reusable insight — e.g., "social proof near pricing CTAs increases plan selection"]
-**Apply to**: [other pages/flows where this pattern might work]
-**Status**: [implemented / parked / needs follow-up test]
+## [Nom de l'expérimentation]
+**Date** : [date]
+**Hypothèse** : [l'hypothèse]
+**Taille d'échantillon** : [n par variante]
+**Résultat** : [gagnant/perdant/non concluant] — [métrique principale] a changé de [X %] (IC 95 % : [plage], p=[valeur])
+**Garde-fous** : [métriques de garde-fou et leurs résultats]
+**Écarts par segment** : [différences notables par device, segment ou cohorte]
+**Pourquoi ça a marché/échoué** : [analyse]
+**Pattern** : [l'insight réutilisable — ex : "la social proof près des CTA de pricing augmente la sélection de plan"]
+**Appliquer à** : [autres pages/flux où ce pattern pourrait fonctionner]
+**Statut** : [implémenté / en pause / test de suivi nécessaire]
 ```
 
-Over time, your playbook becomes a library of proven growth patterns specific to your product and audience.
+Avec le temps, ton playbook devient une bibliothèque de patterns de croissance prouvés, spécifiques à ton produit et ton audience.
 
-### Experiment Cadence
+### Cadence d'expérimentation
 
-**Weekly (30 min)**: Review running experiments for technical issues and guardrail metrics. Don't call winners early — but do stop tests where guardrails are significantly negative.
+**Hebdomadaire (30 min)** : passer en revue les expérimentations en cours pour repérer les problèmes techniques et surveiller les garde-fous. Ne déclare pas de gagnant tôt — mais arrête les tests dont les garde-fous sont significativement négatifs.
 
-**Bi-weekly**: Conclude completed experiments. Analyze results, update playbook, launch next experiment from backlog.
+**Bi-mensuel** : conclure les expérimentations terminées. Analyser les résultats, mettre à jour le playbook, lancer la prochaine expérimentation du backlog.
 
-**Monthly (1 hour)**: Review experiment velocity, win rate, cumulative lift. Replenish hypothesis backlog. Re-prioritize with ICE.
+**Mensuel (1 heure)** : revoir la vélocité d'expérimentation, le taux de réussite, le lift cumulé. Réapprovisionner le backlog d'hypothèses. Re-prioriser avec ICE.
 
-**Quarterly**: Audit the playbook. Which patterns have been applied broadly? Which winning patterns haven't been scaled yet? What areas of the funnel are under-tested?
-
----
-
-## Common Mistakes
-
-### Test Design
-- Testing too small a change (undetectable)
-- Testing too many things (can't isolate)
-- No clear hypothesis
-
-### Execution
-- Stopping early
-- Changing things mid-test
-- Not checking implementation
-
-### Analysis
-- Ignoring confidence intervals
-- Cherry-picking segments
-- Over-interpreting inconclusive results
+**Trimestriel** : auditer le playbook. Quels patterns ont été largement appliqués ? Quels patterns gagnants n'ont pas encore été passés à l'échelle ? Quelles zones du funnel sont sous-testées ?
 
 ---
 
-## Task-Specific Questions
+## Erreurs fréquentes
 
-1. What's your current conversion rate?
-2. How much traffic does this page get?
-3. What change are you considering and why?
-4. What's the smallest improvement worth detecting?
-5. What tools do you have for testing?
-6. Have you tested this area before?
+### Conception du test
+- Tester un changement trop petit (indétectable)
+- Tester trop de choses (impossible d'isoler)
+- Pas d'hypothèse claire
+
+### Exécution
+- Arrêter tôt
+- Modifier des éléments en cours de test
+- Ne pas vérifier l'implémentation
+
+### Analyse
+- Ignorer les intervalles de confiance
+- Cherry-picker les segments
+- Surinterpréter des résultats non concluants
 
 ---
 
-## Related Skills
+## Questions spécifiques à la tâche
 
-- **page-cro**: For generating test ideas based on CRO principles
-- **analytics-tracking**: For setting up test measurement
-- **copywriting**: For creating variant copy
+1. Quel est ton taux de conversion actuel ?
+2. Combien de trafic cette page reçoit-elle ?
+3. Quel changement envisages-tu et pourquoi ?
+4. Quelle est la plus petite amélioration qui vaut la peine d'être détectée ?
+5. Quels outils as-tu pour tester ?
+6. As-tu déjà testé ce domaine auparavant ?
+
+---
+
+## Skills associés
+
+- **page-cro** : pour générer des idées de tests basées sur les principes CRO
+- **analytics-tracking** : pour mettre en place la mesure des tests
+- **copywriting** : pour créer la copy des variantes
