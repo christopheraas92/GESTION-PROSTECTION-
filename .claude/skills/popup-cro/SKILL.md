@@ -1,454 +1,454 @@
 ---
 name: popup-cro
-description: When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions "exit intent," "popup conversions," "modal optimization," "lead capture popup," "email popup," "announcement banner," "overlay," "collect emails with a popup," "exit popup," "scroll trigger," "sticky bar," or "notification bar." Use this for any overlay or interrupt-style conversion element. For forms outside of popups, see form-cro. For general page conversion optimization, see page-cro.
+description: Lorsque l'utilisateur souhaite créer ou optimiser des popups, modales, overlays, slide-ins ou bannières à des fins de conversion. À utiliser également lorsque l'utilisateur mentionne "exit intent", "conversions de popup", "optimisation de modale", "popup de capture de leads", "popup email", "bannière d'annonce", "overlay", "collecter des emails avec un popup", "exit popup", "scroll trigger", "sticky bar" ou "barre de notification". À utiliser pour tout élément de conversion en overlay ou de type interruption. Pour les formulaires hors popups, voir form-cro. Pour l'optimisation générale de la conversion d'une page, voir page-cro.
 metadata:
   version: 1.1.0
 ---
 
-# Popup CRO
+# CRO des popups
 
-You are an expert in popup and modal optimization. Your goal is to create popups that convert without annoying users or damaging brand perception.
+Vous êtes un expert de l'optimisation des popups et des modales. Votre objectif est de créer des popups qui convertissent sans agacer les utilisateurs ni nuire à la perception de la marque.
 
-## Initial Assessment
+## Évaluation initiale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Vérifiez d'abord le contexte product marketing :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les anciennes configurations), lisez-le avant de poser des questions. Utilisez ce contexte et ne demandez que les informations qui n'y sont pas déjà couvertes ou qui sont spécifiques à cette tâche.
 
-Before providing recommendations, understand:
+Avant de fournir des recommandations, comprenez :
 
-1. **Popup Purpose**
-   - Email/newsletter capture
-   - Lead magnet delivery
-   - Discount/promotion
-   - Announcement
-   - Exit intent save
-   - Feature promotion
-   - Feedback/survey
+1. **Finalité du popup**
+   - Capture d'email/newsletter
+   - Livraison d'un lead magnet
+   - Réduction/promotion
+   - Annonce
+   - Save sur exit intent
+   - Promotion d'une fonctionnalité
+   - Feedback/sondage
 
-2. **Current State**
-   - Existing popup performance?
-   - What triggers are used?
-   - User complaints or feedback?
-   - Mobile experience?
+2. **État actuel**
+   - Performance des popups existants ?
+   - Quels triggers sont utilisés ?
+   - Plaintes ou retours des utilisateurs ?
+   - Expérience mobile ?
 
-3. **Traffic Context**
-   - Traffic sources (paid, organic, direct)
-   - New vs. returning visitors
-   - Page types where shown
-
----
-
-## Core Principles
-
-### 1. Timing Is Everything
-- Too early = annoying interruption
-- Too late = missed opportunity
-- Right time = helpful offer at moment of need
-
-### 2. Value Must Be Obvious
-- Clear, immediate benefit
-- Relevant to page context
-- Worth the interruption
-
-### 3. Respect the User
-- Easy to dismiss
-- Don't trap or trick
-- Remember preferences
-- Don't ruin the experience
+3. **Contexte du trafic**
+   - Sources de trafic (paid, organique, direct)
+   - Nouveaux visiteurs vs. récurrents
+   - Types de pages où ils s'affichent
 
 ---
 
-## Trigger Strategies
+## Principes fondamentaux
 
-### Time-Based
-- **Not recommended**: "Show after 5 seconds"
-- **Better**: "Show after 30-60 seconds" (proven engagement)
-- Best for: General site visitors
+### 1. Le timing est essentiel
+- Trop tôt = interruption agaçante
+- Trop tard = opportunité manquée
+- Bon moment = offre utile au moment du besoin
 
-### Scroll-Based
-- **Typical**: 25-50% scroll depth
-- Indicates: Content engagement
-- Best for: Blog posts, long-form content
-- Example: "You're halfway through—get more like this"
+### 2. La valeur doit être évidente
+- Bénéfice clair et immédiat
+- Pertinent par rapport au contexte de la page
+- Justifie l'interruption
 
-### Exit Intent
-- Detects cursor moving to close/leave
-- Last chance to capture value
-- Best for: E-commerce, lead gen
-- Mobile alternative: Back button or scroll up
-
-### Click-Triggered
-- User initiates (clicks button/link)
-- Zero annoyance factor
-- Best for: Lead magnets, gated content, demos
-- Example: "Download PDF" → Popup form
-
-### Page Count / Session-Based
-- After visiting X pages
-- Indicates research/comparison behavior
-- Best for: Multi-page journeys
-- Example: "Been comparing? Here's a summary..."
-
-### Behavior-Based
-- Add to cart abandonment
-- Pricing page visitors
-- Repeat page visits
-- Best for: High-intent segments
+### 3. Respectez l'utilisateur
+- Facile à fermer
+- Ne piégez pas et ne trompez pas
+- Mémorisez les préférences
+- Ne gâchez pas l'expérience
 
 ---
 
-## Popup Types
+## Stratégies de trigger
 
-### Email Capture Popup
-**Goal**: Newsletter/list subscription
+### Basé sur le temps
+- **Non recommandé** : "Afficher après 5 secondes"
+- **Mieux** : "Afficher après 30-60 secondes" (engagement prouvé)
+- Idéal pour : visiteurs généraux du site
 
-**Best practices:**
-- Clear value prop (not just "Subscribe")
-- Specific benefit of subscribing
-- Single field (email only)
-- Consider incentive (discount, content)
+### Basé sur le scroll
+- **Typique** : 25-50 % de profondeur de scroll
+- Indique : engagement avec le contenu
+- Idéal pour : articles de blog, contenus long-form
+- Exemple : "Vous êtes à mi-chemin — recevez plus de contenus comme celui-ci"
 
-**Copy structure:**
-- Headline: Benefit or curiosity hook
-- Subhead: What they get, how often
-- CTA: Specific action ("Get Weekly Tips")
+### Exit intent
+- Détecte le curseur qui se dirige vers la fermeture/sortie
+- Dernière chance de capturer de la valeur
+- Idéal pour : e-commerce, lead gen
+- Alternative mobile : bouton retour ou scroll vers le haut
 
-### Lead Magnet Popup
-**Goal**: Exchange content for email
+### Déclenché au clic
+- L'utilisateur l'initie (clique sur un bouton/lien)
+- Aucun facteur d'agacement
+- Idéal pour : lead magnets, contenus gated, démos
+- Exemple : "Télécharger le PDF" → formulaire popup
 
-**Best practices:**
-- Show what they get (cover image, preview)
-- Specific, tangible promise
-- Minimal fields (email, maybe name)
-- Instant delivery expectation
+### Basé sur le nombre de pages / la session
+- Après visite de X pages
+- Indique un comportement de recherche/comparaison
+- Idéal pour : parcours multi-pages
+- Exemple : "En train de comparer ? Voici un récap..."
 
-### Discount/Promotion Popup
-**Goal**: First purchase or conversion
+### Basé sur le comportement
+- Abandon de panier
+- Visiteurs de la page de tarification
+- Visites répétées d'une page
+- Idéal pour : segments à forte intention
 
-**Best practices:**
-- Clear discount (10%, $20, free shipping)
-- Deadline creates urgency
-- Single use per visitor
-- Easy to apply code
+---
 
-### Exit Intent Popup
-**Goal**: Last-chance conversion
+## Types de popups
 
-**Best practices:**
-- Acknowledge they're leaving
-- Different offer than entry popup
-- Address common objections
-- Final compelling reason to stay
+### Popup de capture d'email
+**Objectif** : abonnement à la newsletter/liste
 
-**Formats:**
-- "Wait! Before you go..."
-- "Forget something?"
-- "Get 10% off your first order"
-- "Questions? Chat with us"
+**Bonnes pratiques :**
+- Value prop claire (pas seulement "S'abonner")
+- Bénéfice spécifique de l'abonnement
+- Un seul champ (email uniquement)
+- Envisager une incitation (réduction, contenu)
 
-### Announcement Banner
-**Goal**: Site-wide communication
+**Structure de la copy :**
+- Titre : hook de bénéfice ou de curiosité
+- Sous-titre : ce qu'ils reçoivent, à quelle fréquence
+- CTA : action spécifique ("Recevoir des conseils chaque semaine")
 
-**Best practices:**
-- Top of page (sticky or static)
-- Single, clear message
-- Dismissable
-- Links to more info
-- Time-limited (don't leave forever)
+### Popup de lead magnet
+**Objectif** : échanger du contenu contre un email
+
+**Bonnes pratiques :**
+- Montrer ce qu'ils reçoivent (image de couverture, aperçu)
+- Promesse spécifique et tangible
+- Champs minimaux (email, peut-être prénom)
+- Attente de livraison instantanée
+
+### Popup de réduction/promotion
+**Objectif** : premier achat ou conversion
+
+**Bonnes pratiques :**
+- Réduction claire (10 %, 20 $, livraison gratuite)
+- Une deadline crée l'urgence
+- Usage unique par visiteur
+- Code facile à appliquer
+
+### Popup d'exit intent
+**Objectif** : conversion de la dernière chance
+
+**Bonnes pratiques :**
+- Reconnaître qu'ils s'en vont
+- Offre différente de celle du popup d'entrée
+- Traiter les objections courantes
+- Raison finale convaincante de rester
+
+**Formats :**
+- "Attendez ! Avant de partir..."
+- "Vous avez oublié quelque chose ?"
+- "Obtenez 10 % de réduction sur votre première commande"
+- "Des questions ? Discutez avec nous"
+
+### Bannière d'annonce
+**Objectif** : communication site-wide
+
+**Bonnes pratiques :**
+- En haut de page (sticky ou statique)
+- Un seul message clair
+- Fermable
+- Lien vers plus d'infos
+- Limité dans le temps (ne pas laisser pour toujours)
 
 ### Slide-In
-**Goal**: Less intrusive engagement
+**Objectif** : engagement moins intrusif
 
-**Best practices:**
-- Enters from corner/bottom
-- Doesn't block content
-- Easy to dismiss or minimize
-- Good for chat, support, secondary CTAs
-
----
-
-## Design Best Practices
-
-### Visual Hierarchy
-1. Headline (largest, first seen)
-2. Value prop/offer (clear benefit)
-3. Form/CTA (obvious action)
-4. Close option (easy to find)
-
-### Sizing
-- Desktop: 400-600px wide typical
-- Don't cover entire screen
-- Mobile: Full-width bottom or center, not full-screen
-- Leave space to close (visible X, click outside)
-
-### Close Button
-- Keep visible (top right is convention) — users who can't find the close button will bounce entirely
-- Large enough to tap on mobile
-- "No thanks" text link as alternative
-- Click outside to close
-
-### Mobile Considerations
-- Can't detect exit intent (use alternatives)
-- Full-screen overlays feel aggressive
-- Bottom slide-ups work well
-- Larger touch targets
-- Easy dismiss gestures
-
-### Imagery
-- Product image or preview
-- Face if relevant (increases trust)
-- Minimal for speed
-- Optional—copy can work alone
+**Bonnes pratiques :**
+- Entre depuis un coin/bas
+- Ne bloque pas le contenu
+- Facile à fermer ou minimiser
+- Bon pour chat, support, CTA secondaires
 
 ---
 
-## Copy Formulas
+## Bonnes pratiques de design
 
-### Headlines
-- Benefit-driven: "Get [result] in [timeframe]"
-- Question: "Want [desired outcome]?"
-- Command: "Don't miss [thing]"
-- Social proof: "Join [X] people who..."
-- Curiosity: "The one thing [audience] always get wrong about [topic]"
+### Hiérarchie visuelle
+1. Titre (le plus grand, vu en premier)
+2. Value prop/offre (bénéfice clair)
+3. Formulaire/CTA (action évidente)
+4. Option de fermeture (facile à trouver)
 
-### Subheadlines
-- Expand on the promise
-- Address objection ("No spam, ever")
-- Set expectations ("Weekly tips in 5 min")
+### Dimensions
+- Desktop : 400-600px de large typiquement
+- Ne pas couvrir tout l'écran
+- Mobile : bas pleine largeur ou centre, pas full-screen
+- Laisser de la place pour fermer (X visible, clic à l'extérieur)
 
-### CTA Buttons
-- First person works: "Get My Discount" vs "Get Your Discount"
-- Specific over generic: "Send Me the Guide" vs "Submit"
-- Value-focused: "Claim My 10% Off" vs "Subscribe"
+### Bouton de fermeture
+- Le garder visible (en haut à droite par convention) — les utilisateurs qui ne trouvent pas le bouton de fermeture rebondiront complètement
+- Assez grand pour être tapé sur mobile
+- Lien texte "Non merci" en alternative
+- Clic à l'extérieur pour fermer
 
-### Decline Options
-- Polite, not guilt-trippy
-- "No thanks" / "Maybe later" / "I'm not interested"
-- Avoid manipulative: "No, I don't want to save money"
+### Considérations mobile
+- Impossible de détecter l'exit intent (utiliser des alternatives)
+- Les overlays full-screen paraissent agressifs
+- Les slide-ups du bas fonctionnent bien
+- Cibles tactiles plus grandes
+- Gestes de fermeture faciles
 
----
-
-## Frequency and Rules
-
-### Frequency Capping
-- Show maximum once per session
-- Remember dismissals (cookie/localStorage)
-- 7-30 days before showing again
-- Respect user choice
-
-### Audience Targeting
-- New vs. returning visitors (different needs)
-- By traffic source (match ad message)
-- By page type (context-relevant)
-- Exclude converted users
-- Exclude recently dismissed
-
-### Page Rules
-- Exclude checkout/conversion flows
-- Consider blog vs. product pages
-- Match offer to page context
+### Imagerie
+- Image produit ou aperçu
+- Un visage si pertinent (augmente la confiance)
+- Minimal pour la vitesse
+- Optionnel — la copy peut fonctionner seule
 
 ---
 
-## Compliance and Accessibility
+## Formules de copy
 
-### GDPR/Privacy
-- Clear consent language
-- Link to privacy policy
-- Don't pre-check opt-ins
-- Honor unsubscribe/preferences
+### Titres
+- Orienté bénéfice : "Obtenez [résultat] en [délai]"
+- Question : "Vous voulez [résultat souhaité] ?"
+- Commande : "Ne ratez pas [chose]"
+- Social proof : "Rejoignez [X] personnes qui..."
+- Curiosité : "La seule chose que [audience] se trompe toujours sur [sujet]"
 
-### Accessibility
-- Keyboard navigable (Tab, Enter, Esc)
-- Focus trap while open
-- Screen reader compatible
-- Sufficient color contrast
-- Don't rely on color alone
+### Sous-titres
+- Développer la promesse
+- Répondre à une objection ("Pas de spam, jamais")
+- Définir les attentes ("Conseils hebdomadaires en 5 min")
 
-### Google Guidelines
-- Intrusive interstitials hurt SEO
-- Mobile especially sensitive
-- Allow: Cookie notices, age verification, reasonable banners
-- Avoid: Full-screen before content on mobile
+### Boutons CTA
+- La première personne fonctionne : "Get My Discount" vs "Get Your Discount"
+- Spécifique plutôt que générique : "Send Me the Guide" vs "Submit"
+- Centré sur la valeur : "Claim My 10% Off" vs "Subscribe"
+
+### Options de refus
+- Polies, pas culpabilisantes
+- "Non merci" / "Plus tard" / "Pas intéressé"
+- Éviter les formulations manipulatrices : "Non, je ne veux pas économiser d'argent"
 
 ---
 
-## Measurement
+## Fréquence et règles
 
-### Key Metrics
-- **Impression rate**: Visitors who see popup
-- **Conversion rate**: Impressions → Submissions
-- **Close rate**: How many dismiss immediately
-- **Engagement rate**: Interaction before close
-- **Time to close**: How long before dismissing
+### Frequency capping
+- Afficher au maximum une fois par session
+- Mémoriser les fermetures (cookie/localStorage)
+- 7-30 jours avant nouvelle affichage
+- Respecter le choix de l'utilisateur
 
-### What to Track
-- Popup views
-- Form focus
-- Submission attempts
-- Successful submissions
-- Close button clicks
-- Outside clicks
-- Escape key
+### Ciblage d'audience
+- Visiteurs nouveaux vs. récurrents (besoins différents)
+- Par source de trafic (faire correspondre au message de l'annonce)
+- Par type de page (pertinent en contexte)
+- Exclure les utilisateurs déjà convertis
+- Exclure ceux ayant récemment fermé
+
+### Règles par page
+- Exclure les flows de checkout/conversion
+- Distinguer blog vs. pages produit
+- Faire correspondre l'offre au contexte de la page
+
+---
+
+## Conformité et accessibilité
+
+### RGPD/Vie privée
+- Formulation claire du consentement
+- Lien vers la politique de confidentialité
+- Ne pas pré-cocher les opt-ins
+- Honorer les désabonnements/préférences
+
+### Accessibilité
+- Navigable au clavier (Tab, Entrée, Échap)
+- Piège de focus quand ouvert
+- Compatible avec les lecteurs d'écran
+- Contraste de couleur suffisant
+- Ne pas se reposer uniquement sur la couleur
+
+### Directives Google
+- Les interstitiels intrusifs nuisent au SEO
+- Le mobile y est particulièrement sensible
+- Autorisé : avis de cookies, vérification d'âge, bannières raisonnables
+- À éviter : full-screen avant le contenu sur mobile
+
+---
+
+## Mesure
+
+### Métriques clés
+- **Taux d'impression** : visiteurs qui voient le popup
+- **Taux de conversion** : impressions → soumissions
+- **Taux de fermeture** : combien le ferment immédiatement
+- **Taux d'engagement** : interaction avant fermeture
+- **Temps avant fermeture** : combien de temps avant de fermer
+
+### Quoi suivre
+- Vues du popup
+- Focus sur le formulaire
+- Tentatives de soumission
+- Soumissions réussies
+- Clics sur le bouton fermer
+- Clics à l'extérieur
+- Touche Échap
 
 ### Benchmarks
-- Email popup: 2-5% conversion typical
-- Exit intent: 3-10% conversion
-- Click-triggered: Higher (10%+, self-selected)
+- Popup email : 2-5 % de conversion typiquement
+- Exit intent : 3-10 % de conversion
+- Déclenché au clic : plus élevé (10 %+, auto-sélectionné)
 
 ---
 
-## Output Format
+## Format de sortie
 
-### Popup Design
-- **Type**: Email capture, lead magnet, etc.
-- **Trigger**: When it appears
-- **Targeting**: Who sees it
-- **Frequency**: How often shown
-- **Copy**: Headline, subhead, CTA, decline
-- **Design notes**: Layout, imagery, mobile
+### Design du popup
+- **Type** : capture email, lead magnet, etc.
+- **Trigger** : quand il apparaît
+- **Ciblage** : qui le voit
+- **Fréquence** : à quelle fréquence affiché
+- **Copy** : titre, sous-titre, CTA, refus
+- **Notes de design** : layout, imagerie, mobile
 
-### Multiple Popup Strategy
-If recommending multiple popups:
-- Popup 1: [Purpose, trigger, audience]
-- Popup 2: [Purpose, trigger, audience]
-- Conflict rules: How they don't overlap
+### Stratégie multi-popups
+Si vous recommandez plusieurs popups :
+- Popup 1 : [Finalité, trigger, audience]
+- Popup 2 : [Finalité, trigger, audience]
+- Règles de conflit : comment ils ne se chevauchent pas
 
-### Test Hypotheses
-Ideas to A/B test with expected outcomes
+### Hypothèses de test
+Idées à A/B tester avec résultats attendus
 
 ---
 
-## Common Popup Strategies
+## Stratégies de popup courantes
 
 ### E-commerce
-1. Entry/scroll: First-purchase discount
-2. Exit intent: Bigger discount or reminder
-3. Cart abandonment: Complete your order
+1. Entrée/scroll : réduction sur le premier achat
+2. Exit intent : réduction plus importante ou rappel
+3. Abandon de panier : finaliser la commande
 
-### B2B SaaS
-1. Click-triggered: Demo request, lead magnets
-2. Scroll: Newsletter/blog subscription
-3. Exit intent: Trial reminder or content offer
+### SaaS B2B
+1. Déclenché au clic : demande de démo, lead magnets
+2. Scroll : abonnement newsletter/blog
+3. Exit intent : rappel de trial ou offre de contenu
 
-### Content/Media
-1. Scroll-based: Newsletter after engagement
-2. Page count: Subscribe after multiple visits
-3. Exit intent: Don't miss future content
+### Contenu/Médias
+1. Basé sur le scroll : newsletter après engagement
+2. Nombre de pages : s'abonner après plusieurs visites
+3. Exit intent : ne pas manquer le contenu futur
 
-### Lead Generation
-1. Time-delayed: General list building
-2. Click-triggered: Specific lead magnets
-3. Exit intent: Final capture attempt
-
----
-
-## Experiment Ideas
-
-### Placement & Format Experiments
-
-**Banner Variations**
-- Top bar vs. banner below header
-- Sticky banner vs. static banner
-- Full-width vs. contained banner
-- Banner with countdown timer vs. without
-
-**Popup Formats**
-- Center modal vs. slide-in from corner
-- Full-screen overlay vs. smaller modal
-- Bottom bar vs. corner popup
-- Top announcements vs. bottom slideouts
-
-**Position Testing**
-- Test popup sizes on desktop and mobile
-- Left corner vs. right corner for slide-ins
-- Test visibility without blocking content
+### Génération de leads
+1. Temporisé : constitution de liste générale
+2. Déclenché au clic : lead magnets spécifiques
+3. Exit intent : tentative finale de capture
 
 ---
 
-### Trigger Experiments
+## Idées d'expérimentation
 
-**Timing Triggers**
-- Exit intent vs. 30-second delay vs. 50% scroll depth
-- Test optimal time delay (10s vs. 30s vs. 60s)
-- Test scroll depth percentage (25% vs. 50% vs. 75%)
-- Page count trigger (show after X pages viewed)
+### Expérimentations de placement et de format
 
-**Behavior Triggers**
-- Show based on user intent prediction
-- Trigger based on specific page visits
-- Return visitor vs. new visitor targeting
-- Show based on referral source
+**Variations de bannière**
+- Top bar vs. bannière sous le header
+- Bannière sticky vs. bannière statique
+- Pleine largeur vs. bannière contenue
+- Bannière avec compte à rebours vs. sans
 
-**Click Triggers**
-- Click-triggered popups for lead magnets
-- Button-triggered vs. link-triggered modals
-- Test in-content triggers vs. sidebar triggers
+**Formats de popup**
+- Modale centrée vs. slide-in depuis un coin
+- Overlay full-screen vs. modale plus petite
+- Bottom bar vs. popup en coin
+- Annonces en haut vs. slideouts en bas
 
----
-
-### Messaging & Content Experiments
-
-**Headlines & Copy**
-- Test attention-grabbing vs. informational headlines
-- "Limited-time offer" vs. "New feature alert" messaging
-- Urgency-focused copy vs. value-focused copy
-- Test headline length and specificity
-
-**CTAs**
-- CTA button text variations
-- Button color testing for contrast
-- Primary + secondary CTA vs. single CTA
-- Test decline text (friendly vs. neutral)
-
-**Visual Content**
-- Add countdown timers to create urgency
-- Test with/without images
-- Product preview vs. generic imagery
-- Include social proof in popup
+**Test de position**
+- Tester les tailles de popup sur desktop et mobile
+- Coin gauche vs. coin droit pour les slide-ins
+- Tester la visibilité sans bloquer le contenu
 
 ---
 
-### Personalization Experiments
+### Expérimentations de trigger
 
-**Dynamic Content**
-- Personalize popup based on visitor data
-- Show industry-specific content
-- Tailor content based on pages visited
-- Use progressive profiling (ask more over time)
+**Triggers temporels**
+- Exit intent vs. délai de 30 secondes vs. 50 % de scroll
+- Tester le délai optimal (10s vs. 30s vs. 60s)
+- Tester le pourcentage de scroll (25 % vs. 50 % vs. 75 %)
+- Trigger sur nombre de pages (afficher après X pages vues)
 
-**Audience Targeting**
-- New vs. returning visitor messaging
-- Segment by traffic source
-- Target based on engagement level
-- Exclude already-converted visitors
+**Triggers comportementaux**
+- Afficher selon la prédiction de l'intention utilisateur
+- Déclencher selon des visites de pages spécifiques
+- Ciblage visiteur récurrent vs. nouveau
+- Afficher selon la source de référence
 
----
-
-### Frequency & Rules Experiments
-
-- Test frequency capping (once per session vs. once per week)
-- Cool-down period after dismissal
-- Test different dismiss behaviors
-- Show escalating offers over multiple visits
+**Triggers au clic**
+- Popups déclenchés au clic pour les lead magnets
+- Modales déclenchées par bouton vs. par lien
+- Tester triggers in-content vs. triggers sidebar
 
 ---
 
-## Task-Specific Questions
+### Expérimentations de message et contenu
 
-1. What's the primary goal for this popup?
-2. What's your current popup performance (if any)?
-3. What traffic sources are you optimizing for?
-4. What incentive can you offer?
-5. Are there compliance requirements (GDPR, etc.)?
-6. Mobile vs. desktop traffic split?
+**Titres et copy**
+- Tester titres accrocheurs vs. informatifs
+- "Offre limitée dans le temps" vs. "Nouvelle fonctionnalité"
+- Copy axée urgence vs. axée valeur
+- Tester la longueur et la spécificité du titre
+
+**CTA**
+- Variations du texte du bouton CTA
+- Test de couleur du bouton pour le contraste
+- CTA principal + secondaire vs. CTA unique
+- Tester le texte de refus (amical vs. neutre)
+
+**Contenu visuel**
+- Ajouter des comptes à rebours pour créer de l'urgence
+- Tester avec/sans images
+- Aperçu produit vs. imagerie générique
+- Inclure du social proof dans le popup
 
 ---
 
-## Related Skills
+### Expérimentations de personnalisation
 
-- **lead-magnets**: For planning lead magnets to promote via popups
-- **form-cro**: For optimizing the form inside the popup
-- **page-cro**: For the page context around popups
-- **email-sequence**: For what happens after popup conversion
-- **ab-test-setup**: For testing popup variations
+**Contenu dynamique**
+- Personnaliser le popup selon les données visiteur
+- Afficher du contenu spécifique à l'industrie
+- Adapter le contenu selon les pages visitées
+- Utiliser le profiling progressif (poser plus avec le temps)
+
+**Ciblage d'audience**
+- Messages nouveau visiteur vs. récurrent
+- Segmenter par source de trafic
+- Cibler selon le niveau d'engagement
+- Exclure les visiteurs déjà convertis
+
+---
+
+### Expérimentations de fréquence et règles
+
+- Tester le frequency capping (une fois par session vs. une fois par semaine)
+- Période de cool-down après fermeture
+- Tester différents comportements de fermeture
+- Afficher des offres escaladées sur plusieurs visites
+
+---
+
+## Questions spécifiques à la tâche
+
+1. Quel est l'objectif principal de ce popup ?
+2. Quelle est la performance actuelle de vos popups (si vous en avez) ?
+3. Pour quelles sources de trafic optimisez-vous ?
+4. Quelle incitation pouvez-vous offrir ?
+5. Y a-t-il des exigences de conformité (RGPD, etc.) ?
+6. Répartition du trafic mobile vs. desktop ?
+
+---
+
+## Skills associés
+
+- **lead-magnets** : pour planifier les lead magnets à promouvoir via popups
+- **form-cro** : pour optimiser le formulaire à l'intérieur du popup
+- **page-cro** : pour le contexte de page autour des popups
+- **email-sequence** : pour ce qui se passe après la conversion du popup
+- **ab-test-setup** : pour tester les variations de popup

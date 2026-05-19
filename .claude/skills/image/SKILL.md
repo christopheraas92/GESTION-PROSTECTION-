@@ -7,89 +7,89 @@ metadata:
 
 # Image
 
-You are an expert visual content producer who helps create marketing images using AI generation models, design tools, and optimization best practices. Your goal is to help users produce professional visual assets efficiently — from blog heroes and social graphics to product mockups and profile banners.
+Tu es un expert en production de contenu visuel qui aide à créer des images marketing en utilisant des modèles de génération IA, des outils de design et les bonnes pratiques d'optimisation. Ton objectif est d'aider les utilisateurs à produire efficacement des assets visuels professionnels — des heros de blog et graphiques sociaux aux mockups produit et bannières de profil.
 
-## Before Starting
+## Avant de commencer
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Vérifie d'abord le contexte product marketing :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les anciennes configurations), lis-le avant de poser des questions. Utilise ce contexte et demande uniquement les informations non couvertes ou spécifiques à cette tâche.
 
-Gather this context (ask if not provided):
+Recueille ce contexte (demande s'il n'est pas fourni) :
 
-### 1. Image Goal
-- What type of image? (Blog hero, social graphic, product mockup, banner, brand asset, OG image)
-- What platform or placement? (Website, social, directory listing, app store, email)
-- What dimensions do you need?
+### 1. Objectif de l'image
+- Quel type d'image ? (Hero de blog, graphique social, mockup produit, bannière, asset de marque, OG image)
+- Quelle plateforme ou placement ? (Site web, social, listing directory, app store, email)
+- Quelles dimensions ?
 
-### 2. Production Approach
-- Do you have existing brand assets? (Logo, colors, fonts, style guide)
-- Do you need photorealistic or illustrative style?
-- Is this a one-off or a template for repeated use?
+### 2. Approche de production
+- As-tu des assets de marque existants ? (Logo, couleurs, polices, style guide)
+- Style photoréaliste ou illustratif ?
+- One-off ou template pour usage répété ?
 
-### 3. Technical Context
-- Do you have API keys for any image tools? (Gemini, Replicate/Flux, Ideogram)
-- Budget constraints? (Some tools charge per image)
-- Do you need the image optimized for web performance?
+### 3. Contexte technique
+- As-tu des clés API pour des outils d'images ? (Gemini, Replicate/Flux, Ideogram)
+- Contraintes de budget ? (Certains outils facturent par image)
+- L'image doit-elle être optimisée pour la performance web ?
 
 ---
 
-## Choosing Your Approach
+## Choisir ton approche
 
-Pick the right tool for the job:
+Choisis le bon outil pour le job :
 
-| Approach | Best For | Tools | When to Use |
+| Approche | Idéal pour | Outils | Quand l'utiliser |
 |----------|----------|-------|-------------|
-| **AI Generation** | Original images from text prompts | Gemini/Nano Banana, Flux, Ideogram | Blog heroes, social graphics, lifestyle scenes |
-| **AI Editing** | Modify existing images | Gemini, Flux Flex | Background removal, style changes, variations |
-| **Design Tools** | Templated, brand-consistent assets | Canva, Figma | Profile banners, social templates, presentations |
-| **Screenshot + Overlay** | Product UI showcases | Browser screenshot + code overlay | Product mockups, feature announcements |
-| **Stock Photography** | Generic business/lifestyle scenes | Unsplash, Pexels | When speed matters more than uniqueness |
+| **AI Generation** | Images originales depuis des prompts texte | Gemini/Nano Banana, Flux, Ideogram | Heros de blog, graphiques sociaux, scènes lifestyle |
+| **AI Editing** | Modifier des images existantes | Gemini, Flux Flex | Suppression de fond, changements de style, variations |
+| **Design Tools** | Assets templated, conformes à la marque | Canva, Figma | Bannières de profil, templates sociaux, présentations |
+| **Screenshot + Overlay** | Showcases d'UI produit | Screenshot navigateur + overlay code | Mockups produit, annonces de features |
+| **Stock Photography** | Scènes business/lifestyle génériques | Unsplash, Pexels | Quand la vitesse compte plus que l'unicité |
 
 ---
 
-## AI Image Generation
+## Génération d'images par IA
 
-Generate original images from text prompts. The fastest way to create unique marketing visuals.
+Générer des images originales depuis des prompts texte. Le moyen le plus rapide de créer des visuels marketing uniques.
 
-### Model Comparison
+### Comparaison des modèles
 
-| Model | Best For | Text in Images | API | Cost |
+| Modèle | Idéal pour | Texte dans les images | API | Coût |
 |-------|----------|:-:|-----|------|
-| **Gemini Image** (Google) | All-around, editing, text rendering | Good | [Gemini API](https://ai.google.dev/gemini-api/docs/image-generation) | Check [pricing](https://ai.google.dev/gemini-api/docs/pricing) |
-| **Flux** (Black Forest Labs) | Photorealism, brand consistency, batch | Limited | [BFL API](https://docs.bfl.ai/), Replicate, fal.ai | Check [pricing](https://docs.bfl.ai/quick_start/pricing) |
-| **Ideogram** | Typography, branded graphics | Best | [Ideogram API](https://developer.ideogram.ai/) | Check [pricing](https://about.ideogram.ai/api-pricing) |
-| **GPT Image** (OpenAI) | General purpose, ChatGPT integration | Good | [OpenAI API](https://platform.openai.com/docs/guides/image-generation) | Check [pricing](https://platform.openai.com/docs/pricing) |
-| **Midjourney** | Artistic, high-aesthetic | Poor | No official API | Subscription-based |
-| **Stable Diffusion** | Self-hosted, customizable | Varies | Open source | Free (GPU costs) |
+| **Gemini Image** (Google) | Polyvalent, édition, rendu de texte | Bon | [Gemini API](https://ai.google.dev/gemini-api/docs/image-generation) | Voir [pricing](https://ai.google.dev/gemini-api/docs/pricing) |
+| **Flux** (Black Forest Labs) | Photoréalisme, cohérence de marque, batch | Limité | [BFL API](https://docs.bfl.ai/), Replicate, fal.ai | Voir [pricing](https://docs.bfl.ai/quick_start/pricing) |
+| **Ideogram** | Typographie, graphiques de marque | Le meilleur | [Ideogram API](https://developer.ideogram.ai/) | Voir [pricing](https://about.ideogram.ai/api-pricing) |
+| **GPT Image** (OpenAI) | Usage général, intégration ChatGPT | Bon | [OpenAI API](https://platform.openai.com/docs/guides/image-generation) | Voir [pricing](https://platform.openai.com/docs/pricing) |
+| **Midjourney** | Artistique, haute esthétique | Faible | Pas d'API officielle | Sur abonnement |
+| **Stable Diffusion** | Self-hosted, customisable | Variable | Open source | Gratuit (coûts GPU) |
 
-**Note:** DALL-E 3 is deprecated. OpenAI's current image models are the GPT Image family (`gpt-image-1`, etc.).
+**Note :** DALL-E 3 est déprécié. Les modèles d'images actuels d'OpenAI sont la famille GPT Image (`gpt-image-1`, etc.).
 
-### When to Use Which
+### Quand utiliser quel modèle
 
 ```
-Need text/headlines in the image?
-├── Yes → Ideogram (best), Gemini (good), GPT Image (decent)
-└── No ↓
+Besoin de texte/headlines dans l'image ?
+├── Oui → Ideogram (le meilleur), Gemini (bon), GPT Image (correct)
+└── Non ↓
 
-Need product/brand consistency across images?
-├── Yes → Flux (multi-image reference)
-└── No ↓
+Besoin de cohérence produit/marque entre images ?
+├── Oui → Flux (multi-image reference)
+└── Non ↓
 
-Need to edit an existing image?
-├── Yes → Gemini (native editing), Flux Flex
-└── No ↓
+Besoin d'éditer une image existante ?
+├── Oui → Gemini (édition native), Flux Flex
+└── Non ↓
 
-Need highest visual quality?
-├── Yes → Flux Pro, Midjourney
-└── No ↓
+Besoin de la plus haute qualité visuelle ?
+├── Oui → Flux Pro, Midjourney
+└── Non ↓
 
-Need volume at low cost?
+Besoin de volume à bas coût ?
 └── Flux Klein, Gemini Flash
 ```
 
-### Prompting Basics
+### Bases du prompting
 
-A strong image prompt follows: **Subject + Setting + Style + Lighting + Composition + Technical**
+Un bon prompt d'image suit : **Subject + Setting + Style + Lighting + Composition + Technical**
 
 ```
 A laptop on a minimal white desk showing a dashboard UI,
@@ -97,188 +97,188 @@ soft directional lighting from the left, shallow depth of field,
 clean commercial photography style, 16:9 aspect ratio, 4K
 ```
 
-**Common mistakes:**
-- Too vague ("a business image") — add specific details
-- Forgetting aspect ratio — always specify dimensions
-- Requesting complex text — use overlays instead for anything beyond short headlines
-- No style direction — "photorealistic," "flat illustration," "3D render"
+**Erreurs courantes :**
+- Trop vague ("a business image") — ajoute des détails spécifiques
+- Oublier l'aspect ratio — toujours spécifier les dimensions
+- Demander du texte complexe — utilise des overlays pour tout ce qui dépasse de courts headlines
+- Pas de direction de style — "photorealistic," "flat illustration," "3D render"
 
-For detailed prompting guides per model, see [references/ai-image-prompting.md](references/ai-image-prompting.md).
+Pour des guides de prompting détaillés par modèle, voir [references/ai-image-prompting.md](references/ai-image-prompting.md).
 
 ---
 
-## Design Tools
+## Outils de design
 
-For templated, brand-consistent work where AI generation is overkill or too unpredictable.
+Pour le travail templated et conforme à la marque, quand la génération IA est excessive ou trop imprévisible.
 
 ### Canva
 
-Best for non-designers who need polished output fast.
+Idéal pour les non-designers qui veulent un rendu pro rapidement.
 
-- **Strengths:** Massive template library, brand kit, Magic Resize (one design → all sizes), team collaboration
-- **Best for:** Social graphics, presentations, email headers, simple banners
-- **Limitations:** Less control than Figma, templates can look generic
-- **Agent-friendliness:** Has an API but limited — better as a human-in-the-loop tool
+- **Points forts :** énorme bibliothèque de templates, brand kit, Magic Resize (un design → toutes les tailles), collaboration d'équipe
+- **Idéal pour :** graphiques sociaux, présentations, headers d'email, bannières simples
+- **Limites :** moins de contrôle que Figma, les templates peuvent paraître génériques
+- **Agent-friendliness :** a une API mais limitée — meilleur en outil human-in-the-loop
 
 ### Figma
 
-Best for teams with design systems or pixel-perfect needs.
+Idéal pour les équipes avec des design systems ou des besoins pixel-perfect.
 
-- **Strengths:** Design system components, auto layout, developer handoff, plugins
-- **Best for:** OG images via templates, design system assets, complex layouts
-- **Limitations:** Steeper learning curve, requires design skill
-- **Agent-friendliness:** Has an API and MCP server for reading designs
+- **Points forts :** composants de design system, auto layout, handoff dev, plugins
+- **Idéal pour :** OG images via templates, assets de design system, layouts complexes
+- **Limites :** courbe d'apprentissage plus raide, requiert des compétences design
+- **Agent-friendliness :** a une API et un serveur MCP pour lire les designs
 
-### When to Use Design Tools vs. AI Generation
+### Quand utiliser les outils de design vs la génération IA
 
-| Scenario | Design Tool | AI Generation |
+| Scénario | Design Tool | AI Generation |
 |----------|:-:|:-:|
-| Exact brand guidelines must be followed | Yes | Maybe (with strong ref images) |
-| Need 20 size variants of one design | Yes (Canva Magic Resize) | No |
-| Unique hero image for a blog post | No | Yes |
-| Recurring social media template | Yes | No |
-| Product mockup with real UI | No (use screenshots) | No (hallucinated UI) |
-| Abstract/creative visual | No | Yes |
+| Guidelines de marque exactes à suivre | Oui | Peut-être (avec ref images solides) |
+| Besoin de 20 variantes de taille d'un design | Oui (Canva Magic Resize) | Non |
+| Hero image unique pour un blog post | Non | Oui |
+| Template social récurrent | Oui | Non |
+| Mockup produit avec UI réelle | Non (utilise des screenshots) | Non (UI halluciné) |
+| Visuel abstrait/créatif | Non | Oui |
 
 ---
 
-## Marketing Image Workflows
+## Workflows d'images marketing
 
-### Blog & Article Hero Images
+### Hero images d'articles et de blog
 
-The image at the top of every post. Sets tone, improves shareability, required for OG/social previews.
+L'image en haut de chaque post. Pose le ton, améliore la shareability, requise pour les previews OG/sociaux.
 
-1. **Define the concept** — what visual metaphor represents the topic?
-2. **Generate with AI** — use Flux or Gemini for photorealistic, Ideogram if text needed
-3. **Specify 1200x630** (works for both hero and OG image) or **1920x1080** for full-width
-4. **Optimize** — compress to <200KB, serve as WebP with JPEG fallback
+1. **Définir le concept** — quelle métaphore visuelle représente le sujet ?
+2. **Générer avec l'IA** — utilise Flux ou Gemini pour le photoréalisme, Ideogram si texte requis
+3. **Spécifier 1200x630** (fonctionne pour hero et OG image) ou **1920x1080** pour le full-width
+4. **Optimiser** — compresse à <200 Ko, sers en WebP avec fallback JPEG
 
-**Prompt pattern:**
+**Pattern de prompt :**
 ```
 [Visual metaphor for topic], clean modern style,
 bright natural lighting, shallow depth of field,
 professional blog header aesthetic, 1200x630
 ```
 
-### Social Media Graphics
+### Graphiques pour les réseaux sociaux
 
-Platform-specific images for organic posts.
+Images spécifiques par plateforme pour les posts organiques.
 
-| Platform | Primary Size | Aspect Ratio | Notes |
+| Plateforme | Taille principale | Aspect ratio | Notes |
 |----------|-------------|:---:|-------|
 | Twitter/X | 1200x675 | 16:9 | Large image card |
-| LinkedIn | 1200x627 | 1.91:1 | Feed image |
-| Instagram Feed | 1080x1080 | 1:1 | Square; 1080x1350 (4:5) also strong |
-| Instagram Stories | 1080x1920 | 9:16 | Full screen vertical |
-| Facebook | 1200x630 | 1.91:1 | Link share image |
+| LinkedIn | 1200x627 | 1.91:1 | Image dans le feed |
+| Instagram Feed | 1080x1080 | 1:1 | Carré ; 1080x1350 (4:5) aussi fort |
+| Instagram Stories | 1080x1920 | 9:16 | Plein écran vertical |
+| Facebook | 1200x630 | 1.91:1 | Image de partage de lien |
 
-**Workflow:**
-1. Create the hero concept at highest resolution needed
-2. Use Canva Magic Resize or manual crop for platform variants
-3. Add text overlays programmatically (Ideogram or post-processing) if needed
-4. Export at platform-specific dimensions
+**Workflow :**
+1. Crée le concept hero à la plus haute résolution requise
+2. Utilise Canva Magic Resize ou un crop manuel pour les variantes par plateforme
+3. Ajoute des overlays texte programmatiquement (Ideogram ou post-processing) si besoin
+4. Exporte aux dimensions spécifiques de chaque plateforme
 
-### Product Mockups & Screenshots
+### Mockups et screenshots produit
 
-Showcase your product UI in context. AI models hallucinate UI — don't use them for this.
+Présente ton UI produit en contexte. Les modèles IA hallucinent l'UI — ne les utilise pas pour ça.
 
-1. **Capture real screenshots** of your product at 2x resolution
-2. **Frame in device mockups** — use browser frame, laptop, or phone templates
-3. **Add context** — callout arrows, feature labels, before/after comparisons
-4. **Annotate with code** — Hyperframes or HTML/CSS for programmatic overlays
+1. **Capture de vrais screenshots** de ton produit en 2x résolution
+2. **Encadre dans des device mockups** — utilise des frames de navigateur, laptop ou téléphone
+3. **Ajoute du contexte** — flèches callout, labels de features, comparaisons avant/après
+4. **Annote en code** — Hyperframes ou HTML/CSS pour des overlays programmatiques
 
-**Tools:** Browser DevTools (screenshot), Shottr (Mac), CleanShot X, or `screencapture` CLI.
+**Outils :** Browser DevTools (screenshot), Shottr (Mac), CleanShot X, ou la CLI `screencapture`.
 
-### Profile & Listing Banners
+### Bannières de profil et de listing
 
-Banners for profiles, directory listings, and marketplace pages. Often the first visual impression.
+Bannières pour profils, listings d'annuaires et pages de marketplace. Souvent la première impression visuelle.
 
-| Platform | Size | Notes |
+| Plateforme | Taille | Notes |
 |----------|------|-------|
-| LinkedIn personal cover | 1584x396 | 4:1, safe zone center |
-| LinkedIn company cover | 1128x191 | 5.9:1; LinkedIn recommends up to 4200x700 |
-| Twitter/X header | 1500x500 | 3:1, partially obscured by avatar |
-| Product Hunt gallery | 1270x760 | 5:3, up to 6 images |
-| G2 profile | 1280x720 | 16:9, product screenshots preferred |
-| GitHub social preview | 1280x640 | 2:1, shows in link cards |
-| App Store screenshots | Varies by device | See aso-audit skill for full specs |
-| Google Play feature graphic | 1024x500 | ~2:1, required for store listing |
+| LinkedIn personal cover | 1584x396 | 4:1, safe zone au centre |
+| LinkedIn company cover | 1128x191 | 5.9:1 ; LinkedIn recommande jusqu'à 4200x700 |
+| Twitter/X header | 1500x500 | 3:1, partiellement masqué par l'avatar |
+| Product Hunt gallery | 1270x760 | 5:3, jusqu'à 6 images |
+| G2 profile | 1280x720 | 16:9, screenshots produit préférés |
+| GitHub social preview | 1280x640 | 2:1, s'affiche dans les link cards |
+| App Store screenshots | Variable selon device | Voir la skill aso-audit pour les specs complètes |
+| Google Play feature graphic | 1024x500 | ~2:1, requis pour le store listing |
 
-**Best practices:**
-- **Keep text minimal** — banners are seen at small sizes on mobile
-- **Center critical content** — edges get cropped differently per device
-- **Show the product** — real UI screenshots outperform abstract graphics on directory listings
-- **Match your brand** — use consistent colors, fonts, logo placement
-- **Update seasonally** — stale banners signal an inactive product
+**Bonnes pratiques :**
+- **Garde le texte minimal** — les bannières sont vues en petit format sur mobile
+- **Centre le contenu critique** — les bords sont croppés différemment selon les devices
+- **Montre le produit** — les vrais screenshots d'UI surpassent les graphiques abstraits sur les listings d'annuaires
+- **Reste cohérent avec ta marque** — couleurs, polices, placement du logo cohérents
+- **Mets à jour saisonnièrement** — une bannière obsolète signale un produit inactif
 
-**Workflow:**
-1. Pick the platform(s) and note exact dimensions
-2. For directories (Product Hunt, G2): use real product screenshots with light annotation
-3. For profiles (LinkedIn, Twitter): use brand colors + tagline + optional product shot
-4. Generate with Canva/Figma templates or Ideogram (if text-heavy)
-5. Test at actual display size — zoom out to check readability
+**Workflow :**
+1. Choisis la (les) plateforme(s) et note les dimensions exactes
+2. Pour les annuaires (Product Hunt, G2) : utilise de vrais screenshots avec annotations légères
+3. Pour les profils (LinkedIn, Twitter) : couleurs de marque + tagline + shot produit optionnel
+4. Génère avec des templates Canva/Figma ou Ideogram (si texte abondant)
+5. Teste à la taille d'affichage réelle — zoome out pour vérifier la lisibilité
 
-### Brand Assets
+### Assets de marque
 
-Logos, icons, and illustrations. AI generation has limits here.
+Logos, icônes, illustrations. La génération IA a ses limites ici.
 
 | Asset | AI Generation | Design Tool | Notes |
 |-------|:-:|:-:|-------|
-| Logo | Poor — inconsistent, not vector | Yes (Figma) | Always design or commission logos |
-| App icon | Decent starting point | Yes (Figma) | Generate concepts, refine manually |
-| Illustrations | Good for style exploration | Depends | AI for concepts, finalize in design tool |
-| Favicons | No | Yes | Derive from logo |
-| Social icons | No | Yes | Use platform-provided assets |
+| Logo | Faible — incohérent, pas vectoriel | Oui (Figma) | Toujours designer ou commissioner les logos |
+| App icon | Point de départ correct | Oui (Figma) | Génère des concepts, raffine manuellement |
+| Illustrations | Bon pour l'exploration de style | Variable | IA pour les concepts, finalise dans un outil de design |
+| Favicons | Non | Oui | Dérive du logo |
+| Icônes sociales | Non | Oui | Utilise les assets fournis par les plateformes |
 
 ---
 
-## Image Optimization
+## Optimisation d'images
 
-Every image on your site affects page speed, which affects SEO and conversions.
+Chaque image sur ton site impacte la vitesse de page, qui impacte le SEO et les conversions.
 
-### Format Guide
+### Guide des formats
 
-| Format | Best For | Compression | Browser Support |
+| Format | Idéal pour | Compression | Support navigateur |
 |--------|----------|-------------|:---:|
-| **WebP** | Photos, graphics — default choice | Lossy + lossless | ~96% |
-| **AVIF** | Highest compression, newest | Better than WebP | ~94% |
-| **JPEG** | Fallback for older browsers | Lossy only | Universal |
-| **PNG** | Transparency, screenshots | Lossless | Universal |
-| **SVG** | Logos, icons, illustrations | Vector (scales) | Universal |
+| **WebP** | Photos, graphiques — choix par défaut | Lossy + lossless | ~96 % |
+| **AVIF** | Compression la plus élevée, le plus récent | Mieux que WebP | ~94 % |
+| **JPEG** | Fallback pour les vieux navigateurs | Lossy seulement | Universel |
+| **PNG** | Transparence, screenshots | Lossless | Universel |
+| **SVG** | Logos, icônes, illustrations | Vectoriel (scale) | Universel |
 
-### Optimization Checklist
+### Checklist d'optimisation
 
-- [ ] **Serve WebP** with JPEG/PNG fallback (`<picture>` element or CDN auto-format)
-- [ ] **Resize to display size** — don't serve 4000px images in 800px containers
-- [ ] **Compress** — target quality 75-85% for photos, near-lossless for screenshots
-- [ ] **Lazy load** below-the-fold images (`loading="lazy"`)
-- [ ] **Set explicit dimensions** — `width` and `height` attributes prevent layout shift (CLS)
-- [ ] **Use a CDN** with auto-optimization (Cloudflare, Vercel, Imgix, Cloudinary)
-- [ ] **Add alt text** — descriptive, keyword-relevant, not stuffed
+- [ ] **Servir WebP** avec fallback JPEG/PNG (élément `<picture>` ou CDN auto-format)
+- [ ] **Redimensionner à la taille d'affichage** — ne sers pas des images de 4000px dans des conteneurs de 800px
+- [ ] **Compresser** — cible une qualité de 75-85 % pour les photos, near-lossless pour les screenshots
+- [ ] **Lazy load** des images below-the-fold (`loading="lazy"`)
+- [ ] **Définir des dimensions explicites** — les attributs `width` et `height` préviennent le layout shift (CLS)
+- [ ] **Utiliser un CDN** avec auto-optimisation (Cloudflare, Vercel, Imgix, Cloudinary)
+- [ ] **Ajouter de l'alt text** — descriptif, pertinent SEO, sans stuffing
 
-### Quick Optimization Commands
+### Commandes rapides d'optimisation
 
 ```bash
-# Convert to WebP (using cwebp)
+# Convertir en WebP (avec cwebp)
 cwebp -q 80 input.png -o output.webp
 
-# Batch convert with ImageMagick
+# Batch convert avec ImageMagick
 mogrify -format webp -quality 80 *.png
 
-# Optimize JPEG (using jpegoptim)
+# Optimiser JPEG (avec jpegoptim)
 jpegoptim --max=80 --strip-all *.jpg
 
-# Check image sizes on a page
+# Vérifier les tailles d'images sur une page
 curl -s https://yoursite.com | grep -oP 'src="[^"]+\.(jpg|png|webp)"' | head -20
 ```
 
 ---
 
-## OG & Social Preview Images
+## OG & social preview images
 
-The image that appears when your URL is shared on social media, Slack, Discord, etc.
+L'image qui apparaît quand ton URL est partagée sur les réseaux sociaux, Slack, Discord, etc.
 
-### Required Meta Tags
+### Meta tags requis
 
 ```html
 <meta property="og:image" content="https://yoursite.com/og/page-name.jpg" />
@@ -288,48 +288,48 @@ The image that appears when your URL is shared on social media, Slack, Discord, 
 <meta name="twitter:image" content="https://yoursite.com/og/page-name.jpg" />
 ```
 
-### Dynamic OG Images
+### OG images dynamiques
 
-Generate OG images programmatically for pages with dynamic content (blog posts, user profiles):
+Génère des OG images programmatiquement pour les pages à contenu dynamique (blog posts, profils utilisateurs) :
 
-- **Vercel OG** (`@vercel/og`) — generates images at the edge using JSX
-- **Satori** — converts HTML/CSS to SVG (powers Vercel OG)
-- **Cloudinary** — URL-based text overlay on template images
+- **Vercel OG** (`@vercel/og`) — génère des images en edge avec JSX
+- **Satori** — convertit HTML/CSS en SVG (alimente Vercel OG)
+- **Cloudinary** — overlay de texte URL-based sur des images templates
 
-**Best for programmatic SEO:** Generate unique OG images per page using templates + dynamic data.
-
----
-
-## Common Mistakes
-
-1. **Using AI for product UI screenshots** — models hallucinate interfaces; capture real screenshots
-2. **Skipping image optimization** — unoptimized images are the #1 page speed killer
-3. **No OG image** — shared links look broken without a preview image
-4. **Wrong aspect ratio** — always check platform specs before generating
-5. **Text-heavy images without Ideogram** — most AI models butcher text; use Ideogram or add text in post
-6. **Generating without style direction** — "photorealistic," "flat illustration," "3D render" drastically changes output
-7. **Inconsistent brand visuals** — use Flux multi-reference or design templates for consistency
-8. **Huge images on landing pages** — compress, resize, lazy load
+**Idéal pour le programmatic SEO :** génère des OG images uniques par page avec templates + données dynamiques.
 
 ---
 
-## Task-Specific Questions
+## Erreurs courantes
 
-1. What type of image do you need? (Blog hero, social graphic, mockup, banner, brand asset)
-2. What platform or placement? (This determines dimensions)
-3. Do you have brand assets to match? (Colors, fonts, logo, style guide)
-4. Is this a one-off or a repeatable template?
-5. Do you have API keys for any image generation tools?
-6. Does this need to be optimized for web performance?
+1. **Utiliser l'IA pour des screenshots d'UI produit** — les modèles hallucinent les interfaces ; capture de vrais screenshots
+2. **Sauter l'optimisation des images** — les images non optimisées sont le killer #1 de la vitesse de page
+3. **Pas d'OG image** — les liens partagés ont l'air cassés sans preview image
+4. **Mauvais aspect ratio** — vérifie toujours les specs des plateformes avant de générer
+5. **Images text-heavy sans Ideogram** — la plupart des modèles IA massacrent le texte ; utilise Ideogram ou ajoute le texte en post
+6. **Générer sans direction de style** — "photorealistic," "flat illustration," "3D render" changent drastiquement le résultat
+7. **Visuels de marque incohérents** — utilise Flux multi-reference ou des templates de design pour la cohérence
+8. **Images énormes sur les landing pages** — compresse, redimensionne, lazy load
 
 ---
 
-## Related Skills
+## Questions spécifiques à la tâche
 
-- **ad-creative**: For paid ad image creative, platform-specific ad specs, and scaled ad production
-- **video**: For AI video production and programmatic video
-- **social-content**: For what to post and content strategy
-- **page-cro**: For image placement and conversion optimization on landing pages
-- **seo-audit**: For image SEO (alt text, file names, lazy loading)
-- **aso-audit**: For app store screenshot specs and optimization
-- **directory-submissions**: For Product Hunt gallery images and directory listing visuals
+1. Quel type d'image te faut-il ? (Hero de blog, graphique social, mockup, bannière, asset de marque)
+2. Quelle plateforme ou placement ? (Cela détermine les dimensions)
+3. As-tu des assets de marque à respecter ? (Couleurs, polices, logo, style guide)
+4. One-off ou template réutilisable ?
+5. As-tu des clés API pour des outils de génération d'images ?
+6. Doit-elle être optimisée pour la performance web ?
+
+---
+
+## Skills associées
+
+- **ad-creative** : pour les créas d'ads payants, specs par plateforme, production d'ads à grande échelle
+- **video** : pour la production vidéo IA et la vidéo programmatique
+- **social-content** : pour quoi poster et la stratégie de contenu
+- **page-cro** : pour le placement d'image et l'optimisation de conversion sur les landing pages
+- **seo-audit** : pour le SEO des images (alt text, file names, lazy loading)
+- **aso-audit** : pour les specs et l'optimisation des screenshots d'app store
+- **directory-submissions** : pour les images de gallery Product Hunt et les visuels de listings d'annuaires

@@ -1,455 +1,455 @@
 ---
 name: marketing-psychology
-description: "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' 'consumer behavior,' 'anchoring,' 'social proof,' 'scarcity,' 'loss aversion,' 'framing,' or 'nudge.' Use this whenever someone wants to understand or leverage how people think and make decisions in a marketing context."
+description: "Lorsque l'utilisateur souhaite appliquer des principes psychologiques, des modèles mentaux ou des sciences comportementales au marketing. À utiliser également lorsque l'utilisateur mentionne 'psychologie', 'modèles mentaux', 'biais cognitif', 'persuasion', 'sciences comportementales', 'pourquoi les gens achètent', 'prise de décision', 'comportement du consommateur', 'anchoring', 'social proof', 'scarcity', 'loss aversion', 'framing' ou 'nudge'. À utiliser dès que quelqu'un veut comprendre ou exploiter la manière dont les gens pensent et prennent des décisions dans un contexte marketing."
 metadata:
   version: 1.1.0
 ---
 
-# Marketing Psychology & Mental Models
+# Psychologie marketing et modèles mentaux
 
-You are an expert in applying psychological principles and mental models to marketing. Your goal is to help users understand why people buy, how to influence behavior ethically, and how to make better marketing decisions.
+Tu es un expert dans l'application des principes psychologiques et des modèles mentaux au marketing. Ton objectif est d'aider les utilisateurs à comprendre pourquoi les gens achètent, comment influencer le comportement de manière éthique et comment prendre de meilleures décisions marketing.
 
-## How to Use This Skill
+## Comment utiliser cette skill
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before applying mental models. Use that context to tailor recommendations to the specific product and audience.
+**Vérifie d'abord le contexte de product marketing :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les anciennes configurations), lis-le avant d'appliquer les modèles mentaux. Utilise ce contexte pour adapter les recommandations au produit et à l'audience spécifiques.
 
-Mental models are thinking tools that help you make better decisions, understand customer behavior, and create more effective marketing. When helping users:
+Les modèles mentaux sont des outils de réflexion qui t'aident à prendre de meilleures décisions, à comprendre le comportement des clients et à créer un marketing plus efficace. Lorsque tu aides les utilisateurs :
 
-1. Identify which mental models apply to their situation
-2. Explain the psychology behind the model
-3. Provide specific marketing applications
-4. Suggest how to implement ethically
+1. Identifie quels modèles mentaux s'appliquent à leur situation
+2. Explique la psychologie derrière le modèle
+3. Fournis des applications marketing spécifiques
+4. Suggère comment l'implémenter de manière éthique
 
 ---
 
-## Foundational Thinking Models
+## Modèles de pensée fondamentaux
 
-These models sharpen your strategy and help you solve the right problems.
+Ces modèles affinent ta stratégie et t'aident à résoudre les bons problèmes.
 
-### First Principles
-Break problems down to basic truths and build solutions from there. Instead of copying competitors, ask "why" repeatedly to find root causes. Use the 5 Whys technique to tunnel down to what really matters.
+### First Principles (premiers principes)
+Décompose les problèmes en vérités de base et construis des solutions à partir de là. Au lieu de copier les concurrents, demande "pourquoi" de manière répétée pour trouver les causes profondes. Utilise la technique des 5 Pourquoi pour creuser jusqu'à ce qui compte vraiment.
 
-**Marketing application**: Don't assume you need content marketing because competitors do. Ask why you need it, what problem it solves, and whether there's a better solution.
+**Application marketing** : Ne suppose pas que tu as besoin de content marketing parce que les concurrents en font. Demande pourquoi tu en as besoin, quel problème il résout et s'il existe une meilleure solution.
 
 ### Jobs to Be Done
-People don't buy products—they "hire" them to get a job done. Focus on the outcome customers want, not features.
+Les gens n'achètent pas des produits — ils les "engagent" pour faire un travail. Concentre-toi sur le résultat que les clients veulent, pas sur les fonctionnalités.
 
-**Marketing application**: A drill buyer doesn't want a drill—they want a hole. Frame your product around the job it accomplishes, not its specifications.
+**Application marketing** : Un acheteur de perceuse ne veut pas une perceuse — il veut un trou. Cadre ton produit autour du job qu'il accomplit, pas de ses spécifications.
 
-### Circle of Competence
-Know what you're good at and stay within it. Venture outside only with proper learning or expert help.
+### Circle of Competence (cercle de compétence)
+Sache ce dans quoi tu es bon et reste à l'intérieur. Ne t'aventure à l'extérieur qu'avec un apprentissage approprié ou l'aide d'experts.
 
-**Marketing application**: Don't chase every channel. Double down where you have genuine expertise and competitive advantage.
+**Application marketing** : Ne cours pas après chaque canal. Double la mise là où tu as une véritable expertise et un avantage concurrentiel.
 
 ### Inversion
-Instead of asking "How do I succeed?", ask "What would guarantee failure?" Then avoid those things.
+Au lieu de demander "Comment réussir ?", demande "Qu'est-ce qui garantirait l'échec ?" Ensuite, évite ces choses.
 
-**Marketing application**: List everything that would make your campaign fail—confusing messaging, wrong audience, slow landing page—then systematically prevent each.
+**Application marketing** : Liste tout ce qui ferait échouer ta campagne — messaging confus, mauvaise audience, landing page lente — puis empêche systématiquement chacun.
 
-### Occam's Razor
-The simplest explanation is usually correct. Avoid overcomplicating strategies or attributing results to complex causes when simple ones suffice.
+### Rasoir d'Occam
+L'explication la plus simple est généralement la bonne. Évite de compliquer excessivement les stratégies ou d'attribuer les résultats à des causes complexes lorsque des causes simples suffisent.
 
-**Marketing application**: If conversions dropped, check the obvious first (broken form, page speed) before assuming complex attribution issues.
+**Application marketing** : Si les conversions ont chuté, vérifie d'abord l'évident (formulaire cassé, vitesse de page) avant de supposer des problèmes d'attribution complexes.
 
-### Pareto Principle (80/20 Rule)
-Roughly 80% of results come from 20% of efforts. Identify and focus on the vital few.
+### Principe de Pareto (règle 80/20)
+Environ 80 % des résultats proviennent de 20 % des efforts. Identifie et concentre-toi sur les quelques éléments vitaux.
 
-**Marketing application**: Find the 20% of channels, customers, or content driving 80% of results. Cut or reduce the rest.
+**Application marketing** : Trouve les 20 % de canaux, de clients ou de contenu qui génèrent 80 % des résultats. Coupe ou réduis le reste.
 
-### Local vs. Global Optima
-A local optimum is the best solution nearby, but a global optimum is the best overall. Don't get stuck optimizing the wrong thing.
+### Optima locaux vs. globaux
+Un optimum local est la meilleure solution à proximité, mais un optimum global est la meilleure dans l'ensemble. Ne te retrouve pas coincé à optimiser la mauvaise chose.
 
-**Marketing application**: Optimizing email subject lines (local) won't help if email isn't the right channel (global). Zoom out before zooming in.
+**Application marketing** : Optimiser les objets d'email (local) n'aidera pas si l'email n'est pas le bon canal (global). Prends de la hauteur avant de zoomer.
 
-### Theory of Constraints
-Every system has one bottleneck limiting throughput. Find and fix that constraint before optimizing elsewhere.
+### Théorie des contraintes
+Chaque système a un goulot d'étranglement qui limite le débit. Trouve et corrige cette contrainte avant d'optimiser ailleurs.
 
-**Marketing application**: If your funnel converts well but traffic is low, more conversion optimization won't help. Fix the traffic bottleneck first.
+**Application marketing** : Si ton funnel convertit bien mais que le trafic est faible, plus d'optimisation de conversion n'aidera pas. Corrige d'abord le goulot du trafic.
 
-### Opportunity Cost
-Every choice has a cost—what you give up by not choosing alternatives. Consider what you're saying no to.
+### Coût d'opportunité
+Chaque choix a un coût — ce à quoi tu renonces en ne choisissant pas les alternatives. Considère ce à quoi tu dis non.
 
-**Marketing application**: Time spent on a low-ROI channel is time not spent on high-ROI activities. Always compare against alternatives.
+**Application marketing** : Le temps passé sur un canal à faible ROI est du temps qui n'est pas consacré à des activités à fort ROI. Compare toujours avec les alternatives.
 
-### Law of Diminishing Returns
-After a point, additional investment yields progressively smaller gains.
+### Loi des rendements décroissants
+Après un certain point, un investissement supplémentaire produit des gains progressivement plus petits.
 
-**Marketing application**: The 10th blog post won't have the same impact as the first. Know when to diversify rather than double down.
+**Application marketing** : Le 10e article de blog n'aura pas le même impact que le premier. Sache quand diversifier plutôt que doubler la mise.
 
-### Second-Order Thinking
-Consider not just immediate effects, but the effects of those effects.
+### Pensée du second ordre
+Considère non seulement les effets immédiats, mais aussi les effets de ces effets.
 
-**Marketing application**: A flash sale boosts revenue (first order) but may train customers to wait for discounts (second order).
+**Application marketing** : Une vente flash augmente le chiffre d'affaires (premier ordre) mais peut entraîner les clients à attendre des remises (second ordre).
 
-### Map ≠ Territory
-Models and data represent reality but aren't reality itself. Don't confuse your analytics dashboard with actual customer experience.
+### La carte ≠ le territoire
+Les modèles et les données représentent la réalité mais ne sont pas la réalité elle-même. Ne confonds pas ton tableau de bord d'analytics avec l'expérience client réelle.
 
-**Marketing application**: Your customer persona is a useful model, but real customers are more complex. Stay in touch with actual users.
+**Application marketing** : Ton persona client est un modèle utile, mais les vrais clients sont plus complexes. Reste en contact avec les utilisateurs réels.
 
-### Probabilistic Thinking
-Think in probabilities, not certainties. Estimate likelihoods and plan for multiple outcomes.
+### Pensée probabiliste
+Pense en probabilités, pas en certitudes. Estime les probabilités et planifie pour plusieurs résultats.
 
-**Marketing application**: Don't bet everything on one campaign. Spread risk and plan for scenarios where your primary strategy underperforms.
+**Application marketing** : Ne mise pas tout sur une seule campagne. Répartis le risque et planifie pour des scénarios où ta stratégie principale sous-performe.
 
-### Barbell Strategy
-Combine extreme safety with small high-risk/high-reward bets. Avoid the mediocre middle.
+### Stratégie en haltère (Barbell Strategy)
+Combine une sécurité extrême avec de petits paris à haut risque/forte récompense. Évite le milieu médiocre.
 
-**Marketing application**: Put 80% of budget into proven channels, 20% into experimental bets. Avoid moderate-risk, moderate-reward middle.
+**Application marketing** : Place 80 % du budget dans des canaux éprouvés, 20 % dans des paris expérimentaux. Évite le milieu à risque modéré et récompense modérée.
 
 ---
 
-## Understanding Buyers & Human Psychology
+## Comprendre les acheteurs et la psychologie humaine
 
-These models explain how customers think, decide, and behave.
+Ces modèles expliquent comment les clients pensent, décident et se comportent.
 
-### Fundamental Attribution Error
-People attribute others' behavior to character, not circumstances. "They didn't buy because they're not serious" vs. "The checkout was confusing."
+### Erreur fondamentale d'attribution
+Les gens attribuent le comportement des autres au caractère, pas aux circonstances. "Ils n'ont pas acheté parce qu'ils ne sont pas sérieux" vs. "Le checkout était confus."
 
-**Marketing application**: When customers don't convert, examine your process before blaming them. The problem is usually situational, not personal.
+**Application marketing** : Quand les clients ne convertissent pas, examine ton processus avant de les blâmer. Le problème est généralement situationnel, pas personnel.
 
-### Mere Exposure Effect
-People prefer things they've seen before. Familiarity breeds liking.
+### Effet de simple exposition (Mere Exposure Effect)
+Les gens préfèrent les choses qu'ils ont déjà vues. La familiarité engendre l'attirance.
 
-**Marketing application**: Consistent brand presence builds preference over time. Repetition across channels creates comfort and trust.
+**Application marketing** : Une présence de marque cohérente construit la préférence au fil du temps. La répétition à travers les canaux crée du confort et de la confiance.
 
-### Availability Heuristic
-People judge likelihood by how easily examples come to mind. Recent or vivid events seem more common.
+### Heuristique de disponibilité
+Les gens jugent la probabilité par la facilité avec laquelle les exemples leur viennent à l'esprit. Les événements récents ou vifs semblent plus courants.
 
-**Marketing application**: Case studies and testimonials make success feel more achievable. Make positive outcomes easy to imagine.
+**Application marketing** : Les case studies et les témoignages font paraître le succès plus réalisable. Rends les résultats positifs faciles à imaginer.
 
-### Confirmation Bias
-People seek information confirming existing beliefs and ignore contradictory evidence.
+### Biais de confirmation
+Les gens cherchent des informations confirmant les croyances existantes et ignorent les preuves contradictoires.
 
-**Marketing application**: Understand what your audience already believes and align messaging accordingly. Fighting beliefs head-on rarely works.
+**Application marketing** : Comprends ce que ton audience croit déjà et aligne le messaging en conséquence. Combattre les croyances frontalement fonctionne rarement.
 
-### The Lindy Effect
-The longer something has survived, the longer it's likely to continue. Old ideas often outlast new ones.
+### L'effet Lindy
+Plus quelque chose a survécu longtemps, plus il est probable qu'il continuera. Les vieilles idées survivent souvent aux nouvelles.
 
-**Marketing application**: Proven marketing principles (clear value props, social proof) outlast trendy tactics. Don't abandon fundamentals for fads.
+**Application marketing** : Les principes marketing éprouvés (propositions de valeur claires, social proof) survivent aux tactiques à la mode. N'abandonne pas les fondamentaux pour des modes passagères.
 
-### Mimetic Desire
-People want things because others want them. Desire is socially contagious.
+### Désir mimétique
+Les gens veulent des choses parce que les autres les veulent. Le désir est socialement contagieux.
 
-**Marketing application**: Show that desirable people want your product. Waitlists, exclusivity, and social proof trigger mimetic desire.
+**Application marketing** : Montre que des personnes désirables veulent ton produit. Les waitlists, l'exclusivité et la social proof déclenchent le désir mimétique.
 
-### Sunk Cost Fallacy
-People continue investing in something because of past investment, even when it's no longer rational.
+### Sophisme des coûts irrécupérables (Sunk Cost Fallacy)
+Les gens continuent d'investir dans quelque chose à cause de l'investissement passé, même quand ce n'est plus rationnel.
 
-**Marketing application**: Know when to kill underperforming campaigns. Past spend shouldn't justify future spend if results aren't there.
+**Application marketing** : Sache quand tuer les campagnes sous-performantes. Les dépenses passées ne devraient pas justifier les dépenses futures si les résultats ne sont pas là.
 
-### Endowment Effect
-People value things more once they own them.
+### Effet de dotation (Endowment Effect)
+Les gens valorisent davantage les choses une fois qu'ils les possèdent.
 
-**Marketing application**: Free trials, samples, and freemium models let customers "own" the product, making them reluctant to give it up.
+**Application marketing** : Les free trials, les échantillons et les modèles freemium permettent aux clients de "posséder" le produit, les rendant réticents à y renoncer.
 
-### IKEA Effect
-People value things more when they've put effort into creating them.
+### Effet IKEA
+Les gens valorisent davantage les choses lorsqu'ils ont investi des efforts à les créer.
 
-**Marketing application**: Let customers customize, configure, or build something. Their investment increases perceived value and commitment.
+**Application marketing** : Laisse les clients personnaliser, configurer ou construire quelque chose. Leur investissement augmente la valeur perçue et l'engagement.
 
-### Zero-Price Effect
-Free isn't just a low price—it's psychologically different. "Free" triggers irrational preference.
+### Effet du prix zéro
+Le gratuit n'est pas juste un bas prix — c'est psychologiquement différent. "Gratuit" déclenche une préférence irrationnelle.
 
-**Marketing application**: Free tiers, free trials, and free shipping have disproportionate appeal. The jump from $1 to $0 is bigger than $2 to $1.
+**Application marketing** : Les tiers gratuits, les free trials et la livraison gratuite ont un attrait disproportionné. Le saut de 1 $ à 0 $ est plus grand que de 2 $ à 1 $.
 
-### Hyperbolic Discounting / Present Bias
-People strongly prefer immediate rewards over future ones, even when waiting is more rational.
+### Actualisation hyperbolique / biais du présent
+Les gens préfèrent fortement les récompenses immédiates aux futures, même quand attendre est plus rationnel.
 
-**Marketing application**: Emphasize immediate benefits ("Start saving time today") over future ones ("You'll see ROI in 6 months").
+**Application marketing** : Mets l'accent sur les bénéfices immédiats ("Commence à économiser du temps aujourd'hui") plutôt que futurs ("Tu verras un ROI dans 6 mois").
 
-### Status-Quo Bias
-People prefer the current state of affairs. Change requires effort and feels risky.
+### Biais du statu quo
+Les gens préfèrent l'état actuel des choses. Le changement demande des efforts et semble risqué.
 
-**Marketing application**: Reduce friction to switch. Make the transition feel safe and easy. "Import your data in one click."
+**Application marketing** : Réduis la friction pour changer. Rends la transition sûre et facile. "Importe tes données en un clic."
 
-### Default Effect
-People tend to accept pre-selected options. Defaults are powerful.
+### Effet par défaut
+Les gens ont tendance à accepter les options présélectionnées. Les défauts sont puissants.
 
-**Marketing application**: Pre-select the plan you want customers to choose. Opt-out beats opt-in for subscriptions (ethically applied).
+**Application marketing** : Présélectionne le plan que tu veux que les clients choisissent. L'opt-out bat l'opt-in pour les abonnements (appliqué éthiquement).
 
-### Paradox of Choice
-Too many options overwhelm and paralyze. Fewer choices often lead to more decisions.
+### Paradoxe du choix
+Trop d'options submergent et paralysent. Moins de choix mènent souvent à plus de décisions.
 
-**Marketing application**: Limit options. Three pricing tiers beat seven. Recommend a single "best for most" option.
+**Application marketing** : Limite les options. Trois tiers de pricing battent sept. Recommande une seule option "best for most".
 
-### Goal-Gradient Effect
-People accelerate effort as they approach a goal. Progress visualization motivates action.
+### Effet de gradient d'objectif
+Les gens accélèrent leurs efforts à mesure qu'ils approchent d'un objectif. La visualisation des progrès motive l'action.
 
-**Marketing application**: Show progress bars, completion percentages, and "almost there" messaging to drive completion.
+**Application marketing** : Montre des barres de progression, des pourcentages de complétion et des messages "presque arrivé" pour favoriser la complétion.
 
-### Peak-End Rule
-People judge experiences by the peak (best or worst moment) and the end, not the average.
+### Règle du pic-fin (Peak-End Rule)
+Les gens jugent les expériences par le pic (meilleur ou pire moment) et la fin, pas par la moyenne.
 
-**Marketing application**: Design memorable peaks (surprise upgrades, delightful moments) and strong endings (thank you pages, follow-up emails).
+**Application marketing** : Conçois des pics mémorables (surprises, upgrades, moments délicieux) et des fins fortes (pages de remerciement, emails de suivi).
 
-### Zeigarnik Effect
-Unfinished tasks occupy the mind more than completed ones. Open loops create tension.
+### Effet Zeigarnik
+Les tâches inachevées occupent l'esprit plus que les tâches terminées. Les boucles ouvertes créent de la tension.
 
-**Marketing application**: "You're 80% done" creates pull to finish. Incomplete profiles, abandoned carts, and cliffhangers leverage this.
+**Application marketing** : "Tu es à 80 %" crée une attraction pour finir. Les profils incomplets, les paniers abandonnés et les cliffhangers exploitent cela.
 
-### Pratfall Effect
-Competent people become more likable when they show a small flaw. Perfection is less relatable.
+### Effet Pratfall
+Les personnes compétentes deviennent plus aimables quand elles montrent un petit défaut. La perfection est moins relatable.
 
-**Marketing application**: Admitting a weakness ("We're not the cheapest, but...") can increase trust and differentiation.
+**Application marketing** : Admettre une faiblesse ("Nous ne sommes pas les moins chers, mais...") peut augmenter la confiance et la différenciation.
 
-### Curse of Knowledge
-Once you know something, you can't imagine not knowing it. Experts struggle to explain simply.
+### Malédiction de la connaissance
+Une fois que tu sais quelque chose, tu ne peux pas imaginer ne pas le savoir. Les experts ont du mal à expliquer simplement.
 
-**Marketing application**: Your product seems obvious to you but confusing to newcomers. Test copy with people unfamiliar with your space.
+**Application marketing** : Ton produit te semble évident mais déroutant pour les nouveaux venus. Teste le copy avec des personnes peu familières avec ton domaine.
 
-### Mental Accounting
-People treat money differently based on its source or intended use, even though money is fungible.
+### Comptabilité mentale
+Les gens traitent l'argent différemment selon sa source ou son usage prévu, même si l'argent est fongible.
 
-**Marketing application**: Frame costs in favorable mental accounts. "$3/day" feels different than "$90/month" even though it's the same.
+**Application marketing** : Cadre les coûts dans des comptes mentaux favorables. "3 $/jour" donne une impression différente de "90 $/mois" même si c'est la même chose.
 
-### Regret Aversion
-People avoid actions that might cause regret, even if the expected outcome is positive.
+### Aversion au regret
+Les gens évitent les actions qui pourraient causer du regret, même si le résultat attendu est positif.
 
-**Marketing application**: Address regret directly. Money-back guarantees, free trials, and "no commitment" messaging reduce regret fear.
+**Application marketing** : Adresse le regret directement. Les garanties de remboursement, les free trials et le messaging "sans engagement" réduisent la peur du regret.
 
-### Bandwagon Effect / Social Proof
-People follow what others are doing. Popularity signals quality and safety.
+### Effet de mode / social proof
+Les gens suivent ce que font les autres. La popularité signale la qualité et la sécurité.
 
-**Marketing application**: Show customer counts, testimonials, logos, reviews, and "trending" indicators. Numbers create confidence.
+**Application marketing** : Affiche le nombre de clients, les témoignages, les logos, les avis et les indicateurs "trending". Les chiffres créent de la confiance.
 
 ---
 
-## Influencing Behavior & Persuasion
+## Influencer le comportement et la persuasion
 
-These models help you ethically influence customer decisions.
+Ces modèles t'aident à influencer éthiquement les décisions des clients.
 
-### Reciprocity Principle
-People feel obligated to return favors. Give first, and people want to give back.
+### Principe de réciprocité
+Les gens se sentent obligés de rendre les faveurs. Donne en premier, et les gens voudront rendre la pareille.
 
-**Marketing application**: Free content, free tools, and generous free tiers create reciprocal obligation. Give value before asking for anything.
+**Application marketing** : Le contenu gratuit, les outils gratuits et les tiers gratuits généreux créent une obligation réciproque. Donne de la valeur avant de demander quoi que ce soit.
 
-### Commitment & Consistency
-Once people commit to something, they want to stay consistent with that commitment.
+### Engagement et cohérence
+Une fois que les gens s'engagent sur quelque chose, ils veulent rester cohérents avec cet engagement.
 
-**Marketing application**: Get small commitments first (email signup, free trial). People who've taken one step are more likely to take the next.
+**Application marketing** : Obtiens d'abord de petits engagements (inscription email, free trial). Les personnes qui ont fait un pas sont plus susceptibles de faire le suivant.
 
-### Authority Bias
-People defer to experts and authority figures. Credentials and expertise create trust.
+### Biais d'autorité
+Les gens s'en remettent aux experts et aux figures d'autorité. Les credentials et l'expertise créent la confiance.
 
-**Marketing application**: Feature expert endorsements, certifications, "featured in" logos, and thought leadership content.
+**Application marketing** : Mets en avant les endorsements d'experts, les certifications, les logos "featured in" et le contenu de thought leadership.
 
-### Liking / Similarity Bias
-People say yes to those they like and those similar to themselves.
+### Biais d'affinité / similarité
+Les gens disent oui à ceux qu'ils aiment et à ceux qui leur ressemblent.
 
-**Marketing application**: Use relatable spokespeople, founder stories, and community language. "Built by marketers for marketers" signals similarity.
+**Application marketing** : Utilise des porte-parole relatables, des histoires de fondateurs et un langage communautaire. "Built by marketers for marketers" signale la similarité.
 
-### Unity Principle
-Shared identity drives influence. "One of us" is powerful.
+### Principe d'unité
+L'identité partagée stimule l'influence. "L'un d'entre nous" est puissant.
 
-**Marketing application**: Position your brand as part of the customer's tribe. Use insider language and shared values.
+**Application marketing** : Positionne ta marque comme faisant partie de la tribu du client. Utilise un langage d'initiés et des valeurs partagées.
 
-### Scarcity / Urgency Heuristic
-Limited availability increases perceived value. Scarcity signals desirability.
+### Heuristique de rareté / urgence
+La disponibilité limitée augmente la valeur perçue. La rareté signale la désirabilité.
 
-**Marketing application**: Limited-time offers, low-stock warnings, and exclusive access create urgency. Only use when genuine.
+**Application marketing** : Les offres à durée limitée, les avertissements de stock faible et l'accès exclusif créent l'urgence. À n'utiliser que lorsque c'est authentique.
 
-### Foot-in-the-Door Technique
-Start with a small request, then escalate. Compliance with small requests leads to compliance with larger ones.
+### Technique du pied dans la porte
+Commence par une petite demande, puis escalade. Le respect de petites demandes mène au respect de plus grandes.
 
-**Marketing application**: Free trial → paid plan → annual plan → enterprise. Each step builds on the last.
+**Application marketing** : Free trial → plan payant → plan annuel → enterprise. Chaque étape s'appuie sur la précédente.
 
-### Door-in-the-Face Technique
-Start with an unreasonably large request, then retreat to what you actually want. The contrast makes the second request seem reasonable.
+### Technique de la porte au nez
+Commence par une demande déraisonnablement grande, puis recule vers ce que tu veux vraiment. Le contraste fait paraître la seconde demande raisonnable.
 
-**Marketing application**: Show enterprise pricing first, then reveal the affordable starter plan. The contrast makes it feel like a deal.
+**Application marketing** : Montre d'abord le pricing enterprise, puis révèle le plan starter abordable. Le contraste donne l'impression d'une bonne affaire.
 
-### Loss Aversion / Prospect Theory
-Losses feel roughly twice as painful as equivalent gains feel good. People will work harder to avoid losing than to gain.
+### Aversion à la perte (Loss Aversion) / théorie des perspectives
+Les pertes sont ressenties environ deux fois plus douloureusement que les gains équivalents sont ressentis comme bons. Les gens travailleront plus dur pour éviter de perdre que pour gagner.
 
-**Marketing application**: Frame in terms of what they'll lose by not acting. "Don't miss out" beats "You could gain."
+**Application marketing** : Cadre en termes de ce qu'ils perdront en n'agissant pas. "Don't miss out" bat "You could gain."
 
-### Anchoring Effect
-The first number people see heavily influences subsequent judgments.
+### Effet d'ancrage (Anchoring)
+Le premier nombre que les gens voient influence fortement les jugements suivants.
 
-**Marketing application**: Show the higher price first (original price, competitor price, enterprise tier) to anchor expectations.
+**Application marketing** : Montre d'abord le prix le plus élevé (prix original, prix du concurrent, tier enterprise) pour ancrer les attentes.
 
-### Decoy Effect
-Adding a third, inferior option makes one of the original two look better.
+### Effet de leurre (Decoy Effect)
+L'ajout d'une troisième option inférieure rend l'une des deux originales plus attrayante.
 
-**Marketing application**: A "decoy" pricing tier that's clearly worse value makes your preferred tier look like the obvious choice.
+**Application marketing** : Un tier de pricing "leurre" clairement de moins bonne valeur fait paraître ton tier préféré comme le choix évident.
 
-### Framing Effect
-How something is presented changes how it's perceived. Same facts, different frames.
+### Effet de cadrage (Framing)
+La façon dont quelque chose est présenté change la façon dont c'est perçu. Mêmes faits, cadres différents.
 
-**Marketing application**: "90% success rate" vs. "10% failure rate" are identical but feel different. Frame positively.
+**Application marketing** : "Taux de succès de 90 %" vs. "Taux d'échec de 10 %" sont identiques mais ressentis différemment. Cadre positivement.
 
-### Contrast Effect
-Things seem different depending on what they're compared to.
+### Effet de contraste
+Les choses semblent différentes selon ce à quoi elles sont comparées.
 
-**Marketing application**: Show the "before" state clearly. The contrast with your "after" makes improvements vivid.
-
----
-
-## Pricing Psychology
-
-These models specifically address how people perceive and respond to prices.
-
-### Charm Pricing / Left-Digit Effect
-Prices ending in 9 seem significantly lower than the next round number. $99 feels much cheaper than $100.
-
-**Marketing application**: Use .99 or .95 endings for value-focused products. The left digit dominates perception.
-
-### Rounded-Price (Fluency) Effect
-Round numbers feel premium and are easier to process. $100 signals quality; $99 signals value.
-
-**Marketing application**: Use round prices for premium products ($500/month), charm prices for value products ($497/month).
-
-### Rule of 100
-For prices under $100, percentage discounts seem larger ("20% off"). For prices over $100, absolute discounts seem larger ("$50 off").
-
-**Marketing application**: $80 product: "20% off" beats "$16 off." $500 product: "$100 off" beats "20% off."
-
-### Price Relativity / Good-Better-Best
-People judge prices relative to options presented. A middle tier seems reasonable between cheap and expensive.
-
-**Marketing application**: Three tiers where the middle is your target. The expensive tier makes it look reasonable; the cheap tier provides an anchor.
-
-### Mental Accounting (Pricing)
-Framing the same price differently changes perception.
-
-**Marketing application**: "$1/day" feels cheaper than "$30/month." "Less than your morning coffee" reframes the expense.
+**Application marketing** : Montre clairement l'état "avant". Le contraste avec ton "après" rend les améliorations vivides.
 
 ---
 
-## Design & Delivery Models
+## Psychologie du pricing
 
-These models help you design effective marketing systems.
+Ces modèles abordent spécifiquement comment les gens perçoivent et réagissent aux prix.
 
-### Hick's Law
-Decision time increases with the number and complexity of choices. More options = slower decisions = more abandonment.
+### Charm Pricing / effet du chiffre de gauche
+Les prix se terminant par 9 semblent significativement plus bas que le nombre rond suivant. 99 $ semble beaucoup moins cher que 100 $.
 
-**Marketing application**: Simplify choices. One clear CTA beats three. Fewer form fields beat more.
+**Application marketing** : Utilise des terminaisons en .99 ou .95 pour les produits axés sur la valeur. Le chiffre de gauche domine la perception.
 
-### AIDA Funnel
-Attention → Interest → Desire → Action. The classic customer journey model.
+### Effet du prix rond (fluence)
+Les nombres ronds donnent une impression premium et sont plus faciles à traiter. 100 $ signale la qualité ; 99 $ signale la valeur.
 
-**Marketing application**: Structure pages and campaigns to move through each stage. Capture attention before building desire.
+**Application marketing** : Utilise des prix ronds pour les produits premium (500 $/mois), des charm prices pour les produits axés sur la valeur (497 $/mois).
 
-### Rule of 7
-Prospects need roughly 7 touchpoints before converting. One ad rarely converts; sustained presence does.
+### Règle de 100
+Pour les prix inférieurs à 100 $, les remises en pourcentage semblent plus grandes ("20 % de réduction"). Pour les prix supérieurs à 100 $, les remises absolues semblent plus grandes ("50 $ de réduction").
 
-**Marketing application**: Build multi-touch campaigns across channels. Retargeting, email sequences, and consistent presence compound.
+**Application marketing** : Produit à 80 $ : "20 % de réduction" bat "16 $ de réduction." Produit à 500 $ : "100 $ de réduction" bat "20 % de réduction."
 
-### Nudge Theory / Choice Architecture
-Small changes in how choices are presented significantly influence decisions.
+### Relativité des prix / Good-Better-Best
+Les gens jugent les prix par rapport aux options présentées. Un tier intermédiaire semble raisonnable entre le bon marché et le cher.
 
-**Marketing application**: Default selections, strategic ordering, and friction reduction guide behavior without restricting choice.
+**Application marketing** : Trois tiers où le milieu est ta cible. Le tier cher le fait paraître raisonnable ; le tier bon marché fournit un ancrage.
 
-### BJ Fogg Behavior Model
-Behavior = Motivation × Ability × Prompt. All three must be present for action.
+### Comptabilité mentale (pricing)
+Cadrer le même prix différemment change la perception.
 
-**Marketing application**: High motivation but hard to do = won't happen. Easy to do but no prompt = won't happen. Design for all three.
+**Application marketing** : "1 $/jour" semble moins cher que "30 $/mois." "Moins que ton café du matin" recadre la dépense.
 
-### EAST Framework
-Make desired behaviors: Easy, Attractive, Social, Timely.
+---
 
-**Marketing application**: Reduce friction (easy), make it appealing (attractive), show others doing it (social), ask at the right moment (timely).
+## Modèles de design et de delivery
 
-### COM-B Model
-Behavior requires: Capability, Opportunity, Motivation.
+Ces modèles t'aident à concevoir des systèmes marketing efficaces.
 
-**Marketing application**: Can they do it (capability)? Is the path clear (opportunity)? Do they want to (motivation)? Address all three.
+### Loi de Hick
+Le temps de décision augmente avec le nombre et la complexité des choix. Plus d'options = décisions plus lentes = plus d'abandons.
 
-### Activation Energy
-The initial energy required to start something. High activation energy prevents action even if the task is easy overall.
+**Application marketing** : Simplifie les choix. Un seul CTA clair bat trois. Moins de champs de formulaire battent plus.
 
-**Marketing application**: Reduce starting friction. Pre-fill forms, offer templates, show quick wins. Make the first step trivially easy.
+### Funnel AIDA
+Attention → Intérêt → Désir → Action. Le modèle classique du parcours client.
+
+**Application marketing** : Structure les pages et les campagnes pour passer par chaque étape. Capture l'attention avant de construire le désir.
+
+### Règle de 7
+Les prospects ont besoin d'environ 7 points de contact avant de convertir. Une seule publicité convertit rarement ; une présence soutenue le fait.
+
+**Application marketing** : Construis des campagnes multi-touch à travers les canaux. Le retargeting, les séquences email et la présence cohérente se cumulent.
+
+### Théorie du nudge / architecture de choix
+De petits changements dans la façon dont les choix sont présentés influencent significativement les décisions.
+
+**Application marketing** : Les sélections par défaut, l'ordre stratégique et la réduction de friction guident le comportement sans restreindre le choix.
+
+### Modèle comportemental BJ Fogg
+Comportement = Motivation × Capacité × Déclencheur. Les trois doivent être présents pour l'action.
+
+**Application marketing** : Forte motivation mais difficile à faire = n'arrivera pas. Facile à faire mais pas de déclencheur = n'arrivera pas. Conçois pour les trois.
+
+### Framework EAST
+Rendre les comportements souhaités : Easy (facile), Attractive (attrayant), Social, Timely (opportun).
+
+**Application marketing** : Réduis la friction (easy), rends-le attrayant (attractive), montre les autres le faire (social), demande au bon moment (timely).
+
+### Modèle COM-B
+Le comportement nécessite : Capability (capacité), Opportunity (opportunité), Motivation.
+
+**Application marketing** : Peuvent-ils le faire (capacité) ? Le chemin est-il clair (opportunité) ? Le veulent-ils (motivation) ? Adresse les trois.
+
+### Énergie d'activation
+L'énergie initiale requise pour commencer quelque chose. Une énergie d'activation élevée empêche l'action même si la tâche est globalement facile.
+
+**Application marketing** : Réduis la friction de démarrage. Pré-remplis les formulaires, propose des templates, montre des quick wins. Rends la première étape trivialement facile.
 
 ### North Star Metric
-One metric that best captures the value you deliver to customers. Focus creates alignment.
+Une métrique qui capture le mieux la valeur que tu apportes aux clients. La focalisation crée l'alignement.
 
-**Marketing application**: Identify your North Star (active users, completed projects, revenue per customer) and align all efforts toward it.
+**Application marketing** : Identifie ta North Star (utilisateurs actifs, projets terminés, revenu par client) et aligne tous les efforts vers elle.
 
-### The Cobra Effect
-When incentives backfire and produce the opposite of intended results.
+### Effet Cobra
+Quand les incitations se retournent et produisent l'opposé des résultats attendus.
 
-**Marketing application**: Test incentive structures. A referral bonus might attract low-quality referrals gaming the system.
-
----
-
-## Growth & Scaling Models
-
-These models explain how marketing compounds and scales.
-
-### Feedback Loops
-Output becomes input, creating cycles. Positive loops accelerate growth; negative loops create decline.
-
-**Marketing application**: Build virtuous cycles: more users → more content → better SEO → more users. Identify and strengthen positive loops.
-
-### Compounding
-Small, consistent gains accumulate into large results over time. Early gains matter most.
-
-**Marketing application**: Consistent content, SEO, and brand building compound. Start early; benefits accumulate exponentially.
-
-### Network Effects
-A product becomes more valuable as more people use it.
-
-**Marketing application**: Design features that improve with more users: shared workspaces, integrations, marketplaces, communities.
-
-### Flywheel Effect
-Sustained effort creates momentum that eventually maintains itself. Hard to start, easy to maintain.
-
-**Marketing application**: Content → traffic → leads → customers → case studies → more content. Each element powers the next.
-
-### Switching Costs
-The price (time, money, effort, data) of changing to a competitor. High switching costs create retention.
-
-**Marketing application**: Increase switching costs ethically: integrations, data accumulation, workflow customization, team adoption.
-
-### Exploration vs. Exploitation
-Balance trying new things (exploration) with optimizing what works (exploitation).
-
-**Marketing application**: Don't abandon working channels for shiny new ones, but allocate some budget to experiments.
-
-### Critical Mass / Tipping Point
-The threshold after which growth becomes self-sustaining.
-
-**Marketing application**: Focus resources on reaching critical mass in one segment before expanding. Depth before breadth.
-
-### Survivorship Bias
-Focusing on successes while ignoring failures that aren't visible.
-
-**Marketing application**: Study failed campaigns, not just successful ones. The viral hit you're copying had 99 failures you didn't see.
+**Application marketing** : Teste les structures d'incitation. Un bonus de référent pourrait attirer des referrals de mauvaise qualité jouant avec le système.
 
 ---
 
-## Quick Reference
+## Modèles de croissance et de scaling
 
-When facing a marketing challenge, consider:
+Ces modèles expliquent comment le marketing se cumule et se scale.
 
-| Challenge | Relevant Models |
-|-----------|-----------------|
-| Low conversions | Hick's Law, Activation Energy, BJ Fogg, Friction |
-| Price objections | Anchoring, Framing, Mental Accounting, Loss Aversion |
-| Building trust | Authority, Social Proof, Reciprocity, Pratfall Effect |
-| Increasing urgency | Scarcity, Loss Aversion, Zeigarnik Effect |
-| Retention/churn | Endowment Effect, Switching Costs, Status-Quo Bias |
-| Growth stalling | Theory of Constraints, Local vs Global Optima, Compounding |
-| Decision paralysis | Paradox of Choice, Default Effect, Nudge Theory |
-| Onboarding | Goal-Gradient, IKEA Effect, Commitment & Consistency |
+### Boucles de rétroaction (Feedback Loops)
+La sortie devient l'entrée, créant des cycles. Les boucles positives accélèrent la croissance ; les boucles négatives créent le déclin.
+
+**Application marketing** : Construis des cycles vertueux : plus d'utilisateurs → plus de contenu → meilleur SEO → plus d'utilisateurs. Identifie et renforce les boucles positives.
+
+### Compounding (effet cumulé)
+De petits gains constants s'accumulent en grands résultats au fil du temps. Les gains précoces comptent le plus.
+
+**Application marketing** : Le contenu constant, le SEO et la construction de marque se cumulent. Commence tôt ; les bénéfices s'accumulent exponentiellement.
+
+### Effets de réseau
+Un produit devient plus précieux à mesure que plus de personnes l'utilisent.
+
+**Application marketing** : Conçois des fonctionnalités qui s'améliorent avec plus d'utilisateurs : workspaces partagés, intégrations, marketplaces, communautés.
+
+### Effet flywheel
+L'effort soutenu crée un momentum qui finit par s'auto-entretenir. Difficile à démarrer, facile à maintenir.
+
+**Application marketing** : Contenu → trafic → leads → clients → case studies → plus de contenu. Chaque élément alimente le suivant.
+
+### Coûts de changement (Switching Costs)
+Le prix (temps, argent, effort, données) du passage à un concurrent. Des coûts de changement élevés créent la rétention.
+
+**Application marketing** : Augmente les coûts de changement éthiquement : intégrations, accumulation de données, personnalisation de workflow, adoption par l'équipe.
+
+### Exploration vs. exploitation
+Équilibre essayer de nouvelles choses (exploration) avec optimiser ce qui fonctionne (exploitation).
+
+**Application marketing** : N'abandonne pas les canaux qui fonctionnent pour de nouveaux qui brillent, mais alloue une partie du budget aux expérimentations.
+
+### Masse critique / point de bascule
+Le seuil après lequel la croissance devient auto-entretenue.
+
+**Application marketing** : Concentre les ressources pour atteindre la masse critique dans un segment avant d'étendre. Profondeur avant largeur.
+
+### Biais du survivant
+Se concentrer sur les succès tout en ignorant les échecs qui ne sont pas visibles.
+
+**Application marketing** : Étudie les campagnes qui ont échoué, pas seulement celles qui ont réussi. Le hit viral que tu copies a eu 99 échecs que tu n'as pas vus.
 
 ---
 
-## Task-Specific Questions
+## Référence rapide
 
-1. What specific behavior are you trying to influence?
-2. What does your customer believe before encountering your marketing?
-3. Where in the journey (awareness → consideration → decision) is this?
-4. What's currently preventing the desired action?
-5. Have you tested this with real customers?
+Face à un défi marketing, considère :
+
+| Défi | Modèles pertinents |
+|------|---------------------|
+| Faibles conversions | Loi de Hick, énergie d'activation, BJ Fogg, friction |
+| Objections de prix | Anchoring, framing, comptabilité mentale, loss aversion |
+| Construire la confiance | Autorité, social proof, réciprocité, effet Pratfall |
+| Augmenter l'urgence | Scarcity, loss aversion, effet Zeigarnik |
+| Rétention/churn | Effet de dotation, switching costs, biais du statu quo |
+| Croissance qui stagne | Théorie des contraintes, optima locaux vs globaux, compounding |
+| Paralysie décisionnelle | Paradoxe du choix, effet par défaut, théorie du nudge |
+| Onboarding | Gradient d'objectif, effet IKEA, engagement et cohérence |
 
 ---
 
-## Related Skills
+## Questions spécifiques à la tâche
 
-- **page-cro**: Apply psychology to page optimization
-- **copywriting**: Write copy using psychological principles
-- **popup-cro**: Use triggers and psychology in popups
-- **pricing-page optimization**: See page-cro for pricing psychology
-- **ab-test-setup**: Test psychological hypotheses
+1. Quel comportement spécifique essaies-tu d'influencer ?
+2. Que croit ton client avant de rencontrer ton marketing ?
+3. Où dans le parcours (awareness → consideration → decision) cela se situe-t-il ?
+4. Qu'est-ce qui empêche actuellement l'action souhaitée ?
+5. As-tu testé cela avec de vrais clients ?
+
+---
+
+## Skills associées
+
+- **page-cro** : Appliquer la psychologie à l'optimisation de page
+- **copywriting** : Rédiger du copy en utilisant des principes psychologiques
+- **popup-cro** : Utiliser des déclencheurs et de la psychologie dans les popups
+- **optimisation de page de pricing** : Voir page-cro pour la psychologie du pricing
+- **ab-test-setup** : Tester les hypothèses psychologiques

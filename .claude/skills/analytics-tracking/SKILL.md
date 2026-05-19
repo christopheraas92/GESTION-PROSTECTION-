@@ -1,52 +1,52 @@
 ---
 name: analytics-tracking
-description: When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions "set up tracking," "GA4," "Google Analytics," "conversion tracking," "event tracking," "UTM parameters," "tag manager," "GTM," "analytics implementation," "tracking plan," "how do I measure this," "track conversions," "attribution," "Mixpanel," "Segment," "are my events firing," or "analytics isn't working." Use this whenever someone asks how to know if something is working or wants to measure marketing results. For A/B test measurement, see ab-test-setup.
+description: Quand l'utilisateur souhaite mettre en place, améliorer ou auditer le tracking analytics et la mesure. À utiliser également quand l'utilisateur mentionne "mettre en place le tracking", "GA4", "Google Analytics", "conversion tracking", "event tracking", "paramètres UTM", "tag manager", "GTM", "implémentation analytics", "tracking plan", "comment mesurer ceci", "tracker les conversions", "attribution", "Mixpanel", "Segment", "mes events se déclenchent-ils" ou "l'analytics ne fonctionne pas". À utiliser dès que quelqu'un demande comment savoir si quelque chose fonctionne ou veut mesurer des résultats marketing. Pour la mesure des A/B tests, voir ab-test-setup.
 metadata:
   version: 1.1.0
 ---
 
 # Analytics Tracking
 
-You are an expert in analytics implementation and measurement. Your goal is to help set up tracking that provides actionable insights for marketing and product decisions.
+Tu es un expert en implémentation analytics et mesure. Ton objectif est d'aider à mettre en place un tracking qui fournit des insights actionnables pour les décisions marketing et produit.
 
-## Initial Assessment
+## Évaluation initiale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Vérifie d'abord le contexte marketing produit :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les setups plus anciens), lis-le avant de poser des questions. Utilise ce contexte et ne demande que les informations non encore couvertes ou spécifiques à cette tâche.
 
-Before implementing tracking, understand:
+Avant d'implémenter le tracking, comprends :
 
-1. **Business Context** - What decisions will this data inform? What are key conversions?
-2. **Current State** - What tracking exists? What tools are in use?
-3. **Technical Context** - What's the tech stack? Any privacy/compliance requirements?
-
----
-
-## Core Principles
-
-### 1. Track for Decisions, Not Data
-- Every event should inform a decision
-- Avoid vanity metrics
-- Quality > quantity of events
-
-### 2. Start with the Questions
-- What do you need to know?
-- What actions will you take based on this data?
-- Work backwards to what you need to track
-
-### 3. Name Things Consistently
-- Naming conventions matter
-- Establish patterns before implementing
-- Document everything
-
-### 4. Maintain Data Quality
-- Validate implementation
-- Monitor for issues
-- Clean data > more data
+1. **Contexte business** — Quelles décisions ces données informeront-elles ? Quelles sont les conversions clés ?
+2. **État actuel** — Quel tracking existe ? Quels outils sont utilisés ?
+3. **Contexte technique** — Quelle est la stack technique ? Y a-t-il des exigences de privacy/conformité ?
 
 ---
 
-## Tracking Plan Framework
+## Principes fondamentaux
+
+### 1. Tracker pour les décisions, pas pour la donnée
+- Chaque event doit informer une décision
+- Éviter les vanity metrics
+- Qualité > quantité d'events
+
+### 2. Démarrer par les questions
+- Que dois-tu savoir ?
+- Quelles actions prendras-tu sur la base de ces données ?
+- Remonter vers ce qu'il faut tracker
+
+### 3. Nommer les choses de façon cohérente
+- Les conventions de nommage comptent
+- Établir des patterns avant d'implémenter
+- Tout documenter
+
+### 4. Maintenir la qualité des données
+- Valider l'implémentation
+- Surveiller les problèmes
+- Données propres > plus de données
+
+---
+
+## Framework de tracking plan
 
 ### Structure
 
@@ -55,22 +55,22 @@ Event Name | Category | Properties | Trigger | Notes
 ---------- | -------- | ---------- | ------- | -----
 ```
 
-### Event Types
+### Types d'events
 
-| Type | Examples |
+| Type | Exemples |
 |------|----------|
-| Pageviews | Automatic, enhanced with metadata |
-| User Actions | Button clicks, form submissions, feature usage |
-| System Events | Signup completed, purchase, subscription changed |
-| Custom Conversions | Goal completions, funnel stages |
+| Pageviews | Automatiques, enrichis de métadonnées |
+| Actions utilisateur | Clics de bouton, soumissions de formulaire, usage de feature |
+| Events système | Signup completed, achat, abonnement modifié |
+| Conversions custom | Goal completions, étapes de funnel |
 
-**For comprehensive event lists**: See [references/event-library.md](references/event-library.md)
+**Pour des listes d'events exhaustives** : voir [references/event-library.md](references/event-library.md)
 
 ---
 
-## Event Naming Conventions
+## Conventions de nommage des events
 
-### Recommended Format: Object-Action
+### Format recommandé : Object-Action
 
 ```
 signup_completed
@@ -80,18 +80,18 @@ article_read
 checkout_payment_completed
 ```
 
-### Best Practices
-- Lowercase with underscores
-- Be specific: `cta_hero_clicked` vs. `button_clicked`
-- Include context in properties, not event name
-- Avoid spaces and special characters
-- Document decisions
+### Bonnes pratiques
+- Minuscules avec underscores
+- Être spécifique : `cta_hero_clicked` plutôt que `button_clicked`
+- Inclure le contexte dans les properties, pas dans le nom de l'event
+- Éviter espaces et caractères spéciaux
+- Documenter les décisions
 
 ---
 
-## Essential Events
+## Events essentiels
 
-### Marketing Site
+### Site marketing
 
 | Event | Properties |
 |-------|------------|
@@ -100,7 +100,7 @@ checkout_payment_completed
 | signup_completed | method, source |
 | demo_requested | - |
 
-### Product/App
+### Produit/App
 
 | Event | Properties |
 |-------|------------|
@@ -109,40 +109,40 @@ checkout_payment_completed
 | purchase_completed | plan, value |
 | subscription_cancelled | reason |
 
-**For full event library by business type**: See [references/event-library.md](references/event-library.md)
+**Pour la bibliothèque complète d'events par type de business** : voir [references/event-library.md](references/event-library.md)
 
 ---
 
-## Event Properties
+## Properties d'events
 
-### Standard Properties
+### Properties standards
 
-| Category | Properties |
-|----------|------------|
+| Catégorie | Properties |
+|-----------|------------|
 | Page | page_title, page_location, page_referrer |
-| User | user_id, user_type, account_id, plan_type |
-| Campaign | source, medium, campaign, content, term |
-| Product | product_id, product_name, category, price |
+| Utilisateur | user_id, user_type, account_id, plan_type |
+| Campagne | source, medium, campaign, content, term |
+| Produit | product_id, product_name, category, price |
 
-### Best Practices
-- Use consistent property names
-- Include relevant context
-- Don't duplicate automatic properties
-- Avoid PII in properties
+### Bonnes pratiques
+- Utiliser des noms de properties cohérents
+- Inclure le contexte pertinent
+- Ne pas dupliquer les properties automatiques
+- Éviter les PII dans les properties
 
 ---
 
-## GA4 Implementation
+## Implémentation GA4
 
-### Quick Setup
+### Setup rapide
 
-1. Create GA4 property and data stream
-2. Install gtag.js or GTM
-3. Enable enhanced measurement
-4. Configure custom events
-5. Mark conversions in Admin
+1. Créer la propriété GA4 et le data stream
+2. Installer gtag.js ou GTM
+3. Activer enhanced measurement
+4. Configurer les custom events
+5. Marquer les conversions dans Admin
 
-### Custom Event Example
+### Exemple de custom event
 
 ```javascript
 gtag('event', 'signup_completed', {
@@ -151,21 +151,21 @@ gtag('event', 'signup_completed', {
 });
 ```
 
-**For detailed GA4 implementation**: See [references/ga4-implementation.md](references/ga4-implementation.md)
+**Pour l'implémentation GA4 détaillée** : voir [references/ga4-implementation.md](references/ga4-implementation.md)
 
 ---
 
 ## Google Tag Manager
 
-### Container Structure
+### Structure du container
 
-| Component | Purpose |
-|-----------|---------|
-| Tags | Code that executes (GA4, pixels) |
-| Triggers | When tags fire (page view, click) |
-| Variables | Dynamic values (click text, data layer) |
+| Composant | Objectif |
+|-----------|----------|
+| Tags | Code qui s'exécute (GA4, pixels) |
+| Triggers | Quand les tags se déclenchent (page view, clic) |
+| Variables | Valeurs dynamiques (texte cliqué, data layer) |
 
-### Data Layer Pattern
+### Pattern data layer
 
 ```javascript
 dataLayer.push({
@@ -175,78 +175,78 @@ dataLayer.push({
 });
 ```
 
-**For detailed GTM implementation**: See [references/gtm-implementation.md](references/gtm-implementation.md)
+**Pour l'implémentation GTM détaillée** : voir [references/gtm-implementation.md](references/gtm-implementation.md)
 
 ---
 
-## UTM Parameter Strategy
+## Stratégie de paramètres UTM
 
-### Standard Parameters
+### Paramètres standards
 
-| Parameter | Purpose | Example |
-|-----------|---------|---------|
-| utm_source | Traffic source | google, newsletter |
-| utm_medium | Marketing medium | cpc, email, social |
-| utm_campaign | Campaign name | spring_sale |
-| utm_content | Differentiate versions | hero_cta |
-| utm_term | Paid search keywords | running+shoes |
+| Paramètre | Objectif | Exemple |
+|-----------|----------|---------|
+| utm_source | Source de trafic | google, newsletter |
+| utm_medium | Medium marketing | cpc, email, social |
+| utm_campaign | Nom de campagne | spring_sale |
+| utm_content | Différencier les versions | hero_cta |
+| utm_term | Mots-clés paid search | running+shoes |
 
-### Naming Conventions
-- Lowercase everything
-- Use underscores or hyphens consistently
-- Be specific but concise: `blog_footer_cta`, not `cta1`
-- Document all UTMs in a spreadsheet
-
----
-
-## Debugging and Validation
-
-### Testing Tools
-
-| Tool | Use For |
-|------|---------|
-| GA4 DebugView | Real-time event monitoring |
-| GTM Preview Mode | Test triggers before publish |
-| Browser Extensions | Tag Assistant, dataLayer Inspector |
-
-### Validation Checklist
-
-- [ ] Events firing on correct triggers
-- [ ] Property values populating correctly
-- [ ] No duplicate events
-- [ ] Works across browsers and mobile
-- [ ] Conversions recorded correctly
-- [ ] No PII leaking
-
-### Common Issues
-
-| Issue | Check |
-|-------|-------|
-| Events not firing | Trigger config, GTM loaded |
-| Wrong values | Variable path, data layer structure |
-| Duplicate events | Multiple containers, trigger firing twice |
+### Conventions de nommage
+- Tout en minuscules
+- Utiliser underscores ou tirets de façon cohérente
+- Être spécifique mais concis : `blog_footer_cta`, pas `cta1`
+- Documenter tous les UTMs dans un tableur
 
 ---
 
-## Privacy and Compliance
+## Débogage et validation
 
-### Considerations
-- Cookie consent required in EU/UK/CA
-- No PII in analytics properties
-- Data retention settings
-- User deletion capabilities
+### Outils de test
 
-### Implementation
-- Use consent mode (wait for consent)
-- IP anonymization
-- Only collect what you need
-- Integrate with consent management platform
+| Outil | À utiliser pour |
+|-------|----------------|
+| GA4 DebugView | Monitoring d'events en temps réel |
+| GTM Preview Mode | Tester les triggers avant publication |
+| Extensions navigateur | Tag Assistant, dataLayer Inspector |
+
+### Checklist de validation
+
+- [ ] Les events se déclenchent sur les bons triggers
+- [ ] Les valeurs des properties sont correctement populées
+- [ ] Pas d'events en double
+- [ ] Fonctionne sur les différents navigateurs et mobile
+- [ ] Conversions correctement enregistrées
+- [ ] Pas de fuite de PII
+
+### Problèmes courants
+
+| Problème | Vérifier |
+|----------|----------|
+| Events qui ne se déclenchent pas | Configuration du trigger, GTM chargé |
+| Mauvaises valeurs | Chemin de variable, structure data layer |
+| Events en double | Multiples containers, trigger qui se déclenche deux fois |
 
 ---
 
-## Output Format
+## Privacy et conformité
 
-### Tracking Plan Document
+### Points à considérer
+- Consentement cookies requis en UE/UK/CA
+- Pas de PII dans les properties analytics
+- Paramètres de rétention de données
+- Capacités de suppression utilisateur
+
+### Implémentation
+- Utiliser le consent mode (attendre le consentement)
+- Anonymisation IP
+- Ne collecter que ce dont tu as besoin
+- Intégrer avec une consent management platform
+
+---
+
+## Format de sortie
+
+### Document de tracking plan
 
 ```markdown
 # [Site/Product] Tracking Plan
@@ -276,34 +276,34 @@ dataLayer.push({
 
 ---
 
-## Task-Specific Questions
+## Questions spécifiques à la tâche
 
-1. What tools are you using (GA4, Mixpanel, etc.)?
-2. What key actions do you want to track?
-3. What decisions will this data inform?
-4. Who implements - dev team or marketing?
-5. Are there privacy/consent requirements?
-6. What's already tracked?
+1. Quels outils utilises-tu (GA4, Mixpanel, etc.) ?
+2. Quelles actions clés veux-tu tracker ?
+3. Quelles décisions ces données informeront-elles ?
+4. Qui implémente — l'équipe dev ou marketing ?
+5. Y a-t-il des exigences de privacy/consentement ?
+6. Qu'est-ce qui est déjà tracké ?
 
 ---
 
-## Tool Integrations
+## Intégrations d'outils
 
-For implementation, see the [tools registry](../../tools/REGISTRY.md). Key analytics tools:
+Pour l'implémentation, voir le [registre d'outils](../../tools/REGISTRY.md). Outils analytics clés :
 
-| Tool | Best For | MCP | Guide |
-|------|----------|:---:|-------|
-| **GA4** | Web analytics, Google ecosystem | ✓ | [ga4.md](../../tools/integrations/ga4.md) |
+| Outil | Idéal pour | MCP | Guide |
+|-------|-----------|:---:|-------|
+| **GA4** | Web analytics, écosystème Google | ✓ | [ga4.md](../../tools/integrations/ga4.md) |
 | **Mixpanel** | Product analytics, event tracking | - | [mixpanel.md](../../tools/integrations/mixpanel.md) |
-| **Amplitude** | Product analytics, cohort analysis | - | [amplitude.md](../../tools/integrations/amplitude.md) |
-| **PostHog** | Open-source analytics, session replay | - | [posthog.md](../../tools/integrations/posthog.md) |
+| **Amplitude** | Product analytics, analyse de cohortes | - | [amplitude.md](../../tools/integrations/amplitude.md) |
+| **PostHog** | Analytics open-source, session replay | - | [posthog.md](../../tools/integrations/posthog.md) |
 | **Segment** | Customer data platform, routing | - | [segment.md](../../tools/integrations/segment.md) |
 
 ---
 
-## Related Skills
+## Skills associés
 
-- **ab-test-setup**: For experiment tracking
-- **seo-audit**: For organic traffic analysis
-- **page-cro**: For conversion optimization (uses this data)
-- **revops**: For pipeline metrics, CRM tracking, and revenue attribution
+- **ab-test-setup** : pour le tracking d'expérimentations
+- **seo-audit** : pour l'analyse du trafic organique
+- **page-cro** : pour l'optimisation de conversion (utilise ces données)
+- **revops** : pour les métriques de pipeline, le tracking CRM et l'attribution de revenu

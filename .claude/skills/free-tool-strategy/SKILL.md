@@ -7,173 +7,173 @@ metadata:
 
 # Free Tool Strategy (Engineering as Marketing)
 
-You are an expert in engineering-as-marketing strategy. Your goal is to help plan and evaluate free tools that generate leads, attract organic traffic, and build brand awareness.
+Tu es un expert de la stratégie engineering-as-marketing. Ton objectif est d'aider à planifier et évaluer des outils gratuits qui génèrent des leads, attirent du trafic organique et construisent la notoriété de marque.
 
-## Initial Assessment
+## Évaluation initiale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Vérifie d'abord le contexte product marketing :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les anciennes configurations), lis-le avant de poser des questions. Utilise ce contexte et demande uniquement les informations non couvertes ou spécifiques à cette tâche.
 
-Before designing a tool strategy, understand:
+Avant de concevoir une stratégie d'outil, comprends :
 
-1. **Business Context** - What's the core product? Who is the target audience? What problems do they have?
+1. **Contexte business** — Quel est le produit principal ? Qui est l'audience cible ? Quels problèmes ont-ils ?
 
-2. **Goals** - Lead generation? SEO/traffic? Brand awareness? Product education?
+2. **Objectifs** — Génération de leads ? SEO / trafic ? Notoriété de marque ? Éducation produit ?
 
-3. **Resources** - Technical capacity to build? Ongoing maintenance bandwidth? Budget for promotion?
-
----
-
-## Core Principles
-
-### 1. Solve a Real Problem
-- Tool must provide genuine value
-- Solves a problem your audience actually has
-- Useful even without your main product
-
-### 2. Adjacent to Core Product
-- Related to what you sell
-- Natural path from tool to product
-- Educates on problem you solve
-
-### 3. Simple and Focused
-- Does one thing well
-- Low friction to use
-- Immediate value
-
-### 4. Worth the Investment
-- Lead value × expected leads > build cost + maintenance
+3. **Ressources** — Capacité technique pour construire ? Bande passante pour la maintenance continue ? Budget pour la promotion ?
 
 ---
 
-## Tool Types Overview
+## Principes fondamentaux
 
-| Type | Examples | Best For |
+### 1. Résoudre un vrai problème
+- L'outil doit apporter une valeur réelle
+- Résout un problème que l'audience a vraiment
+- Utile même sans ton produit principal
+
+### 2. Adjacent au produit principal
+- Lié à ce que tu vends
+- Chemin naturel de l'outil vers le produit
+- Éduque sur le problème que tu résous
+
+### 3. Simple et focalisé
+- Fait une chose, bien
+- Friction faible à l'usage
+- Valeur immédiate
+
+### 4. Vaut l'investissement
+- Valeur d'un lead × leads attendus > coût de build + maintenance
+
+---
+
+## Vue d'ensemble des types d'outils
+
+| Type | Exemples | Idéal pour |
 |------|----------|----------|
-| Calculators | ROI, savings, pricing estimators | Decisions involving numbers |
-| Generators | Templates, policies, names | Creating something quickly |
-| Analyzers | Website graders, SEO auditors | Evaluating existing work |
-| Testers | Meta tag preview, speed tests | Checking if something works |
-| Libraries | Icon sets, templates, snippets | Reference material |
-| Interactive | Tutorials, playgrounds, quizzes | Learning/understanding |
+| Calculators | ROI, savings, pricing estimators | Décisions impliquant des chiffres |
+| Generators | Templates, policies, names | Créer quelque chose rapidement |
+| Analyzers | Website graders, SEO auditors | Évaluer un travail existant |
+| Testers | Meta tag preview, speed tests | Vérifier que quelque chose fonctionne |
+| Libraries | Icon sets, templates, snippets | Matériel de référence |
+| Interactive | Tutorials, playgrounds, quizzes | Apprentissage / compréhension |
 
-**For detailed tool types and examples**: See [references/tool-types.md](references/tool-types.md)
-
----
-
-## Ideation Framework
-
-### Start with Pain Points
-
-1. **What problems does your audience Google?** - Search query research, common questions
-
-2. **What manual processes are tedious?** - Spreadsheet tasks, repetitive calculations
-
-3. **What do they need before buying your product?** - Assessments, planning, comparisons
-
-4. **What information do they wish they had?** - Data they can't easily access, benchmarks
-
-### Validate the Idea
-
-- **Search demand**: Is there search volume? How competitive?
-- **Uniqueness**: What exists? How can you be 10x better?
-- **Lead quality**: Does this audience match buyers?
-- **Build feasibility**: How complex? Can you scope an MVP?
+**Pour les types d'outils détaillés et les exemples** : voir [references/tool-types.md](references/tool-types.md)
 
 ---
 
-## Lead Capture Strategy
+## Framework d'idéation
 
-### Gating Options
+### Commence par les points de douleur
 
-| Approach | Pros | Cons |
+1. **Que cherche ton audience sur Google ?** — Recherche de requêtes, questions communes
+
+2. **Quels processus manuels sont fastidieux ?** — Tâches sur tableur, calculs répétitifs
+
+3. **De quoi ont-ils besoin avant d'acheter ton produit ?** — Évaluations, planification, comparaisons
+
+4. **Quelles informations aimeraient-ils avoir ?** — Données difficiles d'accès, benchmarks
+
+### Valider l'idée
+
+- **Demande de recherche** : y a-t-il du volume ? Est-ce concurrentiel ?
+- **Unicité** : qu'est-ce qui existe ? Comment faire 10x mieux ?
+- **Qualité des leads** : cette audience correspond-elle aux acheteurs ?
+- **Faisabilité du build** : complexité ? Peux-tu scoper un MVP ?
+
+---
+
+## Stratégie de capture de leads
+
+### Options de gating
+
+| Approche | Pour | Contre |
 |----------|------|------|
-| Fully gated | Maximum capture | Lower usage |
-| Partially gated | Balance of both | Common pattern |
-| Ungated + optional | Maximum reach | Lower capture |
-| Ungated entirely | Pure SEO/brand | No direct leads |
+| Fully gated | Capture maximale | Usage plus faible |
+| Partially gated | Équilibre | Pattern courant |
+| Ungated + optional | Reach maximal | Capture plus faible |
+| Ungated entirely | SEO / brand pur | Pas de leads directs |
 
-### Lead Capture Best Practices
-- Value exchange clear: "Get your full report"
-- Minimal friction: Email only
-- Show preview of what they'll get
-- Optional: Segment by asking one qualifying question
-
----
-
-## SEO Considerations
-
-### Keyword Strategy
-**Tool landing page**: "[thing] calculator", "[thing] generator", "free [tool type]"
-
-**Supporting content**: "How to [use case]", "What is [concept]"
-
-### Link Building
-Free tools attract links because:
-- Genuinely useful (people reference them)
-- Unique (can't link to just any page)
-- Shareable (social amplification)
+### Bonnes pratiques de capture
+- Échange de valeur clair : "Get your full report"
+- Friction minimale : email uniquement
+- Affiche un aperçu de ce qu'ils vont obtenir
+- Optionnel : segmente avec une question qualifiante
 
 ---
 
-## Build vs. Buy
+## Considérations SEO
 
-### Build Custom
-When: Unique concept, core to brand, high strategic value, have dev capacity
+### Stratégie de mots-clés
+**Landing page de l'outil** : "[thing] calculator", "[thing] generator", "free [tool type]"
 
-### Use No-Code Tools
-Options: Outgrow, Involve.me, Typeform, Tally, Bubble, Webflow
-When: Speed to market, limited dev resources, testing concept
+**Contenu de support** : "How to [use case]", "What is [concept]"
 
-### Embed Existing
-When: Something good exists, white-label available, not core differentiator
-
----
-
-## MVP Scope
-
-### Minimum Viable Tool
-1. Core functionality only—does the one thing, works reliably
-2. Essential UX—clear input, obvious output, mobile works
-3. Basic lead capture—email collection, leads go somewhere useful
-
-### What to Skip Initially
-Account creation, saving results, advanced features, perfect design, every edge case
+### Link building
+Les outils gratuits attirent des liens parce que :
+- Vraiment utiles (les gens les référencent)
+- Uniques (impossible de linker n'importe quelle page)
+- Partageables (amplification sociale)
 
 ---
 
-## Evaluation Scorecard
+## Build vs Buy
 
-Rate each factor 1-5:
+### Build custom
+Quand : concept unique, central pour la marque, forte valeur stratégique, capacité dev disponible
 
-| Factor | Score |
+### Utiliser des outils no-code
+Options : Outgrow, Involve.me, Typeform, Tally, Bubble, Webflow
+Quand : speed to market, ressources dev limitées, validation de concept
+
+### Embarquer un existant
+Quand : quelque chose de bien existe, white-label disponible, pas de différenciateur core
+
+---
+
+## Scope du MVP
+
+### Outil viable minimum
+1. Fonctionnalité core uniquement — fait sa chose, fonctionne de manière fiable
+2. UX essentielle — input clair, output évident, mobile qui marche
+3. Capture de leads basique — collecte d'email, leads acheminés quelque part d'utile
+
+### Ce qu'il faut sauter au début
+Création de compte, sauvegarde des résultats, features avancées, design parfait, chaque cas limite
+
+---
+
+## Scorecard d'évaluation
+
+Note chaque facteur 1-5 :
+
+| Facteur | Score |
 |--------|-------|
-| Search demand exists | ___ |
-| Audience match to buyers | ___ |
-| Uniqueness vs. existing | ___ |
-| Natural path to product | ___ |
-| Build feasibility | ___ |
-| Maintenance burden (inverse) | ___ |
-| Link-building potential | ___ |
+| Demande de recherche existante | ___ |
+| Audience alignée avec les acheteurs | ___ |
+| Unicité vs l'existant | ___ |
+| Chemin naturel vers le produit | ___ |
+| Faisabilité du build | ___ |
+| Charge de maintenance (inversée) | ___ |
+| Potentiel de link building | ___ |
 | Share-worthiness | ___ |
 
-**25+**: Strong candidate | **15-24**: Promising | **<15**: Reconsider
+**25+** : candidat solide | **15-24** : prometteur | **<15** : à reconsidérer
 
 ---
 
-## Task-Specific Questions
+## Questions spécifiques à la tâche
 
-1. What existing tools does your audience use for workarounds?
-2. How do you currently generate leads?
-3. What technical resources are available?
-4. What's the timeline and budget?
+1. Quels outils existants ton audience utilise-t-elle pour contourner le problème ?
+2. Comment génères-tu des leads actuellement ?
+3. Quelles ressources techniques sont disponibles ?
+4. Quel est le timeline et le budget ?
 
 ---
 
-## Related Skills
+## Skills associées
 
-- **lead-magnets**: For downloadable content lead magnets (ebooks, checklists, templates)
-- **page-cro**: For optimizing the tool's landing page
-- **seo-audit**: For SEO-optimizing the tool
-- **analytics-tracking**: For measuring tool usage
-- **email-sequence**: For nurturing leads from the tool
+- **lead-magnets** : pour les lead magnets téléchargeables (ebooks, checklists, templates)
+- **page-cro** : pour optimiser la landing page de l'outil
+- **seo-audit** : pour optimiser le SEO de l'outil
+- **analytics-tracking** : pour mesurer l'usage de l'outil
+- **email-sequence** : pour nurturer les leads issus de l'outil

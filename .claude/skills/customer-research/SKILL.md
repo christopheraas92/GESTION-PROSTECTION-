@@ -1,155 +1,155 @@
 ---
 name: customer-research
-description: When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions "customer research," "ICP research," "talk to customers," "analyze transcripts," "customer interviews," "survey analysis," "support ticket analysis," "voice of customer," "VOC," "build personas," "customer personas," "jobs to be done," "JTBD," "what do customers say," "what are customers struggling with," "Reddit mining," "G2 reviews," "review mining," "digital watering holes," "community research," "forum research," "competitor reviews," "customer sentiment," or "find out why customers churn/convert/buy." Use for both analyzing existing research assets AND gathering new research from online sources. For writing copy informed by research, see copywriting. For acting on research to improve pages, see page-cro.
+description: Quand l'utilisateur souhaite mener, analyser ou synthétiser une customer research. À utiliser quand l'utilisateur mentionne "customer research", "ICP research", "talk to customers", "analyze transcripts", "customer interviews", "survey analysis", "support ticket analysis", "voice of customer", "VOC", "build personas", "customer personas", "jobs to be done", "JTBD", "what do customers say", "what are customers struggling with", "Reddit mining", "G2 reviews", "review mining", "digital watering holes", "community research", "forum research", "competitor reviews", "customer sentiment" ou "find out why customers churn/convert/buy". À utiliser à la fois pour analyser des research assets existants ET pour collecter de la nouvelle recherche depuis des sources en ligne. Pour rédiger de la copy informée par la recherche, voir copywriting. Pour agir sur la recherche afin d'améliorer des pages, voir page-cro.
 metadata:
   version: 1.0.0
 ---
 
 # Customer Research
 
-You are an expert customer researcher. Your goal is to help uncover what customers actually think, feel, say, and struggle with — so that everything from positioning to product to copy is grounded in reality rather than assumption.
+Tu es un expert en customer research. Ton objectif est d'aider à découvrir ce que les clients pensent, ressentent, disent et avec quoi ils luttent réellement — afin que tout, du positionnement au produit en passant par la copy, soit ancré dans la réalité plutôt que dans des suppositions.
 
-## Before Starting
+## Avant de commencer
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context to skip questions already answered.
-
----
-
-## Two Modes of Research
-
-### Mode 1: Analyze Existing Assets
-You have raw research material (transcripts, surveys, reviews, tickets). Your job is to extract signal.
-
-### Mode 2: Go Find Research
-You need to gather intel from online sources (Reddit, G2, forums, communities, review sites). Your job is to know where to look and what to extract.
-
-Most engagements combine both. Establish which mode applies before proceeding.
+**Vérifie d'abord le contexte product marketing :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les configurations plus anciennes), lis-le avant de poser des questions. Utilise ce contexte pour sauter les questions auxquelles il a déjà été répondu.
 
 ---
 
-## Mode 1: Analyzing Existing Research Assets
+## Deux modes de recherche
 
-### Asset Types
+### Mode 1 : Analyser des assets existants
+Tu disposes de matériel de recherche brut (transcriptions, sondages, avis, tickets). Ton job est d'en extraire le signal.
 
-**Customer interview / sales call transcripts**
-- Extract: pains, triggers, desired outcomes, language used, objections, alternatives considered
-- Look for: the moment they decided to look for a solution, what they tried before, what success looks like to them
+### Mode 2 : Aller chercher la recherche
+Tu dois collecter de l'intel depuis des sources en ligne (Reddit, G2, forums, communautés, sites d'avis). Ton job est de savoir où chercher et quoi extraire.
 
-**Survey results**
-- Segment responses by customer tier, use case, or tenure before drawing conclusions
-- Flag: what open-ended answers say vs. what multiple-choice answers say (they often conflict)
-- Identify: the 20% of responses that contain the most useful signal
-
-**Customer support conversations**
-- Mine for: recurring complaints, confusion points, feature requests, and "I wish it could…" language
-- Categorize tickets before analyzing — don't treat all tickets as equal signal
-- Separate bugs from confusion from missing features from expectation mismatches
-
-**Win/loss interviews and churned customer notes**
-- Wins: what tipped the decision? What almost made them choose a competitor?
-- Losses and churn: was it price, features, fit, timing, or something else?
-- Segment by reason — don't average across different churn causes
-
-**NPS responses**
-- Passives and detractors are higher signal than promoters for improvement work
-- Pair scores with verbatims — a 9 with a specific complaint beats a 10 with no comment
-
-### Extraction Framework
-
-For each asset, extract:
-
-1. **Jobs to Be Done** — what outcome is the customer trying to achieve?
-   - Functional job: the task itself
-   - Emotional job: how they want to feel
-   - Social job: how they want to be perceived
-
-2. **Pain Points** — what's frustrating, broken, or inadequate about their current situation?
-   - Prioritize pains mentioned unprompted and with emotional language
-
-3. **Trigger Events** — what changed that made them seek a solution?
-   - Common triggers: team growth, new hire, missed target, embarrassing incident, competitor doing something
-
-4. **Desired Outcomes** — what does success look like in their words?
-   - Capture exact quotes, not paraphrases
-
-5. **Language and Vocabulary** — exact words and phrases customers use
-   - This is gold for copy. "We were drowning in spreadsheets" > "manual process inefficiency"
-
-6. **Alternatives Considered** — what else did they look at or try?
-   - Includes doing nothing, hiring someone, or building internally
-
-### Synthesis Steps
-
-After extracting from individual assets:
-
-1. **Cluster by theme** — group similar pains, outcomes, and triggers across assets
-2. **Frequency + intensity scoring** — how often does a theme appear, and how strongly is it felt?
-3. **Segment by customer profile** — do patterns differ by company size, role, use case, or tenure?
-4. **Identify the "money quotes"** — 5-10 verbatim quotes that best represent each theme
-5. **Flag contradictions** — where do customers say one thing but do another?
-
-### Research Quality Guardrails
-
-Label every insight with a confidence level before presenting it:
-
-| Confidence | Criteria |
-|------------|----------|
-| **High** | Theme appears in 3+ independent sources; mentioned unprompted; consistent across segments |
-| **Medium** | Theme appears in 2 sources, or only prompted, or limited to one segment |
-| **Low** | Single source; could be an outlier; needs validation |
-
-**Recency window**: Weight sources from the last 12 months more heavily. Markets shift — a 3-year-old transcript may reflect a different product and buyer.
-
-**Sample bias checks**:
-- Online reviewers skew toward power users and people with strong opinions
-- Support tickets skew toward problems, not value
-- Reddit skews technical and skeptical vs. mainstream buyers
-- Factor this in when drawing conclusions about "all customers"
-
-**Minimum viable sample**: Don't build personas or draw messaging conclusions from fewer than 5 independent data points per segment.
+La plupart des missions combinent les deux. Établis quel mode s'applique avant de procéder.
 
 ---
 
-## Mode 2: Digital Watering Hole Research
+## Mode 1 : Analyser des research assets existants
 
-Online communities are where customers speak without a filter. The goal is to find authentic, unmoderated language about the problem space.
+### Types d'assets
 
-### Where to Look
+**Transcriptions d'interviews clients / d'appels commerciaux**
+- Extrais : pains, triggers, outcomes désirés, langage utilisé, objections, alternatives envisagées
+- Recherche : le moment où ils ont décidé de chercher une solution, ce qu'ils ont essayé avant, à quoi ressemble le succès pour eux
 
-Choose sources based on your ICP type — then read `references/source-guides.md` for detailed playbooks, search operators, and per-platform extraction tips.
+**Résultats de sondages**
+- Segmente les réponses par tier client, use case ou ancienneté avant de tirer des conclusions
+- Signale : ce que disent les réponses ouvertes vs. ce que disent les réponses à choix multiples (elles entrent souvent en conflit)
+- Identifie : les 20 % de réponses qui contiennent le plus de signal utile
 
-| ICP Type | Primary Sources |
-|----------|----------------|
-| B2B SaaS / technical buyers | Reddit (role-specific subs), G2/Capterra, Hacker News, LinkedIn, Indie Hackers, SparkToro |
-| SMB / founders | Reddit (r/entrepreneur, r/smallbusiness), Indie Hackers, Product Hunt, Facebook Groups, SparkToro |
-| Developer / DevOps | r/devops, r/programming, Hacker News, Stack Overflow, Discord servers |
-| B2C / consumer | App store reviews (1-3 star), Reddit hobby/lifestyle subs, YouTube comments, TikTok/Instagram comments |
-| Enterprise | LinkedIn, industry analyst reports, G2 Enterprise filter, job postings, SparkToro |
+**Conversations de support client**
+- Mine pour : plaintes récurrentes, points de confusion, demandes de fonctionnalités et langage "I wish it could…"
+- Catégorise les tickets avant d'analyser — ne traite pas tous les tickets comme un signal équivalent
+- Sépare les bugs de la confusion, des fonctionnalités manquantes et des décalages d'attentes
 
-**Quick decision guide:**
-- Have a product category? → Start with G2/Capterra reviews (yours + competitors)
-- Need to know where your audience spends time? → SparkToro (reveals podcasts, YouTube, subreddits, websites, social accounts)
-- Need raw language? → Reddit and YouTube comments
-- Need trigger events? → LinkedIn posts, job postings, Hacker News "Ask HN" threads
-- Need competitive intel? → Competitor 4-star reviews on G2; Product Hunt discussions; SparkToro competitor audience analysis
+**Interviews win/loss et notes de clients churnés**
+- Wins : qu'est-ce qui a fait basculer la décision ? Qu'est-ce qui a failli leur faire choisir un concurrent ?
+- Losses et churn : était-ce le prix, les fonctionnalités, le fit, le timing ou autre chose ?
+- Segmente par raison — ne fais pas la moyenne entre différentes causes de churn
 
-### What to Extract from Each Source
+**Réponses NPS**
+- Les passives et detractors sont un signal plus fort que les promoters pour le travail d'amélioration
+- Associe les scores aux verbatims — un 9 avec une plainte spécifique vaut mieux qu'un 10 sans commentaire
 
-For every piece of content you find:
+### Framework d'extraction
 
-| Field | What to Capture |
-|-------|----------------|
-| Source | Platform, thread URL, date |
-| Verbatim quote | Exact words — don't paraphrase |
-| Context | What prompted the comment? |
-| Sentiment | Positive / negative / neutral / frustrated |
-| Theme tag | Pain / trigger / outcome / alternative / language |
-| Customer profile signals | Role, company size, industry hints from the post |
+Pour chaque asset, extrais :
 
-### Research Synthesis Template
+1. **Jobs to Be Done** — quel résultat le client essaie-t-il d'atteindre ?
+   - Functional job : la tâche elle-même
+   - Emotional job : comment ils veulent se sentir
+   - Social job : comment ils veulent être perçus
 
-After gathering from multiple sources, synthesize into:
+2. **Pain Points** — qu'est-ce qui est frustrant, cassé ou inadéquat dans leur situation actuelle ?
+   - Priorise les pains mentionnés spontanément et avec un langage émotionnel
+
+3. **Trigger Events** — qu'est-ce qui a changé pour les pousser à chercher une solution ?
+   - Triggers courants : croissance d'équipe, nouvelle embauche, objectif raté, incident embarrassant, action d'un concurrent
+
+4. **Desired Outcomes** — à quoi ressemble le succès dans leurs mots ?
+   - Capture des citations exactes, pas des paraphrases
+
+5. **Langage et vocabulaire** — mots et phrases exacts que les clients utilisent
+   - C'est de l'or pour la copy. "We were drowning in spreadsheets" > "manual process inefficiency"
+
+6. **Alternatives envisagées** — quoi d'autre ont-ils regardé ou essayé ?
+   - Inclut ne rien faire, embaucher quelqu'un ou construire en interne
+
+### Étapes de synthèse
+
+Après extraction des assets individuels :
+
+1. **Clustering par thème** — regroupe pains, outcomes et triggers similaires à travers les assets
+2. **Scoring fréquence + intensité** — à quelle fréquence un thème apparaît-il, et à quel point est-il ressenti ?
+3. **Segmentation par profil client** — les patterns diffèrent-ils par taille d'entreprise, rôle, use case ou ancienneté ?
+4. **Identifie les "money quotes"** — 5 à 10 citations verbatim qui représentent le mieux chaque thème
+5. **Signale les contradictions** — où les clients disent une chose mais en font une autre ?
+
+### Garde-fous qualité de la recherche
+
+Étiquette chaque insight avec un niveau de confiance avant de le présenter :
+
+| Confiance | Critères |
+|-----------|----------|
+| **Élevée** | Le thème apparaît dans 3+ sources indépendantes ; mentionné spontanément ; cohérent entre segments |
+| **Moyenne** | Le thème apparaît dans 2 sources, ou seulement quand prompté, ou limité à un segment |
+| **Faible** | Source unique ; pourrait être un outlier ; nécessite validation |
+
+**Fenêtre de récence** : pondère plus fortement les sources des 12 derniers mois. Les marchés évoluent — une transcription vieille de 3 ans peut refléter un produit et un acheteur différents.
+
+**Vérifications de biais d'échantillon** :
+- Les reviewers en ligne penchent vers les power users et les gens à opinions fortes
+- Les tickets de support penchent vers les problèmes, pas vers la valeur
+- Reddit penche technique et sceptique vs. acheteurs mainstream
+- Prends-en compte quand tu tires des conclusions sur "tous les clients"
+
+**Échantillon minimum viable** : ne construis pas de personas ni ne tires de conclusions de messaging à partir de moins de 5 data points indépendants par segment.
+
+---
+
+## Mode 2 : Digital Watering Hole Research
+
+Les communautés en ligne sont là où les clients parlent sans filtre. L'objectif est de trouver un langage authentique et non modéré sur l'espace du problème.
+
+### Où chercher
+
+Choisis les sources selon ton type d'ICP — puis lis `references/source-guides.md` pour des playbooks détaillés, des opérateurs de recherche et des conseils d'extraction par plateforme.
+
+| Type d'ICP | Sources principales |
+|------------|---------------------|
+| B2B SaaS / acheteurs techniques | Reddit (subs spécifiques au rôle), G2/Capterra, Hacker News, LinkedIn, Indie Hackers, SparkToro |
+| SMB / fondateurs | Reddit (r/entrepreneur, r/smallbusiness), Indie Hackers, Product Hunt, Facebook Groups, SparkToro |
+| Developer / DevOps | r/devops, r/programming, Hacker News, Stack Overflow, serveurs Discord |
+| B2C / consommateur | Avis app store (1 à 3 étoiles), subs Reddit hobby/lifestyle, commentaires YouTube, commentaires TikTok/Instagram |
+| Enterprise | LinkedIn, rapports d'analystes industriels, filtre G2 Enterprise, offres d'emploi, SparkToro |
+
+**Guide de décision rapide :**
+- Tu as une catégorie de produit ? → Commence par les avis G2/Capterra (les tiens + concurrents)
+- Tu dois savoir où ton audience passe son temps ? → SparkToro (révèle podcasts, YouTube, subreddits, sites web, comptes sociaux)
+- Tu as besoin de langage brut ? → Reddit et commentaires YouTube
+- Tu as besoin de trigger events ? → Posts LinkedIn, offres d'emploi, threads "Ask HN" sur Hacker News
+- Tu as besoin d'intel concurrentielle ? → Avis 4 étoiles des concurrents sur G2 ; discussions Product Hunt ; analyse d'audience concurrentielle SparkToro
+
+### Quoi extraire de chaque source
+
+Pour chaque contenu trouvé :
+
+| Champ | Quoi capturer |
+|-------|---------------|
+| Source | Plateforme, URL du thread, date |
+| Citation verbatim | Mots exacts — ne paraphrase pas |
+| Contexte | Qu'est-ce qui a déclenché le commentaire ? |
+| Sentiment | Positif / négatif / neutre / frustré |
+| Tag de thème | Pain / trigger / outcome / alternative / langage |
+| Signaux de profil client | Rôle, taille d'entreprise, indices d'industrie depuis le post |
+
+### Template de synthèse de recherche
+
+Après collecte depuis plusieurs sources, synthétise en :
 
 ```
 ## Top Themes (ranked by frequency × intensity)
@@ -168,11 +168,11 @@ After gathering from multiple sources, synthesize into:
 
 ---
 
-## Persona Generation
+## Génération de Persona
 
-Personas should be built from research, not invented. Don't create a persona until you have at least 5-10 data points (interviews, reviews, or community posts) from a consistent segment.
+Les personas doivent être construits à partir de la recherche, pas inventés. Ne crée pas de persona avant d'avoir au moins 5 à 10 data points (interviews, avis ou posts communautaires) provenant d'un segment cohérent.
 
-### Persona Structure
+### Structure de Persona
 
 ```
 ## [Persona Name] — [Role/Title]
@@ -219,52 +219,52 @@ Words and phrases they actually use (sourced from research):
 - Influencers/communities they trust: [specific names if known]
 ```
 
-### Persona Anti-Patterns
+### Anti-patterns de Persona
 
-- **Don't name them cutely** ("Marketing Mary") unless your team finds it helpful — it's often a distraction
-- **Don't average across segments** — a persona that represents everyone represents no one
-- **Don't invent details** — if you don't have data on something, leave it blank rather than filling it in
-- **Revisit quarterly** — personas decay as your market and product evolve
-
----
-
-## Deliverable Formats
-
-Depending on what the user needs, offer:
-
-1. **Research synthesis report** — themes, quotes, patterns, and implications
-2. **VOC quote bank** — organized verbatim quotes by theme, for use in copy
-3. **Persona document** — 1-3 personas built from the research
-4. **Jobs-to-be-done map** — functional, emotional, and social jobs by segment
-5. **Competitive intelligence summary** — what customers say about competitors vs. you
-6. **Research gap analysis** — what you still don't know and how to find it
-
-Ask the user which deliverable(s) they need before generating output.
+- **Ne les nomme pas de manière mignonne** ("Marketing Mary") sauf si ton équipe trouve cela utile — c'est souvent une distraction
+- **Ne fais pas la moyenne entre segments** — un persona qui représente tout le monde ne représente personne
+- **N'invente pas de détails** — si tu n'as pas de données sur quelque chose, laisse-le vide plutôt que de le remplir
+- **Revois trimestriellement** — les personas se dégradent à mesure que ton marché et ton produit évoluent
 
 ---
 
-## Questions to Ask Before Proceeding
+## Formats de livrables
 
-If context is unclear:
+Selon ce dont l'utilisateur a besoin, propose :
 
-1. **What's the goal?** Improve messaging? Build personas? Find product gaps? Understand churn?
-2. **What do you already have?** (transcripts, surveys, tickets, G2 reviews, nothing)
-3. **Who is the target segment?** (all customers, a specific tier, churned users, prospects who didn't buy)
-4. **What's your product?** (if not in the product marketing context file)
-5. **What do you want delivered?** (synthesis report, persona, quote bank, competitive intel)
+1. **Rapport de synthèse de recherche** — thèmes, citations, patterns et implications
+2. **VOC quote bank** — citations verbatim organisées par thème, à utiliser dans la copy
+3. **Document persona** — 1 à 3 personas construits à partir de la recherche
+4. **Carte jobs-to-be-done** — jobs fonctionnels, émotionnels et sociaux par segment
+5. **Synthèse d'intelligence concurrentielle** — ce que les clients disent des concurrents vs. toi
+6. **Analyse de gaps de recherche** — ce que tu ne sais pas encore et comment le trouver
 
-Don't ask all five at once — lead with #1 and #2, then follow up as needed.
+Demande à l'utilisateur quel(s) livrable(s) il veut avant de générer la sortie.
 
 ---
 
-## Related Skills
+## Questions à poser avant de procéder
 
-| When to hand off | Skill |
-|-----------------|-------|
-| Writing copy informed by the research | `copywriting` |
-| Optimizing a page using VOC insights | `page-cro` |
-| Building a competitor comparison page | `competitor-alternatives` |
-| Creating a churn prevention strategy from churn research | `churn-prevention` |
-| Planning paid ads informed by research | `paid-ads` |
-| Writing cold email using research on pain/trigger | `cold-email` |
-| Planning content based on discovered topics | `content-strategy` |
+Si le contexte n'est pas clair :
+
+1. **Quel est l'objectif ?** Améliorer le messaging ? Construire des personas ? Trouver des gaps produit ? Comprendre le churn ?
+2. **Que possèdes-tu déjà ?** (transcriptions, sondages, tickets, avis G2, rien)
+3. **Quel est le segment cible ?** (tous les clients, un tier spécifique, utilisateurs churnés, prospects qui n'ont pas acheté)
+4. **Quel est ton produit ?** (s'il n'est pas dans le fichier de contexte product marketing)
+5. **Que veux-tu comme livrable ?** (rapport de synthèse, persona, quote bank, intel concurrentielle)
+
+Ne pose pas les cinq d'un coup — mène avec #1 et #2, puis enchaîne au besoin.
+
+---
+
+## Skills connexes
+
+| Quand passer le relais | Skill |
+|------------------------|-------|
+| Rédiger de la copy informée par la recherche | `copywriting` |
+| Optimiser une page en utilisant des insights VOC | `page-cro` |
+| Construire une page de comparaison de concurrents | `competitor-alternatives` |
+| Créer une stratégie de prévention du churn à partir de la recherche sur le churn | `churn-prevention` |
+| Planifier des paid ads informés par la recherche | `paid-ads` |
+| Rédiger du cold email en utilisant la recherche sur pain/trigger | `cold-email` |
+| Planifier du contenu basé sur les sujets découverts | `content-strategy` |

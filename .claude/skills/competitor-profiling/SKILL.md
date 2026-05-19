@@ -1,411 +1,411 @@
 ---
 name: competitor-profiling
-description: "When the user wants to research, profile, or analyze competitors from their URLs. Also use when the user mentions 'competitor profile,' 'competitor research,' 'competitor analysis,' 'profile this competitor,' 'analyze competitor,' 'competitive intelligence,' 'competitor deep dive,' 'who are my competitors,' 'competitor landscape,' 'competitor dossier,' 'competitive audit,' or 'research these competitors.' Input is a list of competitor URLs. Output is structured competitor profile markdown files. For creating comparison/alternative pages from profiles, see competitor-alternatives. For sales-specific battle cards, see sales-enablement."
+description: "Lorsque l'utilisateur souhaite rechercher, profiler ou analyser des concurrents à partir de leurs URLs. À utiliser également lorsque l'utilisateur mentionne 'profil de concurrent', 'recherche concurrentielle', 'analyse concurrentielle', 'profile ce concurrent', 'analyser un concurrent', 'competitive intelligence', 'deep dive concurrent', 'qui sont mes concurrents', 'paysage concurrentiel', 'dossier concurrent', 'audit concurrentiel' ou 'recherche sur ces concurrents'. L'input est une liste d'URLs concurrents. L'output est un ensemble de fichiers markdown structurés de profils concurrents. Pour créer des pages de comparaison/alternatives à partir des profils, voir competitor-alternatives. Pour des battle cards spécifiques à la vente, voir sales-enablement."
 metadata:
   version: 1.0.0
 ---
 
 # Competitor Profiling
 
-You are an expert competitive intelligence analyst. Your goal is to take a list of competitor URLs and produce comprehensive, structured competitor profile documents by combining live site scraping with SEO and market data.
+Tu es un expert analyste en competitive intelligence. Ton objectif est de prendre une liste d'URLs de concurrents et de produire des documents de profils concurrents complets et structurés en combinant le scraping de sites en live avec des données SEO et marché.
 
-## Initial Assessment
+## Évaluation initiale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered.
+**Vérifie d'abord le contexte product marketing :**
+Si `.agents/product-marketing-context.md` existe (ou `.claude/product-marketing-context.md` dans les anciennes configurations), lis-le avant de poser des questions. Utilise ce contexte et ne demande que les informations qui n'y figurent pas.
 
-Before profiling, confirm:
+Avant de profiler, confirme :
 
-1. **Competitor URLs** — the list of competitor website URLs to profile
-2. **Your product** — what you do (if not in product marketing context)
-3. **Depth level** — quick scan (key facts only) or deep profile (full research)
-4. **Focus areas** — any specific dimensions to prioritize (e.g., pricing, positioning, SEO strength, content strategy)
+1. **URLs concurrents** — la liste des URLs de sites concurrents à profiler
+2. **Ton produit** — ce que tu fais (si ce n'est pas dans le contexte product marketing)
+3. **Niveau de profondeur** — quick scan (faits clés uniquement) ou deep profile (recherche complète)
+4. **Zones de focus** — toute dimension spécifique à prioriser (ex. pricing, positionnement, force SEO, content strategy)
 
-If the user provides URLs and context is available, proceed without asking.
-
----
-
-## Core Principles
-
-### 1. Facts Over Opinions
-Every claim in a profile should be traceable to a source — scraped page content, review data, or SEO metrics. Label inferences clearly.
-
-### 2. Structured and Comparable
-All profiles follow the same template so they can be compared side by side. Consistency matters more than completeness on any single profile.
-
-### 3. Current Data
-Profiles are snapshots. Always include the date generated. Flag anything that looks stale (e.g., "pricing page last updated 2023").
-
-### 4. Honest Assessment
-Don't exaggerate competitor weaknesses or downplay their strengths. Accurate profiles are useful profiles.
+Si l'utilisateur fournit des URLs et que le contexte est disponible, procède sans demander.
 
 ---
 
-## Saving Raw Data
+## Principes fondamentaux
 
-Before synthesizing the profile, persist all raw scrape, SEO, and review data to disk so it can be re-read, audited, or re-used later without re-running expensive API calls.
+### 1. Faits plutôt qu'opinions
+Chaque claim dans un profil doit être traçable à une source — contenu de page scrapé, données de reviews ou métriques SEO. Étiquette clairement les inférences.
 
-**Directory layout** (relative to project root):
+### 2. Structuré et comparable
+Tous les profils suivent le même template afin de pouvoir être comparés côte à côte. La cohérence importe plus que la complétude sur un profil unique.
+
+### 3. Données à jour
+Les profils sont des snapshots. Inclus toujours la date de génération. Signale tout ce qui semble obsolète (ex. "page pricing dernière mise à jour 2023").
+
+### 4. Évaluation honnête
+N'exagère pas les faiblesses des concurrents et ne minimise pas leurs forces. Des profils précis sont des profils utiles.
+
+---
+
+## Sauvegarde des données brutes
+
+Avant de synthétiser le profil, persiste toutes les données brutes de scrape, SEO et reviews sur disque afin qu'elles puissent être relues, auditées ou réutilisées plus tard sans relancer d'appels API coûteux.
+
+**Layout de répertoires** (relatif à la racine du projet) :
 
 ```
 competitor-profiles/
 ├── raw/
 │   └── <competitor-slug>/
 │       └── <YYYY-MM-DD>/
-│           ├── scrapes/    # one .md file per scraped page (homepage.md, pricing.md, ...)
-│           ├── seo/        # one .json file per DataForSEO call (backlinks-summary.json, ranked-keywords.json, ...)
-│           └── reviews/    # one .md or .json file per review source (g2.md, capterra.md, ...)
-├── <competitor-slug>.md    # final synthesized profile
-└── _summary.md             # cross-competitor summary
+│           ├── scrapes/    # un fichier .md par page scrapée (homepage.md, pricing.md, ...)
+│           ├── seo/        # un fichier .json par appel DataForSEO (backlinks-summary.json, ranked-keywords.json, ...)
+│           └── reviews/    # un fichier .md ou .json par source de reviews (g2.md, capterra.md, ...)
+├── <competitor-slug>.md    # profil synthétisé final
+└── _summary.md             # résumé cross-concurrents
 ```
 
-Rules:
+Règles :
 
-- `<competitor-slug>` is lowercase, hyphenated (e.g. `responsehub`, `safe-base`)
-- `<YYYY-MM-DD>` is the date the data was pulled — supports re-running and diffing snapshots over time
-- Save each Firecrawl scrape as raw markdown to `scrapes/<page-name>.md`
-- Save each DataForSEO response as raw JSON to `seo/<endpoint-name>.json`
-- Save each review source to `reviews/<source>.md` (cleaned text) or `.json` (raw)
-- Always create the date folder fresh on a new run; never overwrite a prior date's data
+- `<competitor-slug>` est en minuscules, avec tirets (ex. `responsehub`, `safe-base`)
+- `<YYYY-MM-DD>` est la date à laquelle les données ont été récupérées — permet de re-runner et de differ les snapshots dans le temps
+- Sauvegarde chaque scrape Firecrawl en markdown brut dans `scrapes/<page-name>.md`
+- Sauvegarde chaque réponse DataForSEO en JSON brut dans `seo/<endpoint-name>.json`
+- Sauvegarde chaque source de reviews dans `reviews/<source>.md` (texte nettoyé) ou `.json` (brut)
+- Crée toujours un dossier de date fraîche à chaque nouveau run ; n'écrase jamais les données d'une date antérieure
 
-The synthesized profile (`<competitor-slug>.md`) should reference the raw data folder it was built from in its `## Raw Data Sources` section.
+Le profil synthétisé (`<competitor-slug>.md`) doit référencer le dossier de données brutes à partir duquel il a été construit dans sa section `## Raw Data Sources`.
 
 ---
 
-## Research Process
+## Processus de recherche
 
-### Phase 1: Site Scraping (Firecrawl)
+### Phase 1 : Site Scraping (Firecrawl)
 
-For each competitor URL, scrape key pages to extract positioning, features, pricing, and messaging.
+Pour chaque URL concurrent, scrape les pages clés pour extraire positionnement, fonctionnalités, pricing et messaging.
 
-#### Step 1: Map the site
+#### Étape 1 : mapper le site
 
-Use **Firecrawl Map** to discover the competitor's site structure and identify key pages:
-
-```
-firecrawl_map → competitor URL
-```
-
-From the map, identify and prioritize these page types:
-- Homepage
-- Pricing page
-- Features / product pages
-- About / company page
-- Blog (top-level, for content strategy signals)
-- Customers / case studies page
-- Integrations page
-- Changelog / what's new (if exists)
-
-#### Step 2: Scrape key pages
-
-Use **Firecrawl Scrape** on each identified page:
+Utilise **Firecrawl Map** pour découvrir la structure du site du concurrent et identifier les pages clés :
 
 ```
-firecrawl_scrape → each key page URL
+firecrawl_map → URL du concurrent
 ```
 
-Save each result to `competitor-profiles/raw/<competitor-slug>/<YYYY-MM-DD>/scrapes/<page-name>.md` before extracting fields.
+À partir du map, identifie et priorise ces types de pages :
+- Page d'accueil
+- Page de pricing
+- Pages features / produit
+- Page À propos / entreprise
+- Blog (niveau racine, pour les signaux de content strategy)
+- Page clients / études de cas
+- Page intégrations
+- Changelog / nouveautés (s'il existe)
 
-Extract from each page:
+#### Étape 2 : scraper les pages clés
 
-| Page | What to Extract |
-|------|----------------|
-| **Homepage** | Headline, subheadline, value proposition, primary CTA, social proof claims, target audience signals |
-| **Pricing** | Tiers, prices, feature breakdown per tier, billing options, free tier/trial details, enterprise pricing signals |
-| **Features** | Feature categories, key capabilities, how they describe each feature, screenshots/demo signals |
-| **About** | Founding story, team size, funding, mission statement, headquarters |
-| **Customers** | Named customers, logos, industries served, case study themes |
-| **Integrations** | Integration count, key integrations, categories |
-| **Changelog** | Release velocity, recent focus areas, product direction signals |
+Utilise **Firecrawl Scrape** sur chaque page identifiée :
 
-#### Step 3: Scrape competitor reviews (optional but high-value)
+```
+firecrawl_scrape → chaque URL de page clé
+```
 
-Use **Firecrawl Scrape** or **Firecrawl Search** to find:
-- G2 reviews page for the competitor
-- Capterra reviews page
-- Product Hunt launch page
-- TrustRadius profile
+Sauvegarde chaque résultat dans `competitor-profiles/raw/<competitor-slug>/<YYYY-MM-DD>/scrapes/<page-name>.md` avant d'extraire les champs.
 
-Save each scraped review page to `competitor-profiles/raw/<competitor-slug>/<YYYY-MM-DD>/reviews/<source>.md`. Then extract: overall rating, review count, common praise themes, common complaint themes, and 3-5 representative quotes.
+Extrais de chaque page :
+
+| Page | Ce qu'il faut extraire |
+|------|------------------------|
+| **Page d'accueil** | Headline, subheadline, value proposition, CTA principal, claims de social proof, signaux d'audience cible |
+| **Pricing** | Tiers, prix, breakdown de fonctionnalités par tier, options de facturation, détails du tier gratuit/essai, signaux de pricing enterprise |
+| **Features** | Catégories de fonctionnalités, capacités clés, façon de décrire chaque fonctionnalité, signaux de screenshots/démos |
+| **About** | Histoire de fondation, taille d'équipe, levée de fonds, mission statement, headquarters |
+| **Customers** | Clients nommés, logos, industries servies, thèmes des études de cas |
+| **Intégrations** | Nombre d'intégrations, intégrations clés, catégories |
+| **Changelog** | Vélocité de release, zones de focus récentes, signaux de direction produit |
+
+#### Étape 3 : scraper les reviews concurrents (optionnel mais à forte valeur)
+
+Utilise **Firecrawl Scrape** ou **Firecrawl Search** pour trouver :
+- Page de reviews G2 du concurrent
+- Page de reviews Capterra
+- Page de lancement Product Hunt
+- Profil TrustRadius
+
+Sauvegarde chaque page de reviews scrapée dans `competitor-profiles/raw/<competitor-slug>/<YYYY-MM-DD>/reviews/<source>.md`. Puis extrais : note globale, nombre de reviews, thèmes d'éloges courants, thèmes de plaintes courants et 3-5 citations représentatives.
 
 ---
 
-### Phase 2: SEO & Market Data (DataForSEO)
+### Phase 2 : SEO & Market Data (DataForSEO)
 
-Use DataForSEO MCP tools to gather quantitative competitive intelligence. Save each raw response as JSON to `competitor-profiles/raw/<competitor-slug>/<YYYY-MM-DD>/seo/<endpoint-name>.json` before parsing it into the profile. For the full list of MCP tools used in this skill (Firecrawl + DataForSEO) and example calls, see [references/tool-reference.md](references/tool-reference.md).
+Utilise les outils MCP DataForSEO pour recueillir de la competitive intelligence quantitative. Sauvegarde chaque réponse brute en JSON dans `competitor-profiles/raw/<competitor-slug>/<YYYY-MM-DD>/seo/<endpoint-name>.json` avant de la parser dans le profil. Pour la liste complète des outils MCP utilisés dans ce skill (Firecrawl + DataForSEO) et des exemples d'appels, voir [references/tool-reference.md](references/tool-reference.md).
 
-#### Domain Authority & Backlinks
+#### Authority de domaine et backlinks
 
-Use **backlinks_summary** to get:
-- Domain rank / authority score
-- Total backlinks
-- Referring domains count
+Utilise **backlinks_summary** pour obtenir :
+- Domain rank / score d'authority
+- Total des backlinks
+- Nombre de referring domains
 - Spam score
 
-Use **backlinks_referring_domains** for:
-- Top referring domains (quality signals)
-- Link acquisition patterns
+Utilise **backlinks_referring_domains** pour :
+- Top referring domains (signaux de qualité)
+- Patterns d'acquisition de liens
 
-#### Keyword & Traffic Intelligence
+#### Intelligence keywords et trafic
 
-Use **dataforseo_labs_google_ranked_keywords** to get:
-- Total organic keywords ranking
-- Keywords in top 3, top 10, top 100
-- Estimated organic traffic
+Utilise **dataforseo_labs_google_ranked_keywords** pour obtenir :
+- Total des keywords organiques en ranking
+- Keywords dans le top 3, top 10, top 100
+- Trafic organique estimé
 
-Use **dataforseo_labs_google_domain_rank_overview** for:
-- Domain-level organic metrics
-- Estimated traffic value
-- Top keywords by traffic
+Utilise **dataforseo_labs_google_domain_rank_overview** pour :
+- Métriques organiques au niveau domaine
+- Valeur estimée du trafic
+- Top keywords par trafic
 
-Use **dataforseo_labs_google_keywords_for_site** to discover:
-- What keywords they target
-- Content gaps vs. your site
+Utilise **dataforseo_labs_google_keywords_for_site** pour découvrir :
+- Quels keywords ils ciblent
+- Gaps de contenu vs ton site
 
-#### Competitive Positioning Data
+#### Données de positionnement concurrentiel
 
-Use **dataforseo_labs_google_competitors_domain** to find:
-- Their closest organic competitors (may reveal competitors you haven't considered)
-- Market overlap data
+Utilise **dataforseo_labs_google_competitors_domain** pour trouver :
+- Leurs concurrents organiques les plus proches (peut révéler des concurrents que tu n'avais pas considérés)
+- Données de chevauchement marché
 
-Use **dataforseo_labs_google_relevant_pages** to find:
-- Their highest-traffic pages
-- Content that drives the most organic value
-
----
-
-### Phase 3: Synthesis
-
-Combine scraped content with SEO data to build the profile. Cross-reference claims (e.g., if they claim "10,000 customers" on site, check if their traffic/backlink profile supports that scale).
+Utilise **dataforseo_labs_google_relevant_pages** pour trouver :
+- Leurs pages à plus fort trafic
+- Le contenu qui génère le plus de valeur organique
 
 ---
 
-## Output Format
+### Phase 3 : Synthèse
 
-### Profile Document Structure
+Combine le contenu scrapé avec les données SEO pour construire le profil. Croise les claims (ex. s'ils prétendent "10 000 clients" sur le site, vérifie si leur profil de trafic/backlinks supporte cette échelle).
 
-Generate one markdown file per competitor, saved to a `competitor-profiles/` directory in the project root.
+---
 
-**Filename**: `competitor-profiles/[competitor-name].md`
+## Format de sortie
 
-**For the full profile and summary templates**: See [references/templates.md](references/templates.md)
+### Structure du document de profil
 
-Each profile follows this structure:
+Génère un fichier markdown par concurrent, sauvegardé dans un répertoire `competitor-profiles/` à la racine du projet.
+
+**Nom de fichier** : `competitor-profiles/[nom-du-concurrent].md`
+
+**Pour les templates complets de profil et de résumé** : voir [references/templates.md](references/templates.md)
+
+Chaque profil suit cette structure :
 
 ```markdown
-# [Competitor Name] — Competitor Profile
+# [Nom du concurrent] — Profil concurrent
 
-**URL**: [website]
-**Generated**: [date]
-**Depth**: [quick scan / deep profile]
-
----
-
-## At a Glance
-
-| Metric | Value |
-|--------|-------|
-| Tagline | [from homepage] |
-| Founded | [year] |
-| Headquarters | [location] |
-| Team size | [estimate] |
-| Funding | [if known] |
-| Domain rank | [from DataForSEO] |
-| Est. organic traffic | [monthly] |
-| Referring domains | [count] |
-| Organic keywords | [count] |
+**URL** : [site]
+**Généré** : [date]
+**Profondeur** : [quick scan / deep profile]
 
 ---
 
-## Positioning & Messaging
+## En un coup d'œil
 
-**Primary value proposition**: [headline + subheadline from homepage]
-
-**Target audience**: [who they're speaking to, based on copy analysis]
-
-**Positioning angle**: [how they position — e.g., "simplicity-first," "enterprise-grade," "all-in-one"]
-
-**Key messaging themes**:
-- [theme 1 — with source page]
-- [theme 2]
-- [theme 3]
+| Métrique | Valeur |
+|----------|--------|
+| Tagline | [depuis la page d'accueil] |
+| Fondé | [année] |
+| Headquarters | [localisation] |
+| Taille d'équipe | [estimation] |
+| Funding | [si connu] |
+| Domain rank | [depuis DataForSEO] |
+| Trafic organique estimé | [mensuel] |
+| Referring domains | [nombre] |
+| Keywords organiques | [nombre] |
 
 ---
 
-## Product & Features
+## Positionnement et messaging
 
-### Core capabilities
-- [capability 1] — [brief description from their site]
-- [capability 2]
+**Value proposition principale** : [headline + subheadline depuis la page d'accueil]
+
+**Audience cible** : [à qui ils parlent, basé sur l'analyse de la copy]
+
+**Angle de positionnement** : [comment ils se positionnent — ex. "simplicity-first", "enterprise-grade", "all-in-one"]
+
+**Thèmes clés de messaging** :
+- [thème 1 — avec page source]
+- [thème 2]
+- [thème 3]
+
+---
+
+## Produit et fonctionnalités
+
+### Capacités principales
+- [capacité 1] — [brève description depuis leur site]
+- [capacité 2]
 - ...
 
-### Notable differentiators
-- [what they emphasize as unique]
+### Différenciateurs notables
+- [ce qu'ils mettent en avant comme unique]
 
-### Integrations
-- [count] integrations
-- Key: [list top 5-10]
+### Intégrations
+- [nombre] intégrations
+- Clés : [liste top 5-10]
 
-### Product direction signals
-- [based on changelog / recent feature releases]
+### Signaux de direction produit
+- [basé sur le changelog / les releases récentes]
 
 ---
 
 ## Pricing
 
-| Tier | Price | Key Inclusions |
-|------|-------|---------------|
-| [Free/Starter] | [price] | [what's included] |
-| [Pro/Growth] | [price] | [what's included] |
-| [Enterprise] | [price] | [what's included] |
+| Tier | Prix | Inclusions clés |
+|------|------|------------------|
+| [Free/Starter] | [prix] | [ce qui est inclus] |
+| [Pro/Growth] | [prix] | [ce qui est inclus] |
+| [Enterprise] | [prix] | [ce qui est inclus] |
 
-**Billing**: [monthly/annual, discount for annual]
-**Free trial**: [yes/no, duration]
-**Notable**: [any pricing quirks — per-seat, usage-based, hidden costs]
-
----
-
-## Customers & Social Proof
-
-**Named customers**: [list notable logos]
-**Industries**: [primary industries served]
-**Case study themes**: [what outcomes they highlight]
-**Review ratings**:
-- G2: [rating] ([count] reviews)
-- Capterra: [rating] ([count] reviews)
+**Facturation** : [mensuel/annuel, remise pour annuel]
+**Free trial** : [oui/non, durée]
+**À noter** : [particularités de pricing — per-seat, usage-based, coûts cachés]
 
 ---
 
-## SEO & Content Strategy
+## Clients et social proof
 
-**Organic strength**:
-- Estimated monthly organic traffic: [number]
-- Organic keywords (top 10): [count]
-- Organic traffic value: $[estimated]
-
-**Top organic pages** (by estimated traffic):
-1. [page URL] — [keyword] — [est. traffic]
-2. [page URL] — [keyword] — [est. traffic]
-3. [page URL] — [keyword] — [est. traffic]
-
-**Content strategy signals**:
-- Blog post frequency: [estimate]
-- Primary content types: [guides, comparisons, templates, etc.]
-- Content focus areas: [topics they invest in]
-
-**Backlink profile**:
-- Referring domains: [count]
-- Top referring sites: [list 5]
-- Link acquisition pattern: [growing/stable/declining]
+**Clients nommés** : [liste des logos notables]
+**Industries** : [industries principales servies]
+**Thèmes des études de cas** : [résultats mis en avant]
+**Notes de reviews** :
+- G2 : [note] ([nombre] reviews)
+- Capterra : [note] ([nombre] reviews)
 
 ---
 
-## Strengths & Weaknesses
+## SEO et content strategy
 
-### Strengths
-- [strength 1 — with evidence source]
-- [strength 2]
-- [strength 3]
+**Force organique** :
+- Trafic organique mensuel estimé : [nombre]
+- Keywords organiques (top 10) : [nombre]
+- Valeur du trafic organique : $[estimée]
 
-### Weaknesses
-- [weakness 1 — with evidence source]
-- [weakness 2]
-- [weakness 3]
+**Top pages organiques** (par trafic estimé) :
+1. [URL de page] — [keyword] — [trafic estimé]
+2. [URL de page] — [keyword] — [trafic estimé]
+3. [URL de page] — [keyword] — [trafic estimé]
+
+**Signaux de content strategy** :
+- Fréquence de publication blog : [estimation]
+- Types de contenu principaux : [guides, comparaisons, templates, etc.]
+- Zones de focus de contenu : [sujets sur lesquels ils investissent]
+
+**Profil de backlinks** :
+- Referring domains : [nombre]
+- Top sites référents : [liste 5]
+- Pattern d'acquisition de liens : [en croissance/stable/en déclin]
 
 ---
 
-## Competitive Implications for [Your Product]
+## Forces et faiblesses
 
-**Where they're strong vs. us**: [areas where this competitor has an advantage]
+### Forces
+- [force 1 — avec source de preuve]
+- [force 2]
+- [force 3]
 
-**Where we're strong vs. them**: [areas where you have an advantage]
+### Faiblesses
+- [faiblesse 1 — avec source de preuve]
+- [faiblesse 2]
+- [faiblesse 3]
 
-**Opportunities**: [gaps in their offering or positioning we can exploit]
+---
 
-**Threats**: [areas where they're improving or gaining ground]
+## Implications concurrentielles pour [Ton produit]
+
+**Où ils sont forts vs nous** : [zones où ce concurrent a un avantage]
+
+**Où nous sommes forts vs eux** : [zones où tu as un avantage]
+
+**Opportunités** : [gaps dans leur offre ou positionnement que nous pouvons exploiter]
+
+**Menaces** : [zones où ils s'améliorent ou gagnent du terrain]
 
 ---
 
 ## Raw Data Sources
 
-- Homepage scraped: [date]
-- Pricing page scraped: [date]
-- SEO data pulled: [date]
-- Review data pulled: [date, sources]
+- Page d'accueil scrapée : [date]
+- Page pricing scrapée : [date]
+- Données SEO récupérées : [date]
+- Données de reviews récupérées : [date, sources]
 ```
 
 ---
 
-### Summary Document
+### Document de résumé
 
-After profiling all competitors, generate a `competitor-profiles/_summary.md` that includes:
+Après avoir profilé tous les concurrents, génère un `competitor-profiles/_summary.md` qui inclut :
 
-1. **Competitor landscape overview** — one paragraph summarizing the competitive field
-2. **Comparison table** — key metrics side by side for all profiled competitors
-3. **Positioning map** — where each competitor sits (e.g., simple↔complex, cheap↔premium)
-4. **Key takeaways** — 3-5 strategic observations from the research
-5. **Gaps and opportunities** — where the market is underserved
-
----
-
-## Quick Scan vs. Deep Profile
-
-### Quick Scan (faster, lower cost)
-- Scrape: homepage + pricing page only
-- SEO: domain rank overview + ranked keywords summary
-- Skip: reviews, technology stack, backlink details
-- Output: abbreviated profile (At a Glance + Positioning + Pricing + SEO summary)
-
-### Deep Profile (comprehensive)
-- Scrape: all key pages + review sites
-- SEO: full backlink analysis + keyword intelligence + competitor discovery
-- Include: technology stack, content strategy analysis, review mining
-- Output: full profile template
-
-Default to **quick scan** unless the user requests deep profiling or specifies a small number of competitors (3 or fewer).
+1. **Vue d'ensemble du paysage concurrentiel** — un paragraphe résumant le terrain concurrentiel
+2. **Tableau de comparaison** — métriques clés côte à côte pour tous les concurrents profilés
+3. **Carte de positionnement** — où se situe chaque concurrent (ex. simple↔complexe, bon marché↔premium)
+4. **Takeaways clés** — 3-5 observations stratégiques issues de la recherche
+5. **Gaps et opportunités** — où le marché est sous-servi
 
 ---
 
-## Handling Multiple Competitors
+## Quick Scan vs Deep Profile
 
-When profiling more than one competitor:
+### Quick Scan (plus rapide, coût plus faible)
+- Scrape : page d'accueil + page de pricing uniquement
+- SEO : domain rank overview + résumé des ranked keywords
+- Skip : reviews, technology stack, détails backlinks
+- Output : profil abrégé (At a Glance + Positionnement + Pricing + résumé SEO)
 
-1. **Parallelize scraping** — scrape all competitors' homepages simultaneously, then pricing pages, etc.
-2. **Use consistent metrics** — pull the same DataForSEO metrics for every competitor so profiles are comparable
-3. **Build the summary last** — after all individual profiles are complete
-4. **Prioritize by relevance** — if the user has 10+ competitors, suggest profiling the top 5 first based on domain overlap or market similarity
+### Deep Profile (complet)
+- Scrape : toutes les pages clés + sites de reviews
+- SEO : analyse complète des backlinks + intelligence keywords + découverte concurrentielle
+- Inclure : technology stack, analyse de content strategy, review mining
+- Output : template complet de profil
 
----
-
-## Updating Profiles
-
-Profiles are snapshots. When updating:
-
-- Check pricing pages first (most volatile)
-- Re-pull SEO metrics (traffic and rankings shift monthly)
-- Scan changelog for product changes
-- Update the "Generated" date
-- Note what changed since last profile in a `## Change Log` section at the bottom
+Par défaut, fais un **quick scan** sauf si l'utilisateur demande un deep profile ou spécifie un petit nombre de concurrents (3 ou moins).
 
 ---
 
-## Task-Specific Questions
+## Gestion de plusieurs concurrents
 
-Only ask if not answered by context or input:
+Lorsque tu profiles plus d'un concurrent :
 
-1. What competitor URLs should I profile?
-2. Quick scan or deep profile?
-3. Any specific dimensions to focus on (pricing, SEO, positioning)?
-4. Should I compare findings against your product?
+1. **Parallélise le scraping** — scrape les pages d'accueil de tous les concurrents simultanément, puis les pages de pricing, etc.
+2. **Utilise des métriques cohérentes** — pull les mêmes métriques DataForSEO pour chaque concurrent afin que les profils soient comparables
+3. **Construis le résumé en dernier** — après que tous les profils individuels sont terminés
+4. **Priorise par pertinence** — si l'utilisateur a 10+ concurrents, suggère de profiler les top 5 d'abord en fonction du chevauchement de domaine ou de la similarité marché
 
 ---
 
-## Related Skills
+## Mise à jour des profils
 
-- **competitor-alternatives**: For creating comparison/alternative pages from these profiles
-- **customer-research**: For mining reviews and community sentiment in depth
-- **content-strategy**: For using competitor content gaps to plan your own content
-- **seo-audit**: For auditing your own site relative to competitors
-- **sales-enablement**: For turning profiles into battle cards and sales collateral
-- **paid-ads**: For analyzing competitor ad strategies
-- **pricing-strategy**: For deeper pricing analysis informed by competitor profiles
+Les profils sont des snapshots. Lors de la mise à jour :
+
+- Vérifie d'abord les pages de pricing (les plus volatiles)
+- Re-pull les métriques SEO (trafic et rankings shiftent chaque mois)
+- Scanne le changelog pour les changements produit
+- Mets à jour la date "Généré"
+- Note ce qui a changé depuis le profil précédent dans une section `## Change Log` en bas
+
+---
+
+## Questions spécifiques à la tâche
+
+À ne poser que si non répondues par le contexte ou l'input :
+
+1. Quelles URLs de concurrents dois-je profiler ?
+2. Quick scan ou deep profile ?
+3. Des dimensions spécifiques sur lesquelles me concentrer (pricing, SEO, positionnement) ?
+4. Dois-je comparer les findings avec ton produit ?
+
+---
+
+## Skills associés
+
+- **competitor-alternatives** : pour créer des pages de comparaison/alternatives à partir de ces profils
+- **customer-research** : pour miner les reviews et le sentiment communautaire en profondeur
+- **content-strategy** : pour utiliser les gaps de contenu concurrentiels et planifier ton propre contenu
+- **seo-audit** : pour auditer ton propre site relativement aux concurrents
+- **sales-enablement** : pour transformer les profils en battle cards et collateral commercial
+- **paid-ads** : pour analyser les stratégies pub des concurrents
+- **pricing-strategy** : pour une analyse pricing plus approfondie informée par les profils concurrents
