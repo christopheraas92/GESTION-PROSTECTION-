@@ -1,0 +1,21 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    { "query": "path:wiki/comptes", "color": { "a": 1, "rgb": 5419488 } },
+    { "query": "path:wiki/personnes", "color": { "a": 1, "rgb": 14701138 } },
+    { "query": "path:wiki/opportunites", "color": { "a": 1, "rgb": 14048348 } },
+    { "query": "path:wiki/projets", "color": { "a": 1, "rgb": 5431001 } },
+    { "query": "path:wiki/secteurs", "color": { "a": 1, "rgb": 11119017 } },
+    { "query": "path:wiki/concurrents", "color": { "a": 1, "rgb": 13892160 } },
+    { "query": "path:wiki/methodes", "color": { "a": 1, "rgb": 6262784 } },
+    { "query": "path:wiki/outils", "color": { "a": 1, "rgb": 6588344 } },
+    { "query": "path:wiki/tendances", "color": { "a": 1, "rgb": 13417728 } },
+    { "query": "path:wiki/sources", "color": { "a": 1, "rgb": 8421504 } }
+  ]
+}
