@@ -19,12 +19,13 @@ Quand Claude crée une nouvelle page, il suit le template du type concerné.
 
 | Type | Fichier | Champ `statut` autorisé |
 |---|---|---|
-| Compte (prospect/client) | [[compte]] | `prospect` · `client_actif` · `client_inactif` |
+| Compte (vendeur, acheteur, bailleur, locataire, partenaire) | [[compte]] | `prospect` · `client_actif` · `client_inactif` |
 | Personne (contact) | [[personne]] | `actif` · `inactif` |
-| Opportunité (deal) | [[opportunite]] | `qualification` · `proposition` · `negociation` · `gagne` · `perdu` |
-| Projet | [[projet]] | `en_cours` · `termine` · `suspendu` |
-| Secteur | [[secteur]] | — |
-| Concurrent | [[concurrent]] | `direct` · `indirect` · `historique` |
+| Opportunité (mandat ou recherche) | [[opportunite]] | `qualification` · `proposition` · `negociation` · `gagne` · `perdu` |
+| Projet (dossier en cours) | [[projet]] | `en_cours` · `termine` · `suspendu` |
+| Bien immobilier | [[bien]] | `en_vente` · `sous_compromis` · `vendu` · `en_gestion` · `retire` · `hors_marche` |
+| Secteur (commune / quartier) | [[secteur]] | — |
+| Concurrent (agence) | [[concurrent]] | `direct` · `indirect` · `historique` |
 | Méthode | [[methode]] | `active` · `archive` |
 | Outil | [[outil]] | `utilise` · `evalue` · `abandonne` |
 | Tendance | [[tendance]] | `emergente` · `etablie` · `declin` |

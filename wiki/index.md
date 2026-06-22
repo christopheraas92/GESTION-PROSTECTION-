@@ -12,68 +12,86 @@ naviguer : ouvrir dans Obsidian et utiliser les wikilinks ou la graph view.
 > - Comptes : `prospect` · `client_actif` · `client_inactif`
 > - Opportunités : `qualification` · `proposition` · `negociation` · `gagne` · `perdu`
 > - Projets : `en_cours` · `termine` · `suspendu`
+> - Biens : `en_vente` · `sous_compromis` · `vendu` · `en_gestion` · `retire` · `hors_marche`
+
+---
+
+## Fiche racine
+
+- [[agence-rg]] — fiche d'identité de l'agence (mise à jour 2026-06-22)
 
 ---
 
 ## Pipeline commercial
 
-### Comptes (prospects & clients)
+### Comptes (prospects vendeurs / acheteurs / bailleurs / locataires)
 
-_Aucune page pour l'instant. Voir [[wiki/templates/compte]] pour le format._
+_Aucune page pour l'instant. Voir [[wiki/templates/compte]]._
 
 ### Personnes (contacts)
 
-_Aucune page pour l'instant. Voir [[wiki/templates/personne]] pour le format._
+- [[christophe-raas]] — Gérant & Expert Immobilier, [[agence-rg]]
 
-### Opportunités
+### Opportunités (mandats & recherches)
 
-_Aucune page pour l'instant. Voir [[wiki/templates/opportunite]] pour le format._
-
----
-
-## Clients & projets
-
-### Projets
-
-_Aucune page pour l'instant. Voir [[wiki/templates/projet]] pour le format._
+_Aucune page pour l'instant. Voir [[wiki/templates/opportunite]]._
 
 ---
 
-## Veille & connaissance
+## Clients & dossiers
 
-### Secteurs
+### Projets (transactions, gestions locatives)
 
-_Aucune page pour l'instant. Voir [[wiki/templates/secteur]] pour le format._
+_Aucune page pour l'instant. Voir [[wiki/templates/projet]]._
 
-### Concurrents
+### Biens immobiliers
 
-_Aucune page pour l'instant. Voir [[wiki/templates/concurrent]] pour le format._
+_Aucune page pour l'instant. Voir [[wiki/templates/bien]]._
+
+---
+
+## Marché & connaissance
+
+### Secteurs (communes du périmètre)
+
+- [[garches]] (92380) — secteur principal, implantation agence
+- [[vaucresson]] (92420) — secteur principal, implantation agence
+- [[saint-cloud]] (92210)
+- [[la-celle-saint-cloud]] (78170)
+- [[marnes-la-coquette]] (92430)
+- [[ville-d-avray]] (92410)
+- [[issy-les-moulineaux]] (92130)
+
+### Concurrents (agences)
+
+_Aucune page pour l'instant. Voir [[wiki/templates/concurrent]]._
 
 ### Méthodes & frameworks
 
-_Aucune page pour l'instant. Voir [[wiki/templates/methode]] pour le format._
+- [[estimation-bien]] — processus d'estimation en 4 étapes
+- [[selection-locataire]] — sélection rigoureuse multi-critères
+- [[gestion-locative]] — offre commerciale avec Garantie Intégrale
 
 ### Outils
 
-_Aucune page pour l'instant. Voir [[wiki/templates/outil]] pour le format._
+- [[opinion-system]] — collecte d'avis clients vérifiés
 
 ### Tendances
 
-_Aucune page pour l'instant. Voir [[wiki/templates/tendance]] pour le format._
+_Aucune page pour l'instant. Voir [[wiki/templates/tendance]]._
 
 ---
 
 ## Sources ingérées
 
-_Aucune source ingérée pour l'instant. Déposer un fichier dans `raw/<catégorie>/`
-puis demander à Claude de l'ingérer._
+- [[site-agence-rg]] — site officiel agence-rg.fr (ingéré le 2026-06-22)
 
 ---
 
 ## Métadonnées
 
-- **Total pages** : 0 (hors index, log, templates)
-- **Dernière ingestion** : —
+- **Total pages** (hors index, log, templates) : 13
+- **Dernière ingestion** : 2026-06-22 — site agence-rg.fr
 - **Dernier lint** : —
 
 Voir [[log]] pour l'historique complet des actions.

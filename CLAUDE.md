@@ -1,6 +1,10 @@
 # CLAUDE.md — Wiki Agence RG
 
-Ce repo est un wiki personnel maintenu par Claude pour l'Agence RG (https://agence-rg.fr).
+Ce repo est un wiki personnel maintenu par Claude pour **l'Agence RG**, une
+**agence immobilière indépendante** des Hauts-de-Seine (Garches et Vaucresson),
+fondée en 1989 par Christophe Raas. Voir [[wiki/agence-rg]] pour la fiche
+d'identité.
+
 Tu (Claude) en es le mainteneur principal. L'humain curate les sources, pose les
 questions et lit le wiki dans Obsidian. Tu fais le reste : résumés, cross-references,
 maintenance, synthèses.
@@ -25,17 +29,29 @@ des sessions.
 
 ## Périmètre du wiki
 
-Le wiki Agence RG couvre **trois domaines interconnectés** :
+Le wiki Agence RG couvre **trois domaines interconnectés** adaptés au métier
+d'agence immobilière :
 
 | Domaine | Entités principales | Sources typiques |
 |---|---|---|
-| **Pipeline commercial** | comptes (prospects), personnes, opportunités | emails entrants, transcripts d'appels prospects, briefs entrants, formulaires de contact |
-| **Clients & projets** | comptes (clients), projets, livrables | briefs validés, contrats, comptes-rendus de réunion, livrables, retours clients |
-| **Veille & connaissance** | secteurs, concurrents, méthodes, outils, tendances | articles, podcasts, rapports sectoriels, posts LinkedIn, documentation produit |
+| **Pipeline commercial** | comptes (prospects vendeurs / acheteurs / bailleurs / locataires), personnes, opportunités (mandats, recherches) | emails entrants, transcripts d'appels prospects, demandes formulaire, signalements de bien à vendre |
+| **Clients & dossiers** | comptes (clients actifs), biens immobiliers, projets (transactions, gestions locatives) | mandats signés, compromis, baux, comptes-rendus de visite, courriers locataires |
+| **Marché & connaissance** | secteurs (communes/quartiers), concurrents (agences), méthodes, outils, tendances | annonces concurrents, statistiques notaires, baromètres, articles immobiliers |
 
-Les trois domaines s'interconnectent : un compte client est rattaché à un secteur,
-un projet utilise une méthode, une opportunité est issue d'une tendance, etc. Tu
-maintiens ces liens.
+Les trois domaines s'interconnectent : un bien est rattaché à un compte vendeur ET
+à un secteur ; un mandat (opportunité) est issu d'un appel à un secteur ; une
+gestion locative implique un bien, un bailleur, un locataire. Tu maintiens ces
+liens.
+
+**Vocabulaire local** :
+- `compte` = personne morale ou physique côté marché (vendeur, acheteur, bailleur,
+  locataire) ou notaire/partenaire
+- `opportunite` = mandat (vente ou gestion) ou mission de recherche acquéreur
+- `projet` = dossier en cours de gestion (transaction signée jusqu'à l'acte, ou
+  bail jusqu'à sa résiliation)
+- `bien` = bien immobilier (maison, appartement, terrain, immeuble, local)
+- `secteur` = commune ou micro-secteur géographique
+- `concurrent` = autre agence immobilière du périmètre
 
 ---
 
@@ -52,17 +68,19 @@ raw/
 
 ```
 wiki/
+├── agence-rg.md     # fiche de l'agence elle-même (racine du wiki)
 ├── index.md         # catalogue maître (toutes les pages classées)
 ├── log.md           # journal chronologique append-only
 ├── comptes/         # 1 page par compte (prospect OU client)
 ├── personnes/       # 1 page par contact identifié
-├── opportunites/    # 1 page par opportunité/deal
-├── projets/         # 1 page par projet en cours ou clos
-├── secteurs/        # pages thématiques sectorielles
-├── concurrents/     # 1 page par concurrent étudié
+├── opportunites/    # 1 page par mandat ou recherche
+├── projets/         # 1 page par dossier en cours (transaction, gestion)
+├── biens/           # 1 page par bien immobilier suivi
+├── secteurs/        # 1 page par commune ou micro-secteur
+├── concurrents/     # 1 page par agence concurrente
 ├── methodes/        # frameworks et pratiques de l'agence
 ├── outils/          # outils utilisés ou évalués
-├── tendances/       # tendances marketing observées
+├── tendances/       # tendances marché observées
 ├── sources/         # 1 page par source ingérée (résumé + liens)
 └── templates/       # modèles YAML pour chaque type d'entité
 ```
@@ -92,7 +110,7 @@ Toutes les pages `wiki/` portent un frontmatter. Le schéma dépend du type :
 
 ```yaml
 ---
-type: compte | personne | opportunite | projet | secteur | concurrent | methode | outil | tendance | source
+type: compte | personne | opportunite | projet | bien | secteur | concurrent | methode | outil | tendance | source
 statut: <selon le type — voir templates/>
 date_creation: 2026-06-22
 date_maj: 2026-06-22
