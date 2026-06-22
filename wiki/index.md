@@ -74,6 +74,7 @@ _Aucune page pour l'instant. Voir [[wiki/templates/concurrent]]._
 
 ### Outils
 
+- [[agence-plus]] — **CRM principal** de l'agence (transactions, fichier acquéreurs)
 - [[opinion-system]] — collecte d'avis clients vérifiés
 
 ### Tendances
@@ -85,13 +86,14 @@ _Aucune page pour l'instant. Voir [[wiki/templates/tendance]]._
 ## Sources ingérées
 
 - [[site-agence-rg]] — site officiel agence-rg.fr (ingéré le 2026-06-22)
+- [[agence-plus-site]] — sites agence-plus.fr et agence-plus.net (ingéré le 2026-06-22)
 
 ---
 
 ## Métadonnées
 
-- **Total pages** (hors index, log, templates) : 13
-- **Dernière ingestion** : 2026-06-22 — site agence-rg.fr
+- **Total pages** (hors index, log, templates) : 15
+- **Dernière ingestion** : 2026-06-22 — sites Agence Plus (CRM principal)
 - **Dernier lint** : —
 
 Voir [[log]] pour l'historique complet des actions.

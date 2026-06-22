@@ -79,13 +79,14 @@ site dans la fourchette ~1,8 M€ à 2,7 M€ (extraits annonces).
 - **Réactivité** : intervention technique prioritaire
 - **Rigueur** : sélection minutieuse des locataires
 
-## Outils & technologies citées
+## Outils & technologies
 
+- **[[agence-plus]] — CRM principal** (logiciel de transaction immobilière, fichier acquéreurs, suivi prospects)
 - [[opinion-system]] — collecte d'avis clients vérifiés
-- Portail d'annonces avec filtres avancés
-- Espace propriétaire sécurisé 24/7 pour suivi de gestion
+- Portail d'annonces avec filtres avancés (sur le site agence-rg.fr)
+- Espace propriétaire sécurisé 24/7 pour suivi de gestion locative
 - Alertes mail / filtres acquéreurs
-- Dashboard "Scan/Sync" (à creuser — fonction exacte non précisée sur le site)
+- Dashboard "Scan/Sync" (à creuser — possiblement un module [[agence-plus]] ?)
 
 ## Contenu / blog
 
@@ -111,8 +112,12 @@ observés :
 - [ ] Mapper la concurrence directe sur chaque secteur géographique
 - [ ] Ingérer les articles du blog pour étoffer les pages [[methodes]] et
       [[tendances]]
-- [ ] Documenter le fichier acquéreurs interne (volumétrie, segmentation)
-- [ ] Préciser ce qu'est le dashboard "Scan/Sync"
+- [ ] Documenter le fichier acquéreurs interne hébergé dans [[agence-plus]] :
+      volumétrie, segmentation, fraîcheur des fiches
+- [ ] Préciser ce qu'est le dashboard "Scan/Sync" (peut-être un module
+      [[agence-plus]] ?)
+- [ ] Formaliser le workflow d'export récurrent [[agence-plus]] →
+      `raw/interne/exports-crm/` pour alimenter le wiki
 
 ## Sources
 

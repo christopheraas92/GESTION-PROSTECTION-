@@ -30,8 +30,8 @@ sources: ["https://www.agence-rg.fr"]
    - Nuisances environnantes
 2. **Analyse comparative** des biens vendus récemment dans le secteur, avec
    ajustement selon l'évolution des taux d'intérêt.
-3. **Consultation du fichier acquéreurs interne** de l'agence pour estimer la
-   demande active.
+3. **Consultation du fichier acquéreurs interne** de l'agence (hébergé dans le
+   CRM [[agence-plus]]) pour estimer la demande active.
 4. **Positionnement** par rapport à la concurrence du moment sur le secteur.
 
 ## Livrables types
